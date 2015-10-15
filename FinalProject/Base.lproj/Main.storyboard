@@ -1,13 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UEa-mA-71a">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
+        <!--立委資訊-->
+        <scene sceneID="RxN-Ks-SQJ">
+            <objects>
+                <viewController id="a33-a2-SMZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ysE-aY-u0W"/>
+                        <viewControllerLayoutGuide type="bottom" id="72G-sI-6Kx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R3z-HS-16o">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="立委資訊" image="swearing_filled-32" id="3i4-l9-vzO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgW-Dw-2WA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="215" y="-137"/>
+        </scene>
+        <!--用戶專區-->
+        <scene sceneID="90Z-CR-1jX">
+            <objects>
+                <viewController id="zVG-KW-vfH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Pg-yY-L0V"/>
+                        <viewControllerLayoutGuide type="bottom" id="Unn-fS-2Oi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6rM-1u-qlV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="用戶專區" image="administrator-32" id="fix-mA-2JX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mOA-LW-VW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="110" y="555"/>
+        </scene>
+        <!--法案/議題投票-->
+        <scene sceneID="6gb-ct-gk8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmt-HR-rC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="DOD-Vm-Fsa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c4O-3P-BJK"/>
+                        <viewControllerLayoutGuide type="bottom" id="IlC-1I-kve"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9T9-1s-58F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="法案/議題投票" image="action_filled-32" id="oet-fy-6O4"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="215" y="-798"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5S9-qn-XdJ">
+            <objects>
+                <tabBarController id="UEa-mA-71a" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ikq-Uk-eVD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="DOD-Vm-Fsa" kind="relationship" relationship="viewControllers" id="2HV-vR-l2j"/>
+                        <segue destination="a33-a2-SMZ" kind="relationship" relationship="viewControllers" id="ARM-O0-r9T"/>
+                        <segue destination="zVG-KW-vfH" kind="relationship" relationship="viewControllers" id="i8K-QG-M35"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Xdw-R8-MJS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="984-uX-AVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-605" y="-467"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,9 +94,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="meG-9B-drW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-524" y="482"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="action_filled-32" width="16" height="16"/>
+        <image name="administrator-32" width="16" height="16"/>
+        <image name="swearing_filled-32" width="16" height="16"/>
+    </resources>
 </document>
