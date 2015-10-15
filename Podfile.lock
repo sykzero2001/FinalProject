@@ -1,0 +1,10 @@
+PODS:
+  - JYRadarChart (0.3.3)
+
+DEPENDENCIES:
+  - JYRadarChart
+
+SPEC CHECKSUMS:
+  JYRadarChart: 6b6f4318179bb97408ae74e1a934a06617d24d9f
+
+COCOAPODS: 0.39.0
