@@ -26,7 +26,7 @@
         <!--用戶專區-->
         <scene sceneID="90Z-CR-1jX">
             <objects>
-                <viewController id="zVG-KW-vfH" sceneMemberID="viewController">
+                <viewController id="zVG-KW-vfH" customClass="PersonViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Pg-yY-L0V"/>
                         <viewControllerLayoutGuide type="bottom" id="Unn-fS-2Oi"/>
@@ -34,18 +34,143 @@
                     <view key="view" contentMode="scaleToFill" id="6rM-1u-qlV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALS-Cw-zPy">
+                                <rect key="frame" x="150" y="98" width="300" height="423"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="JyC-6N-sxp"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="dU1-TS-73V" kind="embed" id="oEy-lB-N2I"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-bU-dQ3">
+                                <rect key="frame" x="125" y="98" width="350" height="423"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你與此立委最為相似" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OT-dE-kNe">
+                                        <rect key="frame" x="90" y="20" width="216" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="foJ-Qw-6SE">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <color key="backgroundColor" red="1" green="0.17254901959999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="5Kf-8R-SMU"/>
+                                            <constraint firstAttribute="height" constant="80" id="6As-aq-8f6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="foJ-Qw-6SE" firstAttribute="top" secondItem="jRP-bU-dQ3" secondAttribute="top" id="0b3-iX-1Kd"/>
+                                    <constraint firstItem="foJ-Qw-6SE" firstAttribute="leading" secondItem="jRP-bU-dQ3" secondAttribute="leading" id="0el-nC-eSv"/>
+                                    <constraint firstAttribute="width" constant="350" id="Ihy-lP-f7A"/>
+                                    <constraint firstItem="3OT-dE-kNe" firstAttribute="leading" secondItem="jRP-bU-dQ3" secondAttribute="leading" constant="90" id="Iiq-af-WIJ"/>
+                                    <constraint firstItem="3OT-dE-kNe" firstAttribute="leading" secondItem="foJ-Qw-6SE" secondAttribute="trailing" constant="10" id="Rwn-AL-2Ni"/>
+                                    <constraint firstItem="3OT-dE-kNe" firstAttribute="top" secondItem="jRP-bU-dQ3" secondAttribute="top" constant="20" id="uub-Xw-ACw"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Iiq-af-WIJ"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lz-eu-ULA">
+                                <rect key="frame" x="150" y="98" width="300" height="423"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="EyH-Rs-8Fq"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="erl-Yf-asD">
+                                <rect key="frame" x="200" y="40" width="200" height="29"/>
+                                <segments>
+                                    <segment title="相似立委"/>
+                                    <segment title="投票記錄"/>
+                                    <segment title="關注立委"/>
+                                </segments>
+                                <connections>
+                                    <action selector="chooseSegment:" destination="zVG-KW-vfH" eventType="valueChanged" id="9kI-Oo-M8f"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ALS-Cw-zPy" firstAttribute="top" secondItem="erl-Yf-asD" secondAttribute="bottom" constant="30" id="HIk-h7-p9k"/>
+                            <constraint firstItem="Unn-fS-2Oi" firstAttribute="top" secondItem="jRP-bU-dQ3" secondAttribute="bottom" constant="30" id="KBh-rq-kBZ"/>
+                            <constraint firstItem="7Lz-eu-ULA" firstAttribute="top" secondItem="erl-Yf-asD" secondAttribute="bottom" constant="30" id="Kzb-6p-8VT"/>
+                            <constraint firstItem="Unn-fS-2Oi" firstAttribute="top" secondItem="7Lz-eu-ULA" secondAttribute="bottom" constant="30" id="MDX-pt-LO5"/>
+                            <constraint firstItem="Unn-fS-2Oi" firstAttribute="top" secondItem="ALS-Cw-zPy" secondAttribute="bottom" constant="30" id="R3o-Oe-GPK"/>
+                            <constraint firstItem="erl-Yf-asD" firstAttribute="centerX" secondItem="6rM-1u-qlV" secondAttribute="centerX" id="TyQ-aR-XAs"/>
+                            <constraint firstItem="erl-Yf-asD" firstAttribute="top" secondItem="5Pg-yY-L0V" secondAttribute="bottom" constant="20" id="U8O-yM-y7y"/>
+                            <constraint firstItem="jRP-bU-dQ3" firstAttribute="top" secondItem="erl-Yf-asD" secondAttribute="bottom" constant="30" id="VTv-et-8Yt"/>
+                            <constraint firstItem="ALS-Cw-zPy" firstAttribute="centerX" secondItem="6rM-1u-qlV" secondAttribute="centerX" id="ZCS-To-UVy"/>
+                            <constraint firstItem="7Lz-eu-ULA" firstAttribute="centerX" secondItem="6rM-1u-qlV" secondAttribute="centerX" id="dQ9-z7-c6C"/>
+                            <constraint firstItem="jRP-bU-dQ3" firstAttribute="centerX" secondItem="6rM-1u-qlV" secondAttribute="centerX" id="o7K-xj-Ke9"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="用戶專區" image="administrator-32" id="fix-mA-2JX"/>
+                    <connections>
+                        <outlet property="legislativeLike" destination="7Lz-eu-ULA" id="3sF-mW-hxA"/>
+                        <outlet property="similarImage" destination="foJ-Qw-6SE" id="3pt-hO-Cpf"/>
+                        <outlet property="similarView" destination="jRP-bU-dQ3" id="Af5-cZ-RGM"/>
+                        <outlet property="voteResultView" destination="ALS-Cw-zPy" id="Cj0-5t-Jnt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOA-LW-VW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="198" y="587"/>
         </scene>
+        <!--已投票的議題-->
+        <scene sceneID="GAQ-cl-lRe">
+            <objects>
+                <tableViewController id="dcA-md-Lhw" customClass="VoteTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qdM-PS-9Ys">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="423"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="H0H-XI-JIw">
+                                <rect key="frame" x="0.0" y="72" width="300" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H0H-XI-JIw" id="tl4-oh-gAk">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dcA-md-Lhw" id="IPY-He-WOF"/>
+                            <outlet property="delegate" destination="dcA-md-Lhw" id="hgY-MX-0nu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="已投票的議題" id="Qfy-Se-x7x"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vdU-4K-qG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222" y="558.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ame-kP-it5">
+            <objects>
+                <navigationController id="dU1-TS-73V" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UQd-em-Ace">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dcA-md-Lhw" kind="relationship" relationship="rootViewController" id="8J7-hn-soF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6d3-8K-FMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="507.5"/>
+        </scene>
         <!--法案/議題投票-->
         <scene sceneID="6gb-ct-gk8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pmt-HR-rC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="DOD-Vm-Fsa" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c4O-3P-BJK"/>
@@ -58,6 +183,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="法案/議題投票" image="action_filled-32" id="oet-fy-6O4"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmt-HR-rC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="215" y="-798"/>
         </scene>
@@ -99,6 +225,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-524" y="482"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YbE-3N-saT">
+            <objects>
+                <viewController id="G5O-nu-V6e" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YGX-gs-o8W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVu-uJ-Wl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
