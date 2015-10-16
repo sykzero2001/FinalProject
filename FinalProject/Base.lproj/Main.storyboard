@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UEa-mA-71a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UEa-mA-71a">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALS-Cw-zPy">
-                                <rect key="frame" x="150" y="98" width="300" height="423"/>
+                                <rect key="frame" x="10" y="98" width="300" height="391"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="JyC-6N-sxp"/>
                                 </constraints>
@@ -64,7 +64,7 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRP-bU-dQ3">
-                                <rect key="frame" x="125" y="98" width="350" height="423"/>
+                                <rect key="frame" x="0.0" y="98" width="320" height="391"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你與此立委最為相似" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OT-dE-kNe">
                                         <rect key="frame" x="90" y="20" width="216" height="29"/>
@@ -85,7 +85,7 @@
                                 <constraints>
                                     <constraint firstItem="foJ-Qw-6SE" firstAttribute="top" secondItem="jRP-bU-dQ3" secondAttribute="top" id="0b3-iX-1Kd"/>
                                     <constraint firstItem="foJ-Qw-6SE" firstAttribute="leading" secondItem="jRP-bU-dQ3" secondAttribute="leading" id="0el-nC-eSv"/>
-                                    <constraint firstAttribute="width" constant="350" id="Ihy-lP-f7A"/>
+                                    <constraint firstAttribute="width" constant="320" id="Ihy-lP-f7A"/>
                                     <constraint firstItem="3OT-dE-kNe" firstAttribute="leading" secondItem="jRP-bU-dQ3" secondAttribute="leading" constant="90" id="Iiq-af-WIJ"/>
                                     <constraint firstItem="3OT-dE-kNe" firstAttribute="leading" secondItem="foJ-Qw-6SE" secondAttribute="trailing" constant="10" id="Rwn-AL-2Ni"/>
                                     <constraint firstItem="3OT-dE-kNe" firstAttribute="top" secondItem="jRP-bU-dQ3" secondAttribute="top" constant="20" id="uub-Xw-ACw"/>
@@ -97,14 +97,14 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lz-eu-ULA">
-                                <rect key="frame" x="150" y="98" width="300" height="423"/>
+                                <rect key="frame" x="10" y="98" width="300" height="391"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="EyH-Rs-8Fq"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="erl-Yf-asD">
-                                <rect key="frame" x="200" y="40" width="200" height="29"/>
+                                <rect key="frame" x="60" y="40" width="200" height="29"/>
                                 <segments>
                                     <segment title="相似立委"/>
                                     <segment title="投票記錄"/>
@@ -140,14 +140,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOA-LW-VW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198" y="587"/>
+            <point key="canvasLocation" x="387" y="389"/>
         </scene>
         <!--已投票的議題-->
         <scene sceneID="GAQ-cl-lRe">
             <objects>
                 <tableViewController id="dcA-md-Lhw" customClass="VoteTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qdM-PS-9Ys">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="423"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="391"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -394,10 +394,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="Ncu-fQ-4rD" kind="relationship" relationship="viewControllers" id="GTi-yP-TLM"/>
                         <segue destination="a33-a2-SMZ" kind="relationship" relationship="viewControllers" id="ARM-O0-r9T"/>
                         <segue destination="zVG-KW-vfH" kind="relationship" relationship="viewControllers" id="i8K-QG-M35"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Xdw-R8-MJS"/>
-                        <segue destination="Ncu-fQ-4rD" kind="relationship" relationship="viewControllers" id="GTi-yP-TLM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="984-uX-AVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -428,8 +428,12 @@
         <scene sceneID="YbE-3N-saT">
             <objects>
                 <viewController id="G5O-nu-V6e" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ka7-fp-rRa"/>
+                        <viewControllerLayoutGuide type="bottom" id="gws-om-nQl"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YGX-gs-o8W">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

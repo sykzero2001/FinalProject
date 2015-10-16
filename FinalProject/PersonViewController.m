@@ -56,7 +56,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)displayRadarChart{
-    JYRadarChart *p = [[JYRadarChart alloc] initWithFrame:CGRectMake(0, 100, 350, 350)];
+    JYRadarChart *p = [[JYRadarChart alloc] initWithFrame:CGRectMake(0, 100, 340, 340)];
     
     NSArray *a1 = @[@(81), @(97), @(87), @(87), @(57), @(87), @(87), @(57)];
     NSArray *a2 = @[@(91), @(87), @(33), @(87), @(57), @(87), @(87), @(57)];
@@ -115,11 +115,11 @@
     [self.view addConstraint:constraint];
     constraint = [NSLayoutConstraint
                         constraintWithItem:p attribute:NSLayoutAttributeWidth
-                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeWidth multiplier:1 constant:350];
+                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeWidth multiplier:1 constant:360];
     [self.view addConstraint:constraint];
     constraint = [NSLayoutConstraint
                         constraintWithItem:p attribute:NSLayoutAttributeHeight
-                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeHeight multiplier:1 constant:350];
+                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeHeight multiplier:1 constant:360];
     [self.view addConstraint:constraint];
 
 }
