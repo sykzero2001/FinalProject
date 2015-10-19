@@ -10,4 +10,7 @@
 
 @interface LoginInfo : NSObject
 + (LoginInfo *)logstatus;
+@property (strong, nonatomic) NSString *token;
+@property (strong, nonatomic) NSString *userIdentify;
+@property (strong, nonatomic) NSString *userEmail;
 @end

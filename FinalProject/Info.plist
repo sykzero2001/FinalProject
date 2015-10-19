@@ -41,14 +41,14 @@
         <dict>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>fb424049224455811</string>
+                <string>fb563223240506725</string>
             </array>
         </dict>
     </array>
     <key>FacebookAppID</key>
-    <string>424049224455811</string>
+    <string>563223240506725</string>
     <key>FacebookDisplayName</key>
-    <string>Test</string>
+    <string>AC.FinalProject</string>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSExceptionDomains</key>

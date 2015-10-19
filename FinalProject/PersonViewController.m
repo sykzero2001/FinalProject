@@ -15,17 +15,16 @@
 
 
 @interface PersonViewController ()
-{
-    NSString *logstatus;
-}
+
 @property (weak, nonatomic) IBOutlet UIView *similarView;
 @property (weak, nonatomic) IBOutlet UIView *voteResultView;
 @property (weak, nonatomic) IBOutlet UIView *legislativeLike;
 @property (weak, nonatomic) IBOutlet UIImageView *similarImage;
-
+@property (weak, nonatomic) IBOutlet JYRadarChart *p;
 @end
 
 @implementation PersonViewController
+@synthesize p ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +45,7 @@
     }
     else{
         LoginViewController *controller = [self.storyboard                                           instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        controller.presentType = @"person";
         [self presentViewController:controller animated:YES
                          completion:nil];
     }
@@ -79,7 +79,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)displayRadarChart{
-    JYRadarChart *p = [[JYRadarChart alloc] initWithFrame:CGRectMake(0, 100, 340, 340)];
+//    JYRadarChart *p = [[JYRadarChart alloc] initWithFrame:CGRectMake(0, 100, 340, 340)];
     
     NSArray *a1 = @[@(81), @(97), @(87), @(87), @(57), @(87), @(87), @(57)];
     NSArray *a2 = @[@(91), @(87), @(33), @(87), @(57), @(87), @(87), @(57)];
@@ -100,7 +100,7 @@
     //you can set radius, min and max value by yourself, but if you
     //leave r (will fill the rect), minValue (will be 0), maxValue (default is 100) alone,
     //that is okay. the points with too big value will be out of the chart and thus invisible
-    p.r = 140;
+    p.r = 100;
     p.minValue = 20;
     p.maxValue = 100;
     
@@ -125,25 +125,25 @@
     
     //設定auto Layout
     
-    p.translatesAutoresizingMaskIntoConstraints = NO;
-    NSLayoutConstraint *constraint = [NSLayoutConstraint
-                                            constraintWithItem:p attribute:NSLayoutAttributeCenterX
-                                            relatedBy:NSLayoutRelationEqual toItem:self.similarView                                            attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];;
-    
-    [self.view addConstraint:constraint];
- 
-     constraint = [NSLayoutConstraint
-                                            constraintWithItem:p attribute:NSLayoutAttributeTop
-                                            relatedBy:NSLayoutRelationEqual toItem:self.similarView                                            attribute:NSLayoutAttributeTop multiplier:1 constant:110];
-    [self.view addConstraint:constraint];
-    constraint = [NSLayoutConstraint
-                        constraintWithItem:p attribute:NSLayoutAttributeWidth
-                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeWidth multiplier:1 constant:360];
-    [self.view addConstraint:constraint];
-    constraint = [NSLayoutConstraint
-                        constraintWithItem:p attribute:NSLayoutAttributeHeight
-                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeHeight multiplier:1 constant:360];
-    [self.view addConstraint:constraint];
+//    p.translatesAutoresizingMaskIntoConstraints = NO;
+//    NSLayoutConstraint *constraint = [NSLayoutConstraint
+//                                            constraintWithItem:p attribute:NSLayoutAttributeCenterX
+//                                            relatedBy:NSLayoutRelationEqual toItem:self.similarView                                            attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];;
+//    
+//    [self.view addConstraint:constraint];
+// 
+//     constraint = [NSLayoutConstraint
+//                                            constraintWithItem:p attribute:NSLayoutAttributeTop
+//                                            relatedBy:NSLayoutRelationEqual toItem:self.similarView                                            attribute:NSLayoutAttributeTop multiplier:1 constant:110];
+//    [self.view addConstraint:constraint];
+//    constraint = [NSLayoutConstraint
+//                        constraintWithItem:p attribute:NSLayoutAttributeWidth
+//                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeWidth multiplier:1 constant:360];
+//    [self.view addConstraint:constraint];
+//    constraint = [NSLayoutConstraint
+//                        constraintWithItem:p attribute:NSLayoutAttributeHeight
+//                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeHeight multiplier:1 constant:360];
+//    [self.view addConstraint:constraint];
 
 }
 

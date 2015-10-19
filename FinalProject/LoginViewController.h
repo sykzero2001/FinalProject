@@ -10,6 +10,5 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface LoginViewController : UIViewController
-@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
-
+@property (strong, nonatomic) NSString *presentType;
 @end

@@ -19,5 +19,4 @@
     // return the instance of this class
     return myInstance;
 }
-
 @end

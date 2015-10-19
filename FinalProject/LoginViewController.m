@@ -10,22 +10,29 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "TabViewController.h"
+#import "LoginInfo.h"
 
 @interface LoginViewController ()<FBSDKLoginButtonDelegate>
-
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.readPermissions =
+    _loginButton.readPermissions =
     @[@"public_profile", @"email", @"user_friends"];
-    loginButton.center = self.view.center;
-    loginButton.delegate = self;
-    [self.view addSubview:loginButton];
+    _loginButton.center = self.view.center;
+    _loginButton.delegate = self;
+    [self.view addSubview:_loginButton];
+
+    
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated   {
+//    [self.view addConstraint:constraint];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +51,9 @@
 //}
 - (IBAction)back:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangetabNoti" object:nil];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([_presentType isEqualToString:@"person" ]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
     
 }
 - (void)  loginButton:(FBSDKLoginButton *)loginButton
@@ -59,7 +68,9 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                                           NSError *error) {
         // Handle the result
         NSString *identi = result[@"id"] ;
-        if (identi  != nil) {
+        LoginInfo *loginfo = [LoginInfo logstatus] ;
+        loginfo.userIdentify = identi ;
+        if (identi  != nil && [_presentType isEqualToString:@"person" ]) {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
        
