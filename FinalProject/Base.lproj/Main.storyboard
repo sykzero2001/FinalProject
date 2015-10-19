@@ -140,7 +140,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOA-LW-VW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="387" y="389"/>
+            <point key="canvasLocation" x="337" y="-19"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="9Ys-Yr-VbB">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XZE-fi-I4P" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M0C-CZ-Fpw"/>
+                        <viewControllerLayoutGuide type="bottom" id="heb-Ja-TNX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HYF-Vu-Jlf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h63-2O-DwT">
+                                <rect key="frame" x="64" y="235" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="稍後再登入">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="XZE-fi-I4P" eventType="touchUpInside" id="VRQ-0O-Kfy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abS-kn-PVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311" y="1025"/>
         </scene>
         <!--已投票的議題-->
         <scene sceneID="GAQ-cl-lRe">
@@ -383,10 +413,10 @@
             </objects>
             <point key="canvasLocation" x="1349" y="-742"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="5S9-qn-XdJ">
             <objects>
-                <tabBarController id="UEa-mA-71a" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UEa-mA-71a" customClass="TabViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Ikq-Uk-eVD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -404,10 +434,10 @@
             </objects>
             <point key="canvasLocation" x="-703" y="-751"/>
         </scene>
-        <!--View Controller-->
+        <!--More View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MoreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -423,23 +453,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-279.46666666666664" y="456.29333333333335"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="YbE-3N-saT">
-            <objects>
-                <viewController id="G5O-nu-V6e" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ka7-fp-rRa"/>
-                        <viewControllerLayoutGuide type="bottom" id="gws-om-nQl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YGX-gs-o8W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bVu-uJ-Wl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

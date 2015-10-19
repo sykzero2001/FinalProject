@@ -8,9 +8,16 @@
 
 #import "PersonViewController.h"
 #import "JYRadarChart.h"
+#import "LoginViewController.h"
+#import "LoginInfo.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 
 @interface PersonViewController ()
-
+{
+    NSString *logstatus;
+}
 @property (weak, nonatomic) IBOutlet UIView *similarView;
 @property (weak, nonatomic) IBOutlet UIView *voteResultView;
 @property (weak, nonatomic) IBOutlet UIView *legislativeLike;
@@ -27,7 +34,23 @@
     _legislativeLike.hidden = YES;
     _similarImage.layer.cornerRadius = _similarImage.bounds.size.width / 2.0;
     [self displayRadarChart];
-    // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated{
+//    if (logstatus  == nil) {
+////        logstatus =  [LoginInfo logstatus];
+//        logstatus =  @"1";
+    if([FBSDKAccessToken currentAccessToken])
+    {
+        
+    }
+    else{
+        LoginViewController *controller = [self.storyboard                                           instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self presentViewController:controller animated:YES
+                         completion:nil];
+    }
+   
+
 }
 - (IBAction)chooseSegment:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {

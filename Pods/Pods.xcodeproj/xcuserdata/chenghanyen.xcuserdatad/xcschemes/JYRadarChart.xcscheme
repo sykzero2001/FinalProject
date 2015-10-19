@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2DEE675F1198369CB897544C'
+               BlueprintIdentifier = 'E28CC1964113F3AB16CB7B37'
                BlueprintName = 'JYRadarChart'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libJYRadarChart.a'>

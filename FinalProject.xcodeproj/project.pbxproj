@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A4F9EF332BDB4D96F5CA3B84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692FF9D029172DB0FB183D6B /* libPods.a */; };
 		35BC54C61BCFA36A00632657 /* VoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54C51BCFA36A00632657 /* VoteViewController.m */; settings = {ASSET_TAGS = (); }; };
 		35BC54C91BCFC69D00632657 /* LegisCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54C81BCFC69D00632657 /* LegisCategoryTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		35BC54CC1BCFC72000632657 /* VotingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54CB1BCFC72000632657 /* VotingPageViewController.m */; settings = {ASSET_TAGS = (); }; };
+		A4F9EF332BDB4D96F5CA3B84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692FF9D029172DB0FB183D6B /* libPods.a */; };
+		DE98F4911BD0D22000B4EC9E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE98F48E1BD0D22000B4EC9E /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DE98F4921BD0D22000B4EC9E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE98F48F1BD0D22000B4EC9E /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DE98F4931BD0D22000B4EC9E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE98F4901BD0D22000B4EC9E /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DE98F4961BD0D4B400B4EC9E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F4951BD0D4B400B4EC9E /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		DE98F4991BD0DD2800B4EC9E /* LoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F4981BD0DD2800B4EC9E /* LoginInfo.m */; settings = {ASSET_TAGS = (); }; };
+		DE98F49C1BD0EFE500B4EC9E /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F49B1BD0EFE500B4EC9E /* MoreViewController.m */; settings = {ASSET_TAGS = (); }; };
+		DE98F49F1BD0F7F500B4EC9E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F49E1BD0F7F500B4EC9E /* TabViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DEEA47801BCF78DC00B66015 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA477F1BCF78DC00B66015 /* main.m */; };
 		DEEA47831BCF78DC00B66015 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA47821BCF78DC00B66015 /* AppDelegate.m */; };
 		DEEA47861BCF78DC00B66015 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA47851BCF78DC00B66015 /* ViewController.m */; };
@@ -23,15 +30,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3C2A27A6693DE7C7E2EE76B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		66FE8A5B4BBAE471303FF7CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		692FF9D029172DB0FB183D6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BC54C41BCFA36A00632657 /* VoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteViewController.h; sourceTree = "<group>"; };
 		35BC54C51BCFA36A00632657 /* VoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteViewController.m; sourceTree = "<group>"; };
 		35BC54C71BCFC69D00632657 /* LegisCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegisCategoryTableViewController.h; sourceTree = "<group>"; };
 		35BC54C81BCFC69D00632657 /* LegisCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegisCategoryTableViewController.m; sourceTree = "<group>"; };
 		35BC54CA1BCFC72000632657 /* VotingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotingPageViewController.h; sourceTree = "<group>"; };
 		35BC54CB1BCFC72000632657 /* VotingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VotingPageViewController.m; sourceTree = "<group>"; };
+		3C2A27A6693DE7C7E2EE76B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		66FE8A5B4BBAE471303FF7CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		692FF9D029172DB0FB183D6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE98F48E1BD0D22000B4EC9E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		DE98F48F1BD0D22000B4EC9E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		DE98F4901BD0D22000B4EC9E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151007/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		DE98F4941BD0D4B400B4EC9E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		DE98F4951BD0D4B400B4EC9E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		DE98F4971BD0DD2800B4EC9E /* LoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInfo.h; sourceTree = "<group>"; };
+		DE98F4981BD0DD2800B4EC9E /* LoginInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInfo.m; sourceTree = "<group>"; };
+		DE98F49A1BD0EFE500B4EC9E /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		DE98F49B1BD0EFE500B4EC9E /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		DE98F49D1BD0F7F500B4EC9E /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		DE98F49E1BD0F7F500B4EC9E /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		DEEA477B1BCF78DC00B66015 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEA477F1BCF78DC00B66015 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEEA47811BCF78DC00B66015 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,7 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE98F4931BD0D22000B4EC9E /* FBSDKShareKit.framework in Frameworks */,
 				A4F9EF332BDB4D96F5CA3B84 /* libPods.a in Frameworks */,
+				DE98F4911BD0D22000B4EC9E /* FBSDKCoreKit.framework in Frameworks */,
+				DE98F4921BD0D22000B4EC9E /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +102,9 @@
 		DEEA47721BCF78DB00B66015 = {
 			isa = PBXGroup;
 			children = (
+				DE98F48E1BD0D22000B4EC9E /* FBSDKCoreKit.framework */,
+				DE98F48F1BD0D22000B4EC9E /* FBSDKLoginKit.framework */,
+				DE98F4901BD0D22000B4EC9E /* FBSDKShareKit.framework */,
 				DEEA477D1BCF78DC00B66015 /* FinalProject */,
 				DEEA477C1BCF78DC00B66015 /* Products */,
 				96D8EB8C48CB1C9C64CD72D8 /* Pods */,
@@ -119,6 +143,14 @@
 				DEEA47991BCFA4AD00B66015 /* PersonViewController.m */,
 				DEEA479B1BCFD8A100B66015 /* VoteTableViewController.h */,
 				DEEA479C1BCFD8A100B66015 /* VoteTableViewController.m */,
+				DE98F4941BD0D4B400B4EC9E /* LoginViewController.h */,
+				DE98F4951BD0D4B400B4EC9E /* LoginViewController.m */,
+				DE98F4971BD0DD2800B4EC9E /* LoginInfo.h */,
+				DE98F4981BD0DD2800B4EC9E /* LoginInfo.m */,
+				DE98F49A1BD0EFE500B4EC9E /* MoreViewController.h */,
+				DE98F49B1BD0EFE500B4EC9E /* MoreViewController.m */,
+				DE98F49D1BD0F7F500B4EC9E /* TabViewController.h */,
+				DE98F49E1BD0F7F500B4EC9E /* TabViewController.m */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -254,10 +286,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEEA479A1BCFA4AD00B66015 /* PersonViewController.m in Sources */,
+				DE98F49C1BD0EFE500B4EC9E /* MoreViewController.m in Sources */,
 				35BC54C91BCFC69D00632657 /* LegisCategoryTableViewController.m in Sources */,
 				DEEA47861BCF78DC00B66015 /* ViewController.m in Sources */,
 				35BC54CC1BCFC72000632657 /* VotingPageViewController.m in Sources */,
+				DE98F4961BD0D4B400B4EC9E /* LoginViewController.m in Sources */,
+				DE98F49F1BD0F7F500B4EC9E /* TabViewController.m in Sources */,
 				35BC54C61BCFA36A00632657 /* VoteViewController.m in Sources */,
+				DE98F4991BD0DD2800B4EC9E /* LoginInfo.m in Sources */,
 				DEEA47831BCF78DC00B66015 /* AppDelegate.m in Sources */,
 				DEEA478C1BCF78DC00B66015 /* FinalProject.xcdatamodeld in Sources */,
 				DEEA47801BCF78DC00B66015 /* main.m in Sources */,
@@ -372,6 +408,7 @@
 			baseConfigurationReference = 3C2A27A6693DE7C7E2EE76B5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "/Users/chenghanyen/Downloads/FacebookSDKs-iOS-20151007";
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject;
