@@ -50,10 +50,11 @@
 ////           }
 //}
 - (IBAction)back:(UIButton *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangetabNoti" object:nil];
     if ([_presentType isEqualToString:@"person" ]) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangetabNoti" object:nil];
     };
+        [self dismissViewControllerAnimated:YES completion:nil];
+    
     
 }
 - (void)  loginButton:(FBSDKLoginButton *)loginButton
@@ -70,7 +71,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
         NSString *identi = result[@"id"] ;
         LoginInfo *loginfo = [LoginInfo logstatus] ;
         loginfo.userIdentify = identi ;
-        if (identi  != nil && [_presentType isEqualToString:@"person" ]) {
+        if (identi  != nil ) {
             [self dismissViewControllerAnimated:YES completion:nil];
         }
        
