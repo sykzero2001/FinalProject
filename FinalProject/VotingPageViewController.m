@@ -8,7 +8,10 @@
 
 #import "VotingPageViewController.h"
 
-@interface VotingPageViewController ()
+@interface VotingPageViewController (){
+    bool showTheResultOfVote;
+}
+@property (weak, nonatomic) IBOutlet UIView *viewOfResult;
 
 @end
 
@@ -16,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    showTheResultOfVote = NO;
     // Do any additional setup after loading the view.
 }
 
@@ -24,6 +30,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+//生成相似的立委
+- (IBAction)voteWithAgreeOrDisagree:(UIButton*)sender {
+    
+    if (showTheResultOfVote == NO) {
+        CGRect newFrame = self.viewOfResult.frame;
+        
+        newFrame.size.width = 260;
+        newFrame.size.height = 230;
+        [self.viewOfResult setFrame:newFrame];
+    }else {
+        CGRect newFrame = self.viewOfResult.frame;
+        
+        newFrame.size.width = 0;
+        newFrame.size.height = 0;
+        [self.viewOfResult setFrame:newFrame];
+    }
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+    
+}
 /*
 #pragma mark - Navigation
 

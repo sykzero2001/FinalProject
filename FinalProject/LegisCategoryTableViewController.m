@@ -8,14 +8,55 @@
 
 #import "LegisCategoryTableViewController.h"
 
-@interface LegisCategoryTableViewController ()
+@interface LegisCategoryTableViewController (){
+    
+    NSMutableDictionary *dicLawEconomy, *dicLawInternal, *dicLawFinance, *dicLawForeign, *dicLawTransportation, *dicLawWelfare, *dicLawEducation, *dicLawJustice, *dicLawHot;
+    
+}
 
 @end
 
 @implementation LegisCategoryTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dicLawEconomy = [NSMutableDictionary dictionaryWithDictionary:@{@"1":@"a",@"11":@"aa"}] ;
+    dicLawInternal = [NSMutableDictionary dictionaryWithDictionary:@{@"2":@"b",@"22":@"bb"}] ;
+    dicLawFinance = [NSMutableDictionary dictionaryWithDictionary:@{@"3":@"c",@"33":@"cc"}] ;
+    dicLawForeign = [NSMutableDictionary dictionaryWithDictionary:@{@"4":@"d",@"44":@"dd"}] ;
+    dicLawTransportation = [NSMutableDictionary dictionaryWithDictionary:@{@"5":@"e",@"55":@"ee"}] ;
+    dicLawWelfare = [NSMutableDictionary dictionaryWithDictionary:@{@"6":@"f",@"66":@"ff"}] ;
+    dicLawEducation = [NSMutableDictionary dictionaryWithDictionary:@{@"7":@"g",@"77":@"gg"}] ;
+    dicLawJustice = [NSMutableDictionary dictionaryWithDictionary:@{@"8":@"h",@"88":@"hh"}] ;
+    dicLawHot = [NSMutableDictionary dictionaryWithDictionary:@{@"9":@"i",@"99":@"ii"}] ;
+
+//    
+//    switch (self.lawType){
+//        case LawEconomy:
+//            
+//            break;
+//        case LawInternal:
+//            break;
+//        case LawFinance:
+//            break;
+//        case LawForeign:
+//            break;
+//        case LawTransportation:
+//            break;
+//        case LawWelfare:
+//            break;
+//        case LawEducation:
+//            break;
+//        case LawJustice:
+//            break;
+//        case LawHot:
+//            break;
+//       default:
+//            break;
+//    }
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -33,23 +74,53 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Issue" forIndexPath:indexPath];
     
+    
+    switch (self.lawType){
+        case LawEconomy:
+            
+            break;
+        case LawInternal:
+            break;
+        case LawFinance:
+            break;
+        case LawForeign:
+            break;
+        case LawTransportation:
+            break;
+        case LawWelfare:
+            break;
+        case LawEducation:
+            break;
+        case LawJustice:
+            break;
+        case LawHot:
+            break;
+        default:
+            break;
+    }
+
+    
+//    NSArray *keys = [dicLawEconomy allKeys];
+//    NSDictionary *dic = keys[1];
+//    cell.textLabel.text = dic[@"a"];
+//    cell.detailTextLabel.text = dic[@"1"];
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, LawType){
+    LawEconomy,
+    LawInternal,
+    LawFinance,
+    LawForeign,
+    LawTransportation,
+    LawWelfare,
+    LawEducation,
+    LawJustice,
+    LawHot,
+};
+
 @interface LegisCategoryTableViewController : UITableViewController
+
+@property (assign, nonatomic) LawType lawType;
 
 @end

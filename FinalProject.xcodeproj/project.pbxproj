@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A4F9EF332BDB4D96F5CA3B84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692FF9D029172DB0FB183D6B /* libPods.a */; };
-		35BC54C61BCFA36A00632657 /* VoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54C51BCFA36A00632657 /* VoteViewController.m */; settings = {ASSET_TAGS = (); }; };
+		352219891BD63B0100DF0FFF /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352219881BD63B0100DF0FFF /* IssueViewController.m */; settings = {ASSET_TAGS = (); }; };
 		35BC54C91BCFC69D00632657 /* LegisCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54C81BCFC69D00632657 /* LegisCategoryTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		35BC54CC1BCFC72000632657 /* VotingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54CB1BCFC72000632657 /* VotingPageViewController.m */; settings = {ASSET_TAGS = (); }; };
+		A4F9EF332BDB4D96F5CA3B84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692FF9D029172DB0FB183D6B /* libPods.a */; };
 		DEEA47801BCF78DC00B66015 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA477F1BCF78DC00B66015 /* main.m */; };
 		DEEA47831BCF78DC00B66015 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA47821BCF78DC00B66015 /* AppDelegate.m */; };
 		DEEA47861BCF78DC00B66015 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA47851BCF78DC00B66015 /* ViewController.m */; };
@@ -23,15 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3C2A27A6693DE7C7E2EE76B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		66FE8A5B4BBAE471303FF7CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		692FF9D029172DB0FB183D6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		35BC54C41BCFA36A00632657 /* VoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteViewController.h; sourceTree = "<group>"; };
-		35BC54C51BCFA36A00632657 /* VoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteViewController.m; sourceTree = "<group>"; };
+		352219871BD63B0100DF0FFF /* IssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueViewController.h; sourceTree = "<group>"; };
+		352219881BD63B0100DF0FFF /* IssueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueViewController.m; sourceTree = "<group>"; };
 		35BC54C71BCFC69D00632657 /* LegisCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegisCategoryTableViewController.h; sourceTree = "<group>"; };
 		35BC54C81BCFC69D00632657 /* LegisCategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegisCategoryTableViewController.m; sourceTree = "<group>"; };
 		35BC54CA1BCFC72000632657 /* VotingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotingPageViewController.h; sourceTree = "<group>"; };
 		35BC54CB1BCFC72000632657 /* VotingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VotingPageViewController.m; sourceTree = "<group>"; };
+		3C2A27A6693DE7C7E2EE76B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		66FE8A5B4BBAE471303FF7CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		692FF9D029172DB0FB183D6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEA477B1BCF78DC00B66015 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEA477F1BCF78DC00B66015 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEEA47811BCF78DC00B66015 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,12 +104,12 @@
 				DEEA47841BCF78DC00B66015 /* ViewController.h */,
 				DEEA47851BCF78DC00B66015 /* ViewController.m */,
 				DEEA47871BCF78DC00B66015 /* Main.storyboard */,
+				352219871BD63B0100DF0FFF /* IssueViewController.h */,
+				352219881BD63B0100DF0FFF /* IssueViewController.m */,
 				35BC54CA1BCFC72000632657 /* VotingPageViewController.h */,
 				35BC54CB1BCFC72000632657 /* VotingPageViewController.m */,
 				35BC54C71BCFC69D00632657 /* LegisCategoryTableViewController.h */,
 				35BC54C81BCFC69D00632657 /* LegisCategoryTableViewController.m */,
-				35BC54C41BCFA36A00632657 /* VoteViewController.h */,
-				35BC54C51BCFA36A00632657 /* VoteViewController.m */,
 				DEEA478D1BCF78DC00B66015 /* Assets.xcassets */,
 				DEEA478F1BCF78DC00B66015 /* LaunchScreen.storyboard */,
 				DEEA47921BCF78DC00B66015 /* Info.plist */,
@@ -255,9 +255,9 @@
 			files = (
 				DEEA479A1BCFA4AD00B66015 /* PersonViewController.m in Sources */,
 				35BC54C91BCFC69D00632657 /* LegisCategoryTableViewController.m in Sources */,
+				352219891BD63B0100DF0FFF /* IssueViewController.m in Sources */,
 				DEEA47861BCF78DC00B66015 /* ViewController.m in Sources */,
 				35BC54CC1BCFC72000632657 /* VotingPageViewController.m in Sources */,
-				35BC54C61BCFA36A00632657 /* VoteViewController.m in Sources */,
 				DEEA47831BCF78DC00B66015 /* AppDelegate.m in Sources */,
 				DEEA478C1BCF78DC00B66015 /* FinalProject.xcdatamodeld in Sources */,
 				DEEA47801BCF78DC00B66015 /* main.m in Sources */,
