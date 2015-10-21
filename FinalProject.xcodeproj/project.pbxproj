@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35BC54C61BCFA36A00632657 /* VoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54C51BCFA36A00632657 /* VoteViewController.m */; settings = {ASSET_TAGS = (); }; };
+		352219891BD63B0100DF0FFF /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352219881BD63B0100DF0FFF /* IssueViewController.m */; settings = {ASSET_TAGS = (); }; };
 		35BC54C91BCFC69D00632657 /* LegisCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54C81BCFC69D00632657 /* LegisCategoryTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		35BC54CC1BCFC72000632657 /* VotingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54CB1BCFC72000632657 /* VotingPageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		A4F9EF332BDB4D96F5CA3B84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692FF9D029172DB0FB183D6B /* libPods.a */; };
@@ -20,10 +20,6 @@
 		DE98F4991BD0DD2800B4EC9E /* LoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F4981BD0DD2800B4EC9E /* LoginInfo.m */; settings = {ASSET_TAGS = (); }; };
 		DE98F49C1BD0EFE500B4EC9E /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F49B1BD0EFE500B4EC9E /* MoreViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DE98F49F1BD0F7F500B4EC9E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F49E1BD0F7F500B4EC9E /* TabViewController.m */; settings = {ASSET_TAGS = (); }; };
-		352219891BD63B0100DF0FFF /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352219881BD63B0100DF0FFF /* IssueViewController.m */; settings = {ASSET_TAGS = (); }; };
-		35BC54C91BCFC69D00632657 /* LegisCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54C81BCFC69D00632657 /* LegisCategoryTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		35BC54CC1BCFC72000632657 /* VotingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BC54CB1BCFC72000632657 /* VotingPageViewController.m */; settings = {ASSET_TAGS = (); }; };
-		A4F9EF332BDB4D96F5CA3B84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 692FF9D029172DB0FB183D6B /* libPods.a */; };
 		DEEA47801BCF78DC00B66015 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA477F1BCF78DC00B66015 /* main.m */; };
 		DEEA47831BCF78DC00B66015 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA47821BCF78DC00B66015 /* AppDelegate.m */; };
 		DEEA47861BCF78DC00B66015 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA47851BCF78DC00B66015 /* ViewController.m */; };
@@ -36,8 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35BC54C41BCFA36A00632657 /* VoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteViewController.h; sourceTree = "<group>"; };
-		35BC54C51BCFA36A00632657 /* VoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteViewController.m; sourceTree = "<group>"; };
 		352219871BD63B0100DF0FFF /* IssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueViewController.h; sourceTree = "<group>"; };
 		352219881BD63B0100DF0FFF /* IssueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueViewController.m; sourceTree = "<group>"; };
 		35BC54C71BCFC69D00632657 /* LegisCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegisCategoryTableViewController.h; sourceTree = "<group>"; };
@@ -308,7 +302,6 @@
 				35BC54CC1BCFC72000632657 /* VotingPageViewController.m in Sources */,
 				DE98F4961BD0D4B400B4EC9E /* LoginViewController.m in Sources */,
 				DE98F49F1BD0F7F500B4EC9E /* TabViewController.m in Sources */,
-				35BC54C61BCFA36A00632657 /* VoteViewController.m in Sources */,
 				DE98F4991BD0DD2800B4EC9E /* LoginInfo.m in Sources */,
 				DE7D5D881BD617BA00D993F5 /* VoteTableViewCell.m in Sources */,
 				DEEA47831BCF78DC00B66015 /* AppDelegate.m in Sources */,
