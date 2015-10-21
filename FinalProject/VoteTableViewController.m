@@ -7,15 +7,28 @@
 //
 
 #import "VoteTableViewController.h"
+#import "VoteTableViewCell.h"
+#import "VotingPageViewController.h"
 
 @interface VoteTableViewController ()
-
+{
+    NSMutableArray *voteArray;
+}
 @end
 
 @implementation VoteTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 50;
+    voteArray = [@[@{@"name":@"核四公投", @"detail":@"是否停建核四？",@"vote":@"Y"}, @{@"name":@"服貿協議", @"detail":@"是否開放服貿？",@"vote":@"Y"},
+                    @{@"name":@"貨貿協議", @"detail":@"貨貿協議是否給台灣帶來好處？",@"vote":@"N"}] mutableCopy];
+        UINib *nib = [UINib nibWithNibName:@"VoteTableViewCell"
+                                    bundle:nil];
+        [self.tableView registerNib:nib
+                    forCellReuseIdentifier:@"CellId"];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -32,25 +45,39 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return voteArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    VoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellId" forIndexPath:indexPath];
+    NSDictionary *dic = voteArray[indexPath.row];
+    UIImage *imageAgree = [UIImage imageNamed:@"agree"];
+    UIImage *imageDisagree = [UIImage imageNamed:@"disagree"];
+    cell.nameLabel.text = dic[@"name"];
+    cell.detailLabel.text = dic[@"detail"];
+    NSString *voteResult = dic[@"vote"];
+    if ([voteResult isEqualToString:@"Y"]) {
+        cell.cellImage.image = imageAgree;
+    }
+    else{
+        cell.cellImage.image = imageDisagree;
+    };
     
     return cell;
-}
-*/
 
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
+(NSIndexPath *)indexPath
+{
+//    VotingPageViewController *controller = [self.storyboard
+//                                        instantiateViewControllerWithIdentifier:@"votedisplay"];
+//    [self.navigationController pushViewController:controller animated:YES];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

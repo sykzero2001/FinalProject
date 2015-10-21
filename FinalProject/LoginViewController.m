@@ -25,7 +25,7 @@
     @[@"public_profile", @"email", @"user_friends"];
     _loginButton.center = self.view.center;
     _loginButton.delegate = self;
-    [self.view addSubview:_loginButton];
+//    [self.view addSubview:_loginButton];
 
     
     // Do any additional setup after loading the view.

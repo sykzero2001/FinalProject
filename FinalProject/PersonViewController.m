@@ -12,6 +12,7 @@
 #import "LoginInfo.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface PersonViewController ()
@@ -31,6 +32,7 @@
     _similarView.hidden = NO;
     _voteResultView.hidden = YES;
     _legislativeLike.hidden = YES;
+//    _similarImage.layer.masksToBounds = YES;
     _similarImage.layer.cornerRadius = _similarImage.bounds.size.width / 2.0;
     [self displayRadarChart];
         // Do any additional setup after loading the view.
@@ -41,12 +43,14 @@
 //        logstatus =  @"1";
     if([FBSDKAccessToken currentAccessToken])
     {
-        
+        NSString *urlStr = @"http://www.ly.gov.tw/upload/01_introduce/0102_chief/president/image/ly2000_8_00002f.jpg";
+        NSURL *url = [NSURL URLWithString:urlStr];
+        [_similarImage sd_setImageWithURL:url placeholderImage:nil];
     }
     else{
         LoginViewController *controller = [self.storyboard                                           instantiateViewControllerWithIdentifier:@"LoginViewController"];
         controller.presentType = @"person";
-        [self presentViewController:controller animated:YES
+        [self presentViewController:controller animated:NO
                          completion:nil];
     }
    
