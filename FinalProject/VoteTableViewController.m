@@ -9,6 +9,7 @@
 #import "VoteTableViewController.h"
 #import "VoteTableViewCell.h"
 #import "VotingPageViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface VoteTableViewController ()
 {
@@ -20,6 +21,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        NSDictionary *dic = responseObject[@"data"];;
+            for(NSDictionary *appDic in dic) {
+                NSLog(@"issueName %@", appDic[@"name"]);
+                NSLog(@"issueId %@", appDic[@"id"]);
+                    }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
     voteArray = [@[@{@"name":@"核四公投", @"detail":@"是否停建核四？",@"vote":@"Y"}, @{@"name":@"服貿協議", @"detail":@"是否開放服貿？",@"vote":@"Y"},
@@ -27,7 +41,7 @@
         UINib *nib = [UINib nibWithNibName:@"VoteTableViewCell"
                                     bundle:nil];
         [self.tableView registerNib:nib
-                    forCellReuseIdentifier:@"CellId"];
+                    forCellReuseIdentifier:@"voteCellId"];
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -35,6 +49,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,11 +71,11 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellId" forIndexPath:indexPath];
+    VoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voteCellId" forIndexPath:indexPath];
     NSDictionary *dic = voteArray[indexPath.row];
     UIImage *imageAgree = [UIImage imageNamed:@"agree"];
     UIImage *imageDisagree = [UIImage imageNamed:@"disagree"];
-    cell.nameLabel.text = dic[@"name"];
+//    cell.nameLabel.text = dic[@"name"];
     cell.detailLabel.text = dic[@"detail"];
     NSString *voteResult = dic[@"vote"];
     if ([voteResult isEqualToString:@"Y"]) {
@@ -74,9 +91,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
 (NSIndexPath *)indexPath
 {
-//    VotingPageViewController *controller = [self.storyboard
-//                                        instantiateViewControllerWithIdentifier:@"votedisplay"];
-//    [self.navigationController pushViewController:controller animated:YES];
+
+    VotingPageViewController *controller = [self.storyboard
+                                            instantiateViewControllerWithIdentifier:@"VotingPageViewController"];
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    
 }
 /*
 // Override to support conditional editing of the table view.
