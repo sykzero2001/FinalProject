@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IssueViewController.h"
 
 @interface VotingPageViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *Title;
+@property (strong, nonatomic) NSString *issueTitle;
+
 
 @end

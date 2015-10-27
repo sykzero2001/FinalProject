@@ -13,13 +13,21 @@
 }
 @property (weak, nonatomic) IBOutlet UIView *viewOfResult;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *resultLabelHeight;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameOfResultHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pictureOfResultHeight;
+
+
 @end
 
 @implementation VotingPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    self.Title.text = self.issueTitle;
     
     showTheResultOfVote = NO;
     // Do any additional setup after loading the view.
@@ -34,20 +42,12 @@
 - (IBAction)voteWithAgreeOrDisagree:(UIButton*)sender {
     
     if (showTheResultOfVote == NO) {
-        CGRect newFrame = self.viewOfResult.frame;
-        
-        newFrame.size.width = 260;
-        newFrame.size.height = 230;
-        [self.viewOfResult setFrame:newFrame];
-    }else {
-        CGRect newFrame = self.viewOfResult.frame;
-        
-        newFrame.size.width = 0;
-        newFrame.size.height = 0;
-        [self.viewOfResult setFrame:newFrame];
+        self.resultLabelHeight.constant = 20.5;
+        self.nameOfResultHeight.constant = 20.5;
+        self.pictureOfResultHeight.constant = 190;
+        showTheResultOfVote = YES;
     }
-    
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         [self.view layoutIfNeeded];
     }];
     
