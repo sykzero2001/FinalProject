@@ -62,7 +62,11 @@
 }
 //選擇按鍵後彈出對應議題的投票
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
+    UIButton *btn = sender;
+    if ([segue.identifier isEqualToString:@"toVotingPage"]) {
+        VotingPageViewController *votingpage = [segue destinationViewController];
+        votingpage.issueTitle = btn.currentTitle;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,20 +75,10 @@
 }
 
 
-- (IBAction)categoriesOfLaw:(UIButton *)sender {
-    UIButton *btnPressed = sender;
+- (IBAction)buttonsClicked:(UIButton *)sender {
+
+    [self performSegueWithIdentifier:@"toVotingPage" sender:sender];
     
-    // Then you can reference the title or a tag of the clicked button to do some further conditional logic if you want.
-    //    if([btnPressed.currentTitle isEqualToString:@"title of button"])
-    //    {
-//    LegisCategoryTableViewController *legis = [self.storyboard instantiateViewControllerWithIdentifier:@"LegisCategoryTableViewController"];
-//    legis.lawType =btnPressed.tag;
-//    [self presentViewController:legis animated:YES completion:nil];
-    //    }
-    //    else {
-    //
-    //    }DetailViewController *controller = [self.storyboard
-    //   
 }
 /*
 #pragma mark - Navigation
