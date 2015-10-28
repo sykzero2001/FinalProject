@@ -43,6 +43,7 @@
 //        logstatus =  @"1";
     if([FBSDKAccessToken currentAccessToken])
     {
+        
         NSString *urlStr = @"http://www.ly.gov.tw/upload/01_introduce/0102_chief/president/image/ly2000_8_00002f.jpg";
         NSURL *url = [NSURL URLWithString:urlStr];
         [_similarImage sd_setImageWithURL:url placeholderImage:nil];

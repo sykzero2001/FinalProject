@@ -32,7 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getRandomIssue];
-    
     self.random.layer.cornerRadius = self.random.bounds.size.width / 2.0;
 }
 

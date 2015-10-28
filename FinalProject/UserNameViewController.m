@@ -1,25 +1,30 @@
 //
-//  MoreViewController.m
+//  UserNameViewController.m
 //  FinalProject
 //
-//  Created by 鄭涵嚴 on 2015/10/16.
+//  Created by 鄭涵嚴 on 2015/10/27.
 //  Copyright © 2015年 鄭涵嚴. All rights reserved.
 //
 
-#import "MoreViewController.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "UserNameViewController.h"
+#import "LoginInfo.h"
 
-@interface MoreViewController ()
-{
-    NSMutableArray *userInfo;
-}
+@interface UserNameViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *userEmailtext;
+
+@property (weak, nonatomic) IBOutlet UITextField *userNametext;
 @end
 
-@implementation MoreViewController
+@implementation UserNameViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    LoginInfo *loginfo = [LoginInfo logstatus] ;
+    //    [loginfo getLoginfo:self] ;
+    NSString *email = loginfo.userEmail ;
+    NSString *name = loginfo.userName;
+    self.userNametext.text = name;
+    self.userEmailtext.text = email;
     // Do any additional setup after loading the view.
 }
 

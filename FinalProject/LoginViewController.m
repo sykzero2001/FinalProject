@@ -68,9 +68,9 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                                           NSDictionary *result,
                                           NSError *error) {
         // Handle the result
-        NSString *identi = result[@"id"] ;
         LoginInfo *loginfo = [LoginInfo logstatus] ;
-        loginfo.userIdentify = identi ;
+        [loginfo getLoginfo:self] ;
+       NSString *identi = loginfo.userIdentify  ;
         if (identi  != nil ) {
             [self dismissViewControllerAnimated:YES completion:nil];
         }

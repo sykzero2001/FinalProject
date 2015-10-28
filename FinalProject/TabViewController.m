@@ -8,6 +8,7 @@
 
 #import "TabViewController.h"
 #import "LoginViewController.h"
+#import "LoginInfo.h"
 
 @interface TabViewController ()
 
@@ -17,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    LoginInfo *loginfo = [LoginInfo logstatus] ;
+    [loginfo getLoginfo:self] ;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changetab) name:@"ChangetabNoti" object:nil];
     // Do any additional setup after loading the view.
 }

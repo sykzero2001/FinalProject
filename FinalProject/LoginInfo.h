@@ -13,4 +13,6 @@
 @property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *userIdentify;
 @property (strong, nonatomic) NSString *userEmail;
+@property (strong, nonatomic) NSString *userName;
+-(void)getLoginfo:(id)controller;
 @end
