@@ -7,21 +7,48 @@
 //
 
 #import "CongressmanTableViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import "PartyTableViewController.h"
+
 
 @interface CongressmanTableViewController ()
 
 @end
 
+#define PARTY_KEY @"party"
 @implementation CongressmanTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self downloadCongressmanData];
+    
+    if([self.partyType isEqualToString: @"國民黨"]){
+        
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)downloadCongressmanData {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://139.162.1.35/api/v1/legislators" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *dic = responseObject[@"data1111"];;
+                for(NSDictionary *appDic in dic) {
+                    NSLog(@"congressmanName %@", appDic[@"name"]);
+                    NSLog(@"party %@", appDic[PARTY_KEY]);
+                }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,15 +68,19 @@
     return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"congressman" forIndexPath:indexPath];
+    
+    
+    
+    
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

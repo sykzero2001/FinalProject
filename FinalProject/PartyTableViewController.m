@@ -7,6 +7,7 @@
 //
 
 #import "PartyTableViewController.h"
+#import "CongressmanTableViewController.h"
 
 @interface PartyTableViewController ()
 {
@@ -48,24 +49,36 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"partycell" forIndexPath:indexPath];
     
-    
-    UILabel *partyNameLabel = (UILabel*)[cell.contentView viewWithTag:1];
+    UITableViewCell *partyCell = [tableView dequeueReusableCellWithIdentifier:@"partyCell" forIndexPath:indexPath];
+    UILabel *partyNameLabel = (UILabel*)[partyCell.contentView viewWithTag:1];
     NSDictionary *dic = partyArray[indexPath.row];
     partyNameLabel.text = dic[@"party"];
     
-    UILabel *partyMemberLabel = (UILabel*)[cell.contentView viewWithTag:2];
+    UILabel *partyMemberLabel = (UILabel*)[partyCell.contentView viewWithTag:2];
     partyMemberLabel.text = dic[@"congressman"];
     
-    UILabel *partyPercentLabel = (UILabel*)[cell.contentView viewWithTag:3];
+    UILabel *partyPercentLabel = (UILabel*)[partyCell.contentView viewWithTag:3];
     partyPercentLabel.text = dic[@"percent"];
     // Configure the cell...
-    
-    return cell;
+ 
+    return partyCell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"toShowDetailCongressman" sender:indexPath];
+}
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"toShowDetailCongressman"]){
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
+        CongressmanTableViewController *congressController = [segue destinationViewController];
+        NSDictionary *partyDic = partyArray[indexPath.row];
+        congressController.partyType = partyDic[@"party"];
+       
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

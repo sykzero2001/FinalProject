@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface CongressmanTableViewController : UITableViewController
+@property (strong,nonatomic) NSString *partyType;
 
 @end
