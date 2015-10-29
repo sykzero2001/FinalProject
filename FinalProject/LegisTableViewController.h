@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LegisFollowTableViewController : UITableViewController
+@interface LegisTableViewController : UITableViewController
 
 @end

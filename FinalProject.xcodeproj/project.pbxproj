@@ -13,7 +13,7 @@
 		35FFD6431BDF5CA6006B56CA /* FirstQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD6421BDF5CA6006B56CA /* FirstQuestionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		35FFD6461BDF6A01006B56CA /* PartyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD6451BDF6A01006B56CA /* PartyTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		35FFD6491BDF6A1E006B56CA /* CongressmanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD6481BDF6A1E006B56CA /* CongressmanTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		DE26BE8D1BD8B6690088BE5F /* LegisFollowTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE26BE8C1BD8B6690088BE5F /* LegisFollowTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		DE26BE8D1BD8B6690088BE5F /* LegisTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE26BE8C1BD8B6690088BE5F /* LegisTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DE26BE911BD8BC9A0088BE5F /* LegisFollowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE26BE8F1BD8BC9A0088BE5F /* LegisFollowTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		DE26BE921BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26BE901BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		DE3E13EA1BDF62B0007BEFD8 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E13E91BDF62B0007BEFD8 /* MoreTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -24,6 +24,8 @@
 		DE98F4991BD0DD2800B4EC9E /* LoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F4981BD0DD2800B4EC9E /* LoginInfo.m */; settings = {ASSET_TAGS = (); }; };
 		DE98F49F1BD0F7F500B4EC9E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F49E1BD0F7F500B4EC9E /* TabViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DEB61A641BE0C4A2001F1826 /* PushTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB61A631BE0C4A1001F1826 /* PushTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		DED7858F1BE25D0F00875C99 /* SimilarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DED7858D1BE25D0F00875C99 /* SimilarTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		DED785901BE25D0F00875C99 /* SimilarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DED7858E1BE25D0F00875C99 /* SimilarTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		DEEA47801BCF78DC00B66015 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA477F1BCF78DC00B66015 /* main.m */; };
 		DEEA47831BCF78DC00B66015 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA47821BCF78DC00B66015 /* AppDelegate.m */; };
 		DEEA47861BCF78DC00B66015 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEA47851BCF78DC00B66015 /* ViewController.m */; };
@@ -52,18 +54,18 @@
 		3C2A27A6693DE7C7E2EE76B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		66FE8A5B4BBAE471303FF7CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		692FF9D029172DB0FB183D6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE26BE8B1BD8B6690088BE5F /* LegisFollowTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegisFollowTableViewController.h; sourceTree = "<group>"; };
-		DE26BE8C1BD8B6690088BE5F /* LegisFollowTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegisFollowTableViewController.m; sourceTree = "<group>"; };
-		DE26BE8E1BD8BC9A0088BE5F /* LegisFollowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegisFollowTableViewCell.h; sourceTree = "<group>"; };
-		DE26BE8F1BD8BC9A0088BE5F /* LegisFollowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegisFollowTableViewCell.m; sourceTree = "<group>"; };
-		DE26BE901BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LegisFollowTableViewCell.xib; sourceTree = "<group>"; };
+		DE26BE8B1BD8B6690088BE5F /* LegisTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegisTableViewController.h; sourceTree = "<group>"; };
+		DE26BE8C1BD8B6690088BE5F /* LegisTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegisTableViewController.m; sourceTree = "<group>"; };
+		DE26BE8E1BD8BC9A0088BE5F /* LegisFollowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LegisFollowTableViewCell.h; path = FinalProject/LegisFollowTableViewCell.h; sourceTree = "<group>"; };
+		DE26BE8F1BD8BC9A0088BE5F /* LegisFollowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LegisFollowTableViewCell.m; path = FinalProject/LegisFollowTableViewCell.m; sourceTree = "<group>"; };
+		DE26BE901BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LegisFollowTableViewCell.xib; path = FinalProject/LegisFollowTableViewCell.xib; sourceTree = "<group>"; };
 		DE3E13E81BDF62B0007BEFD8 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		DE3E13E91BDF62B0007BEFD8 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		DE3E13EB1BDFC831007BEFD8 /* UserNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNameViewController.h; sourceTree = "<group>"; };
 		DE3E13EC1BDFC831007BEFD8 /* UserNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNameViewController.m; sourceTree = "<group>"; };
-		DE7D5D851BD617BA00D993F5 /* VoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteTableViewCell.h; sourceTree = "<group>"; };
-		DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteTableViewCell.m; sourceTree = "<group>"; };
-		DE7D5D871BD617BA00D993F5 /* VoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoteTableViewCell.xib; sourceTree = "<group>"; };
+		DE7D5D851BD617BA00D993F5 /* VoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoteTableViewCell.h; path = FinalProject/VoteTableViewCell.h; sourceTree = "<group>"; };
+		DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoteTableViewCell.m; path = FinalProject/VoteTableViewCell.m; sourceTree = "<group>"; };
+		DE7D5D871BD617BA00D993F5 /* VoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VoteTableViewCell.xib; path = FinalProject/VoteTableViewCell.xib; sourceTree = "<group>"; };
 		DE98F4941BD0D4B400B4EC9E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		DE98F4951BD0D4B400B4EC9E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DE98F4971BD0DD2800B4EC9E /* LoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInfo.h; sourceTree = "<group>"; };
@@ -72,6 +74,9 @@
 		DE98F49E1BD0F7F500B4EC9E /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		DEB61A621BE0C4A1001F1826 /* PushTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTableViewController.h; sourceTree = "<group>"; };
 		DEB61A631BE0C4A1001F1826 /* PushTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTableViewController.m; sourceTree = "<group>"; };
+		DED7858C1BE25D0F00875C99 /* SimilarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimilarTableViewCell.h; sourceTree = "<group>"; };
+		DED7858D1BE25D0F00875C99 /* SimilarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimilarTableViewCell.m; sourceTree = "<group>"; };
+		DED7858E1BE25D0F00875C99 /* SimilarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimilarTableViewCell.xib; sourceTree = "<group>"; };
 		DEEA477B1BCF78DC00B66015 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEA477F1BCF78DC00B66015 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEEA47811BCF78DC00B66015 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FinalProject/AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +145,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DED785861BE25BFE00875C99 /* CellXib */ = {
+			isa = PBXGroup;
+			children = (
+				DE7D5D851BD617BA00D993F5 /* VoteTableViewCell.h */,
+				DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */,
+				DE7D5D871BD617BA00D993F5 /* VoteTableViewCell.xib */,
+				DE26BE8E1BD8BC9A0088BE5F /* LegisFollowTableViewCell.h */,
+				DE26BE8F1BD8BC9A0088BE5F /* LegisFollowTableViewCell.m */,
+				DE26BE901BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib */,
+				DED7858C1BE25D0F00875C99 /* SimilarTableViewCell.h */,
+				DED7858D1BE25D0F00875C99 /* SimilarTableViewCell.m */,
+				DED7858E1BE25D0F00875C99 /* SimilarTableViewCell.xib */,
+			);
+			name = CellXib;
+			sourceTree = "<group>";
+		};
 		DEEA47721BCF78DB00B66015 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +172,7 @@
 				DEEA47871BCF78DC00B66015 /* Main.storyboard */,
 				35FFD6411BDF5CA6006B56CA /* FirstQuestionViewController.h */,
 				35FFD6421BDF5CA6006B56CA /* FirstQuestionViewController.m */,
+				DED785861BE25BFE00875C99 /* CellXib */,
 				35FFD64A1BDF6A35006B56CA /* Vote */,
 				35FFD64B1BDF6A44006B56CA /* Congressman */,
 				DEEA477D1BCF78DC00B66015 /* FinalProject */,
@@ -187,14 +209,8 @@
 				DE98F4981BD0DD2800B4EC9E /* LoginInfo.m */,
 				DE98F49D1BD0F7F500B4EC9E /* TabViewController.h */,
 				DE98F49E1BD0F7F500B4EC9E /* TabViewController.m */,
-				DE7D5D851BD617BA00D993F5 /* VoteTableViewCell.h */,
-				DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */,
-				DE7D5D871BD617BA00D993F5 /* VoteTableViewCell.xib */,
-				DE26BE8B1BD8B6690088BE5F /* LegisFollowTableViewController.h */,
-				DE26BE8C1BD8B6690088BE5F /* LegisFollowTableViewController.m */,
-				DE26BE8E1BD8BC9A0088BE5F /* LegisFollowTableViewCell.h */,
-				DE26BE8F1BD8BC9A0088BE5F /* LegisFollowTableViewCell.m */,
-				DE26BE901BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib */,
+				DE26BE8B1BD8B6690088BE5F /* LegisTableViewController.h */,
+				DE26BE8C1BD8B6690088BE5F /* LegisTableViewController.m */,
 				DE3E13E81BDF62B0007BEFD8 /* MoreTableViewController.h */,
 				DE3E13E91BDF62B0007BEFD8 /* MoreTableViewController.m */,
 				DE3E13EB1BDFC831007BEFD8 /* UserNameViewController.h */,
@@ -275,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE26BE921BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib in Resources */,
+				DED785901BE25D0F00875C99 /* SimilarTableViewCell.xib in Resources */,
 				DEEA47911BCF78DC00B66015 /* LaunchScreen.storyboard in Resources */,
 				DEEA478E1BCF78DC00B66015 /* Assets.xcassets in Resources */,
 				DEEA47891BCF78DC00B66015 /* Main.storyboard in Resources */,
@@ -346,8 +363,9 @@
 				35FFD6491BDF6A1E006B56CA /* CongressmanTableViewController.m in Sources */,
 				35BC54CC1BCFC72000632657 /* VotingPageViewController.m in Sources */,
 				DE98F4961BD0D4B400B4EC9E /* LoginViewController.m in Sources */,
+				DED7858F1BE25D0F00875C99 /* SimilarTableViewCell.m in Sources */,
 				DE98F49F1BD0F7F500B4EC9E /* TabViewController.m in Sources */,
-				DE26BE8D1BD8B6690088BE5F /* LegisFollowTableViewController.m in Sources */,
+				DE26BE8D1BD8B6690088BE5F /* LegisTableViewController.m in Sources */,
 				DE98F4991BD0DD2800B4EC9E /* LoginInfo.m in Sources */,
 				DE7D5D881BD617BA00D993F5 /* VoteTableViewCell.m in Sources */,
 				35FFD6431BDF5CA6006B56CA /* FirstQuestionViewController.m in Sources */,

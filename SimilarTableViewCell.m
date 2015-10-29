@@ -1,18 +1,17 @@
 //
-//  LegisFollowTableViewCell.m
+//  SimilarTableViewCell.m
 //  FinalProject
 //
-//  Created by 鄭涵嚴 on 2015/10/22.
+//  Created by 鄭涵嚴 on 2015/10/29.
 //  Copyright © 2015年 鄭涵嚴. All rights reserved.
 //
 
-#import "LegisFollowTableViewCell.h"
+#import "SimilarTableViewCell.h"
 
-
-@implementation LegisFollowTableViewCell
+@implementation SimilarTableViewCell
 
 - (void)awakeFromNib {
-      // Initialization code
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -21,10 +21,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImage *image = [UIImage imageNamed:@"登入畫面"];
+    CGRect frame = self.view.frame;
+    UIGraphicsBeginImageContext(frame.size );
+    [image drawInRect:CGRectMake(0,0,frame.size.width,frame.size.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:newImage];
+    self.view.alpha = 0.7;
+//    self.loginButton.alpha = 1;
+//    self.cancelButton.alpha = 1;
     _loginButton.readPermissions =
     @[@"public_profile", @"email", @"user_friends"];
-    _loginButton.center = self.view.center;
+//    _loginButton.center = self.view.center;
     _loginButton.delegate = self;
+    [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    [_cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _cancelButton.backgroundColor = nil ;
+    _cancelButton.layer.cornerRadius = 15;
+    
+    _cancelButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    _cancelButton.layer.borderWidth = 2 ;
 //    [self.view addSubview:_loginButton];
 
     

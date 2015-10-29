@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JYRadarChart.h"
 
 @interface LegisFollowTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *legisName;
 @property (weak, nonatomic) IBOutlet UIImageView *partImage;
 @property (weak, nonatomic) IBOutlet UIImageView *LegisImage;
+@property (weak, nonatomic) IBOutlet JYRadarChart *radarView;
 
 @end

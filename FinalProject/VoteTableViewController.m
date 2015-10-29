@@ -21,17 +21,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        NSDictionary *dic = responseObject[@"data"];;
-            for(NSDictionary *appDic in dic) {
-                NSLog(@"issueName %@", appDic[@"name"]);
-                NSLog(@"issueId %@", appDic[@"id"]);
-                    }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"JSON: %@", responseObject);
+//        NSDictionary *dic = responseObject[@"data"];;
+//            for(NSDictionary *appDic in dic) {
+//                NSLog(@"issueName %@", appDic[@"name"]);
+//                NSLog(@"issueId %@", appDic[@"id"]);
+//                    }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
     
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -75,7 +75,7 @@
     NSDictionary *dic = voteArray[indexPath.row];
     UIImage *imageAgree = [UIImage imageNamed:@"agree"];
     UIImage *imageDisagree = [UIImage imageNamed:@"disagree"];
-//    cell.nameLabel.text = dic[@"name"];
+    cell.nameLabel.text = dic[@"name"];
     cell.detailLabel.text = dic[@"detail"];
     NSString *voteResult = dic[@"vote"];
     if ([voteResult isEqualToString:@"Y"]) {
