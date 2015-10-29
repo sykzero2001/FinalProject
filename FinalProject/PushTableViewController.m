@@ -110,5 +110,9 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
+(NSIndexPath *)indexPath
+{
+[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 @end

@@ -118,13 +118,18 @@
 //
 //        controller.userName = _nameLabel.text;
 //    }
-//    else if ([segue.identifier isEqualToString:@"push"])
-//    {
-//        PushTableViewController *controller = [segue destinationViewController];
-//        controller.CellCheckmark = _pushLabel.text;
-//    }
+    if ([segue.identifier isEqualToString:@"push"])
+    {
+        PushTableViewController *controller = [segue destinationViewController];
+        controller.CellCheckmark = _pushLabel.text;
+    }
     
     
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
+(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
