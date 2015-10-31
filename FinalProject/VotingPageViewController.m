@@ -11,10 +11,8 @@
 @interface VotingPageViewController (){
     bool showTheResultOfVote;
 }
-@property (weak, nonatomic) IBOutlet UIView *viewOfResult;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *resultLabelHeight;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameOfResultHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *pictureOfResultHeight;
 
@@ -22,12 +20,26 @@
 @end
 
 @implementation VotingPageViewController
+- (IBAction)nextQuestion:(id)sender {
+    
+    
+}
+
+- (IBAction)yesSelected:(id)sender {
+    
+    
+}
+- (IBAction)noSelected:(id)sender {
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
-    self.Title.text = self.issueTitle;
+    self.issueTitleLabel.text = self.issueTitle;
+    self.issueBodyLabel.text = self.issueBody;
     
     showTheResultOfVote = NO;
     // Do any additional setup after loading the view.
