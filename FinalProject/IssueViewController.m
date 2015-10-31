@@ -14,7 +14,8 @@
     //int i;//for button
     
     NSMutableArray *mainArrayForBut;
-    NSArray *issueArray;
+
+
 }
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *issueCollectionBut;
 
