@@ -216,46 +216,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h63-2O-DwT">
-                                <rect key="frame" x="60" y="370" width="200" height="30"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4w-5L-1qx">
+                                <rect key="frame" x="16" y="0.0" width="260" height="517"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="34L-ZF-wXr">
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="517"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="NUC-OM-Ctd"/>
+                                    <constraint firstAttribute="height" constant="517" id="vIq-qC-EbO"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFQ-x1-Knj">
+                                <rect key="frame" x="82" y="170" width="155" height="75"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="back:" destination="XZE-fi-I4P" eventType="touchUpInside" id="VRQ-0O-Kfy"/>
-                                </connections>
-                            </button>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="AqM-Ed-YHg"/>
+                                </constraints>
+                                <string key="text">300年前，鄭克塽領導
+台灣政權投降滿清
+300年後，政客爽亂政
+台灣未來取決於您</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grq-7O-ZIE" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="60" y="320" width="200" height="30"/>
+                                <rect key="frame" x="60" y="265" width="200" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EDE-gE-Qw7"/>
                                     <constraint firstAttribute="width" constant="200" id="FQS-Rw-Anv"/>
                                 </constraints>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="對事情很有看法,卻苦無方式表達嗎？趕快登入來跟大家一起參與吧！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFQ-x1-Knj">
-                                <rect key="frame" x="60" y="50" width="200" height="180"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h63-2O-DwT">
+                                <rect key="frame" x="60" y="315" width="200" height="30"/>
                                 <animations/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="back:" destination="XZE-fi-I4P" eventType="touchUpInside" id="VRQ-0O-Kfy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uFQ-x1-Knj" firstAttribute="top" secondItem="M0C-CZ-Fpw" secondAttribute="bottom" constant="30" id="BSx-Ld-FHI"/>
-                            <constraint firstItem="h63-2O-DwT" firstAttribute="top" secondItem="grq-7O-ZIE" secondAttribute="bottom" constant="20" id="CgH-tD-fHc"/>
-                            <constraint firstItem="grq-7O-ZIE" firstAttribute="top" secondItem="M0C-CZ-Fpw" secondAttribute="bottom" constant="300" id="K5P-MO-f5k"/>
-                            <constraint firstItem="h63-2O-DwT" firstAttribute="height" secondItem="grq-7O-ZIE" secondAttribute="height" id="TzE-ZB-XLq"/>
-                            <constraint firstItem="uFQ-x1-Knj" firstAttribute="width" secondItem="grq-7O-ZIE" secondAttribute="width" id="dJd-mr-MUe"/>
-                            <constraint firstItem="grq-7O-ZIE" firstAttribute="centerX" secondItem="HYF-Vu-Jlf" secondAttribute="centerX" id="jrq-cZ-FAl"/>
-                            <constraint firstItem="h63-2O-DwT" firstAttribute="width" secondItem="grq-7O-ZIE" secondAttribute="width" id="ppg-Hp-sbt"/>
-                            <constraint firstItem="uFQ-x1-Knj" firstAttribute="leading" secondItem="grq-7O-ZIE" secondAttribute="leading" id="sYa-qU-yyZ"/>
-                            <constraint firstItem="h63-2O-DwT" firstAttribute="centerX" secondItem="HYF-Vu-Jlf" secondAttribute="centerX" id="vhJ-u1-W7k"/>
+                            <constraint firstItem="grq-7O-ZIE" firstAttribute="top" secondItem="uFQ-x1-Knj" secondAttribute="bottom" constant="20" id="4vt-hE-yRM"/>
+                            <constraint firstItem="h63-2O-DwT" firstAttribute="height" secondItem="grq-7O-ZIE" secondAttribute="height" id="9Qv-qg-f4h"/>
+                            <constraint firstItem="w4w-5L-1qx" firstAttribute="top" secondItem="HYF-Vu-Jlf" secondAttribute="top" id="DgC-J7-Nnl"/>
+                            <constraint firstItem="uFQ-x1-Knj" firstAttribute="centerX" secondItem="HYF-Vu-Jlf" secondAttribute="centerX" id="FvU-SA-LcV"/>
+                            <constraint firstItem="h63-2O-DwT" firstAttribute="centerX" secondItem="HYF-Vu-Jlf" secondAttribute="centerX" id="MRe-4d-Xj7"/>
+                            <constraint firstItem="w4w-5L-1qx" firstAttribute="leading" secondItem="HYF-Vu-Jlf" secondAttribute="leadingMargin" id="QVT-J2-iyp"/>
+                            <constraint firstItem="h63-2O-DwT" firstAttribute="width" secondItem="grq-7O-ZIE" secondAttribute="width" id="REG-Zr-b3C"/>
+                            <constraint firstItem="grq-7O-ZIE" firstAttribute="centerX" secondItem="HYF-Vu-Jlf" secondAttribute="centerX" id="b82-Ao-BHH"/>
+                            <constraint firstItem="uFQ-x1-Knj" firstAttribute="top" secondItem="M0C-CZ-Fpw" secondAttribute="bottom" constant="150" id="ui8-gP-Vka"/>
+                            <constraint firstItem="h63-2O-DwT" firstAttribute="top" secondItem="grq-7O-ZIE" secondAttribute="bottom" constant="20" id="yUD-qM-Blc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blur" destination="w4w-5L-1qx" id="PFa-tW-Gwc"/>
                         <outlet property="cancelButton" destination="h63-2O-DwT" id="bcx-1k-vUt"/>
                         <outlet property="loginButton" destination="grq-7O-ZIE" id="rdA-zT-HYh"/>
                     </connections>
@@ -327,8 +348,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="rYb-vP-Gz4">
-                            <rect key="frame" x="0.0" y="72" width="300" height="0.0"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="YEZ-9R-rSs">
+                            <rect key="frame" x="0.0" y="72" width="300" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>

@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *partImage;
 @property (weak, nonatomic) IBOutlet UIImageView *LegisImage;
 @property (weak, nonatomic) IBOutlet JYRadarChart *radarView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *radarHeight;
+@property (weak, nonatomic) IBOutlet UIImageView *orderImage;
 
 @end

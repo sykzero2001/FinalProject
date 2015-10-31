@@ -26,7 +26,7 @@
          forCellReuseIdentifier:@"legisCellId"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
-    LegisFllowArray = [@[@{@"name":@"王金平",@"type":@1}, @{@"name":@"柯建民",@"type":@2}] mutableCopy];
+    LegisFllowArray = [@[@{@"name":@"王金平",@"type":@1}, @{@"name":@"柯建民",@"type":@2},@{@"name":@"洪秀柱",@"type":@1}] mutableCopy];
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -57,9 +57,13 @@
         NSDictionary *dic = LegisFllowArray[indexPath.row];
         UIImage *imageone = [UIImage imageNamed:@"國民黨徽"];
         UIImage *imagetwo = [UIImage imageNamed:@"民進黨徽"];
+        UIImage *imageFirst = [UIImage imageNamed:@"第一名"];
+        UIImage *imageSecond = [UIImage imageNamed:@"第二名"];
+        UIImage *imageThird = [UIImage imageNamed:@"第三名"];
         cell.legisName.text = dic[@"name"];
         [self displayRadarChart:cell];
-        NSNumber *type = dic[@"type"];
+//        cell.radarHeight.constant = 300;
+                NSNumber *type = dic[@"type"];
         switch (type.intValue) {
             case 1:
                 cell.partImage.image = imageone;
@@ -69,7 +73,21 @@
                 break;
             default:
                 break;
+        };
+        switch (indexPath.row) {
+            case 0:
+            cell.orderImage.image = imageFirst;
+            break;
+        case 1:
+            cell.orderImage.image = imageSecond;
+            break;
+        case 2:
+                cell.orderImage.image = imageThird;
+                break;
+        default:
+            break;
         }
+
     
     return cell;
 }
@@ -87,7 +105,11 @@
 }
 -(void)displayRadarChart:(LegisFollowTableViewCell *)cell{
     //    JYRadarChart *p = [[JYRadarChart alloc] initWithFrame:CGRectMake(0, 100, 340, 340)];
-    
+//    cell.radarHeight.constant = 500;
+    //        [UIView animateWithDuration:0.3f animations:^{
+    //            [self.view layoutIfNeeded];
+    //        }];
+
     NSArray *a1 = @[@(81), @(97), @(87), @(87), @(57), @(87), @(87), @(57)];
     NSArray *a2 = @[@(91), @(87), @(33), @(87), @(57), @(87), @(87), @(57)];
     

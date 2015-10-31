@@ -11,24 +11,37 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "TabViewController.h"
 #import "LoginInfo.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface LoginViewController ()<FBSDKLoginButtonDelegate>
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *blur;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @end
 
 @implementation LoginViewController
 
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.blur.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.blur.alpha = 0.6;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIImage *image = [UIImage imageNamed:@"登入畫面"];
     CGRect frame = self.view.frame;
+    //裁切圖片符合畫面大小
     UIGraphicsBeginImageContext(frame.size );
     [image drawInRect:CGRectMake(0,0,frame.size.width,frame.size.height)];
     UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:newImage];
-    self.view.alpha = 0.7;
+    self.view.alpha = 0.8;
+    
 //    self.loginButton.alpha = 1;
 //    self.cancelButton.alpha = 1;
     _loginButton.readPermissions =
@@ -36,12 +49,12 @@
 //    _loginButton.center = self.view.center;
     _loginButton.delegate = self;
     [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-    [_cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _cancelButton.backgroundColor = nil ;
-    _cancelButton.layer.cornerRadius = 15;
+    [_cancelButton setTitleColor:nil forState:UIControlStateNormal];
+    _cancelButton.backgroundColor = [UIColor whiteColor] ;
+    _cancelButton.layer.cornerRadius = 5;
     
-    _cancelButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    _cancelButton.layer.borderWidth = 2 ;
+//    _cancelButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _cancelButton.layer.borderWidth = 2 ;
 //    [self.view addSubview:_loginButton];
 
     
@@ -85,12 +98,23 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                                           NSDictionary *result,
                                           NSError *error) {
         // Handle the result
-        LoginInfo *loginfo = [LoginInfo logstatus] ;
-        [loginfo getLoginfo:self] ;
-       NSString *identi = loginfo.userIdentify  ;
-        if (identi  != nil ) {
+       FBSDKAccessToken * fbAccessToken = [FBSDKAccessToken currentAccessToken];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSString *email = result[@"email"];
+        NSString *token = fbAccessToken.tokenString;
+        NSString *uid = fbAccessToken.userID;
+        [manager POST:@"http://139.162.1.35/api/v1/login" parameters:@{@"access_token":token,@"uid":uid,@"email":email} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"JSON: %@", responseObject);
             [self dismissViewControllerAnimated:YES completion:nil];
-        }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+//        LoginInfo *loginfo = [LoginInfo logstatus] ;
+//        [loginfo getLoginfo:self] ;
+//       NSString *identi = loginfo.userIdentify  ;
+//        if (identi  != nil ) {
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        }
        
     }];
 }

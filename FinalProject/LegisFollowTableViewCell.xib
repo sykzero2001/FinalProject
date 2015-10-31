@@ -15,8 +15,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWr-X1-2fo">
+                        <rect key="frame" x="282" y="20" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="spZ-8F-5aL"/>
+                            <constraint firstAttribute="width" secondItem="fWr-X1-2fo" secondAttribute="height" multiplier="1:1" id="x9U-6l-V81"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mhT-IJ-p7L">
+                        <rect key="frame" x="42" y="0.0" width="56" height="56"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="7sZ-SW-tc8"/>
+                            <constraint firstAttribute="width" secondItem="mhT-IJ-p7L" secondAttribute="height" multiplier="1:1" id="Uko-wU-TeK"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftb-iW-CVc" customClass="JYRadarChart">
+                        <rect key="frame" x="10" y="61" width="300" height="300"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="300" id="1Wy-me-2qS"/>
+                            <constraint firstAttribute="width" constant="300" id="1wh-Ul-0NR"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-Qh-zeE">
+                        <rect key="frame" x="0.0" y="10" width="40" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="43" id="M1M-oX-54S"/>
+                            <constraint firstAttribute="width" constant="40" id="XKx-R3-LB6"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlj-1G-taG">
-                        <rect key="frame" x="75" y="30" width="70" height="21"/>
+                        <rect key="frame" x="103" y="20" width="70" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="aFB-gy-CRb"/>
                             <constraint firstAttribute="width" constant="70" id="sEh-AY-jvK"/>
@@ -30,63 +60,35 @@
                             </mask>
                         </variation>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWr-X1-2fo">
-                        <rect key="frame" x="282" y="30" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="spZ-8F-5aL"/>
-                            <constraint firstAttribute="width" secondItem="fWr-X1-2fo" secondAttribute="height" multiplier="1:1" id="x9U-6l-V81"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mhT-IJ-p7L">
-                        <rect key="frame" x="14" y="0.0" width="56" height="56"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="7sZ-SW-tc8"/>
-                            <constraint firstAttribute="width" secondItem="mhT-IJ-p7L" secondAttribute="height" multiplier="1:1" id="Uko-wU-TeK"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJd-89-Le1">
-                        <rect key="frame" x="0.0" y="30" width="12" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftb-iW-CVc" customClass="JYRadarChart">
-                        <rect key="frame" x="10" y="61" width="300" height="300"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="300" id="1Wy-me-2qS"/>
-                            <constraint firstAttribute="width" constant="300" id="1wh-Ul-0NR"/>
-                            <constraint firstAttribute="height" constant="350" id="8cs-EV-uyb"/>
-                            <constraint firstAttribute="height" constant="200" id="G5v-Qm-bys"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="8cs-EV-uyb"/>
-                                <exclude reference="G5v-Qm-bys"/>
-                            </mask>
-                        </variation>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Nlj-1G-taG" firstAttribute="top" secondItem="7Qo-dB-Epl" secondAttribute="top" constant="30" id="4YE-CN-EcS"/>
-                    <constraint firstItem="mhT-IJ-p7L" firstAttribute="leading" secondItem="NJd-89-Le1" secondAttribute="trailing" constant="2" id="FRG-38-93m"/>
+                    <constraint firstItem="Dem-Qh-zeE" firstAttribute="leading" secondItem="7Qo-dB-Epl" secondAttribute="leading" id="1BZ-uQ-g4U"/>
+                    <constraint firstItem="Nlj-1G-taG" firstAttribute="top" secondItem="7Qo-dB-Epl" secondAttribute="top" constant="20" id="4YE-CN-EcS"/>
                     <constraint firstItem="fWr-X1-2fo" firstAttribute="trailing" secondItem="7Qo-dB-Epl" secondAttribute="trailingMargin" id="JqD-iQ-YzT"/>
                     <constraint firstItem="Nlj-1G-taG" firstAttribute="leading" secondItem="mhT-IJ-p7L" secondAttribute="trailing" constant="5" id="Kx6-th-USD"/>
-                    <constraint firstItem="Nlj-1G-taG" firstAttribute="top" secondItem="NJd-89-Le1" secondAttribute="top" id="TFp-Kb-gzN"/>
+                    <constraint firstItem="mhT-IJ-p7L" firstAttribute="leading" secondItem="Dem-Qh-zeE" secondAttribute="trailing" constant="2" id="RYG-zr-Zsv"/>
                     <constraint firstItem="Nlj-1G-taG" firstAttribute="top" secondItem="fWr-X1-2fo" secondAttribute="top" id="WlB-5A-ZY8"/>
                     <constraint firstItem="ftb-iW-CVc" firstAttribute="centerX" secondItem="7Qo-dB-Epl" secondAttribute="centerX" id="cet-Km-lee"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ftb-iW-CVc" secondAttribute="bottom" id="dra-Mb-F0W"/>
-                    <constraint firstItem="NJd-89-Le1" firstAttribute="leading" secondItem="7Qo-dB-Epl" secondAttribute="leading" id="ht1-em-IHB"/>
+                    <constraint firstItem="ftb-iW-CVc" firstAttribute="top" secondItem="Nlj-1G-taG" secondAttribute="bottom" constant="20" id="fLs-Mb-jNp"/>
                     <constraint firstItem="ftb-iW-CVc" firstAttribute="top" secondItem="mhT-IJ-p7L" secondAttribute="bottom" constant="5" id="kzg-Vm-VMw"/>
+                    <constraint firstItem="Dem-Qh-zeE" firstAttribute="top" secondItem="7Qo-dB-Epl" secondAttribute="top" constant="10" id="lip-64-QWf"/>
                     <constraint firstItem="mhT-IJ-p7L" firstAttribute="top" secondItem="7Qo-dB-Epl" secondAttribute="top" id="oDs-hW-GCN"/>
                     <constraint firstItem="ftb-iW-CVc" firstAttribute="top" secondItem="Nlj-1G-taG" secondAttribute="bottom" constant="10" id="rOB-9J-PrQ"/>
+                    <constraint firstItem="ftb-iW-CVc" firstAttribute="top" secondItem="mhT-IJ-p7L" secondAttribute="bottom" constant="5" id="wyM-Qe-90J"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="rOB-9J-PrQ"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="LegisImage" destination="mhT-IJ-p7L" id="SbP-9U-3Pr"/>
                 <outlet property="legisName" destination="Nlj-1G-taG" id="RDM-Kp-ztK"/>
+                <outlet property="orderImage" destination="Dem-Qh-zeE" id="wmo-iM-AK6"/>
                 <outlet property="partImage" destination="fWr-X1-2fo" id="h3x-n8-Ggr"/>
+                <outlet property="radarHeight" destination="1Wy-me-2qS" id="vrf-Hh-sLO"/>
                 <outlet property="radarView" destination="ftb-iW-CVc" id="vSM-bb-Kfa"/>
             </connections>
             <point key="canvasLocation" x="163" y="389"/>
