@@ -18,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    LoginInfo *loginfo = [LoginInfo logstatus] ;
-    [loginfo getLoginfo:self] ;
+//    LoginInfo *loginfo = [LoginInfo logstatus] ;
+//    [loginfo getLoginfo:self] ;
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.15 green:0.84 blue:0.8 alpha:1]];
      [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.15 green:0.84 blue:0.8 alpha:1]];

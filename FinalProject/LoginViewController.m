@@ -90,34 +90,45 @@
 - (void)  loginButton:(FBSDKLoginButton *)loginButton
 didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                 error:(NSError *)error{
-    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
-                                  initWithGraphPath:@"me"
-                                  parameters:@{@"fields" : @"email, name, first_name, last_name"}
-                                  HTTPMethod:@"GET"];
-    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                          NSDictionary *result,
-                                          NSError *error) {
-        // Handle the result
-       FBSDKAccessToken * fbAccessToken = [FBSDKAccessToken currentAccessToken];
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSString *email = result[@"email"];
-        NSString *token = fbAccessToken.tokenString;
-        NSString *uid = fbAccessToken.userID;
-        [manager POST:@"http://139.162.1.35/api/v1/login" parameters:@{@"access_token":token,@"uid":uid,@"email":email} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"JSON: %@", responseObject);
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
+    if ([FBSDKAccessToken currentAccessToken]) {
+        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
+                                      initWithGraphPath:@"me"
+                                      parameters:@{@"fields" : @"email, name, first_name, last_name"}
+                                      HTTPMethod:@"GET"];
+        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                              NSDictionary *result,
+                                              NSError *error) {
+            // Handle the result
+            FBSDKAccessToken * fbAccessToken = [FBSDKAccessToken currentAccessToken];
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            NSString *token = fbAccessToken.tokenString;
+            NSString *uid = fbAccessToken.userID;
+            [manager POST:@"http://jksong.tw/api/v1/login" parameters:@{@"access_token":token,@"uid":uid} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSString *message = responseObject[@"message"];
+                if ([message isEqualToString:@"Ok"]) {
+                    NSString *loinToken = responseObject[@"auth_token"];
+                    NSUserDefaults *userDefault = [NSUserDefaults
+                                                   standardUserDefaults];
+                    [userDefault setObject:loinToken forKey:@"loginToken"];
+                    [userDefault synchronize];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                };
+                //            NSLog(@"JSON: %@", responseObject);
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Error: %@", error);
+            }];
+            //        LoginInfo *loginfo = [LoginInfo logstatus] ;
+            //        [loginfo getLoginfo:self] ;
+            //       NSString *identi = loginfo.userIdentify  ;
+            //        if (identi  != nil ) {
+            //            [self dismissViewControllerAnimated:YES completion:nil];
+            //        }
+            
         }];
-//        LoginInfo *loginfo = [LoginInfo logstatus] ;
-//        [loginfo getLoginfo:self] ;
-//       NSString *identi = loginfo.userIdentify  ;
-//        if (identi  != nil ) {
-//            [self dismissViewControllerAnimated:YES completion:nil];
-//        }
-       
-    }];
-}
+
+    }
+    }
 
 /*!
  @abstract Sent to the delegate when the button was used to logout.

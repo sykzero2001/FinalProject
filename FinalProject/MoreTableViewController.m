@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setUserName:) name:@"setuser" object:nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,19 +31,24 @@
 }
 -(void)viewWillAppear:(BOOL)animated   {
     LoginInfo *loginfo = [LoginInfo logstatus] ;
-//    [loginfo getLoginfo:self] ;
-    NSString *identify = loginfo.userIdentify ;
-    NSString *name = loginfo.userName;
-    userInfo = [@{@"personId":identify,@"pushApplication":@"否",@"name":name} mutableCopy];
-    self.nameLabel.text = userInfo[@"name"];
-    self.pushLabel.text = userInfo[@"pushApplication"];
+   [loginfo getLoginfo:self] ;
+//    NSString *identify = loginfo.userIdentify ;
+//    NSString *name = loginfo.userName;
+//    userInfo = [@{@"personId":identify,@"pushApplication":@"否",@"name":name} mutableCopy];
+//    self.nameLabel.text = userInfo[@"name"];
+//    self.pushLabel.text = userInfo[@"pushApplication"];
 
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)setUserName:(NSNotification*)name{
 
+    NSDictionary *dic = name.userInfo;
+    self.nameLabel.text = dic[@"name"];
+    [self.tableView reloadData];
+}
 #pragma mark - Table view data source
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

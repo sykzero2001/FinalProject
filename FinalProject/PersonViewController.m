@@ -47,10 +47,8 @@
         [_similarImage sd_setImageWithURL:url placeholderImage:nil];
     }
     else{
-        LoginViewController *controller = [self.storyboard                                           instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        controller.presentType = @"person";
-        [self presentViewController:controller animated:NO
-                         completion:nil];
+        LoginInfo *loginfo = [LoginInfo logstatus] ;
+        [loginfo getLoginfo:self] ;
     }
    
 

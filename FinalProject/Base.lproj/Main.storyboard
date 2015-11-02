@@ -1055,7 +1055,7 @@
         <!--設定-->
         <scene sceneID="Hty-Fv-fco">
             <objects>
-                <tableViewController id="83c-DH-owQ" customClass="MoreTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MoreTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="83c-DH-owQ" customClass="MoreTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ofg-Es-qWq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1413,6 +1413,6 @@
         <image name="螢幕快照 2015-10-22 下午2.43.36" width="375" height="328"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sOX-Df-zfl"/>
+        <segue reference="SPs-zw-awp"/>
     </inferredMetricsTieBreakers>
 </document>
