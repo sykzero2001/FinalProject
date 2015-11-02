@@ -33,6 +33,12 @@
         topThreeListController.categoriesOfLaw = btn.currentTitle;
     }
 }
+
+- (IBAction)buttonsClicked:(UIButton *)sender {
+    
+    [self performSegueWithIdentifier:@"toTopThreeList" sender:sender];
+    
+}
 /*
 #pragma mark - Navigation
 

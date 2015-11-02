@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -12,11 +12,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="368"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54C-Fv-EJ3" id="7Qo-dB-Epl">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="367.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWr-X1-2fo">
                         <rect key="frame" x="282" y="20" width="30" height="30"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="spZ-8F-5aL"/>
                             <constraint firstAttribute="width" secondItem="fWr-X1-2fo" secondAttribute="height" multiplier="1:1" id="x9U-6l-V81"/>
@@ -24,6 +25,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mhT-IJ-p7L">
                         <rect key="frame" x="42" y="0.0" width="56" height="56"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="7sZ-SW-tc8"/>
@@ -32,6 +34,7 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftb-iW-CVc" customClass="JYRadarChart">
                         <rect key="frame" x="10" y="61" width="300" height="300"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="300" id="1Wy-me-2qS"/>
@@ -40,6 +43,7 @@
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-Qh-zeE">
                         <rect key="frame" x="0.0" y="10" width="40" height="43"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="43" id="M1M-oX-54S"/>
                             <constraint firstAttribute="width" constant="40" id="XKx-R3-LB6"/>
@@ -47,12 +51,13 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlj-1G-taG">
                         <rect key="frame" x="103" y="20" width="70" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="aFB-gy-CRb"/>
                             <constraint firstAttribute="width" constant="70" id="sEh-AY-jvK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -61,6 +66,7 @@
                         </variation>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="Dem-Qh-zeE" firstAttribute="leading" secondItem="7Qo-dB-Epl" secondAttribute="leading" id="1BZ-uQ-g4U"/>
                     <constraint firstItem="Nlj-1G-taG" firstAttribute="top" secondItem="7Qo-dB-Epl" secondAttribute="top" constant="20" id="4YE-CN-EcS"/>
@@ -83,6 +89,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="LegisImage" destination="mhT-IJ-p7L" id="SbP-9U-3Pr"/>
                 <outlet property="legisName" destination="Nlj-1G-taG" id="RDM-Kp-ztK"/>
