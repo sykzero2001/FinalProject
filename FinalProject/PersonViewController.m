@@ -34,6 +34,7 @@
 //    _similarImage.layer.masksToBounds = YES;
     _similarImage.layer.cornerRadius = _similarImage.bounds.size.width / 2.0;
         // Do any additional setup after loading the view.
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
 //    if (logstatus  == nil) {
