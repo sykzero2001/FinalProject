@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *issueBodyLabel;
 @property (strong, nonatomic) NSString *issueTitle;
 @property (strong, nonatomic) NSString *issueBody;
-
+@property (weak, nonatomic) NSNumber *issueID;
 
 @end

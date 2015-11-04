@@ -10,7 +10,7 @@
 #import "VotingPageViewController.h"
 #import "IssueTableViewCell.h"
 #import <AFNetworking/AFNetworking.h>
-
+#import "LoginInfo.h"
 @interface IssueTableViewController (){
     NSMutableArray *issueArray;
 
@@ -31,16 +31,36 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+-(void)viewWillAppear:(BOOL)animated{
+     [super viewWillAppear:NO];
+    [self downloadIssue];
+    [self.tableView reloadData];
+}
 
 - (void)downloadIssue {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        issueArray = responseObject[@"data"];
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-   
+    
+    LoginInfo *loginfo = [LoginInfo logstatus] ;
+    [loginfo getLoginfo:self] ;
+    NSUserDefaults *userDefault = [NSUserDefaults
+                                   standardUserDefaults];
+    NSString *loginToken = [userDefault objectForKey:@"loginToken"];
+    if (loginToken == nil){
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            issueArray = responseObject[@"data"];
+            [self.tableView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+    }else{
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            issueArray = responseObject[@"data"];
+            [self.tableView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+    }
 
 }
 
@@ -73,13 +93,14 @@
     {
         cell = [[IssueTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Issuecell"];
     }
-    
-    cell.category = issueArray[indexPath.row][@"category"];
-    cell.typeOfLawLabel.text = issueArray[indexPath.row][@"category"];
-    cell.nameOfIssueLabel.text = issueArray[indexPath.row][@"name"];
-    cell.bodyOfIssueLabel.text = issueArray[indexPath.row][@"created_at"];
-   
-    // Configure the cell...
+    if (issueArray[indexPath.row][@"issue_decision"] == nil) {
+        cell.category = issueArray[indexPath.row][@"category"];
+        cell.typeOfLawLabel.text = issueArray[indexPath.row][@"category"];
+        cell.nameOfIssueLabel.text = issueArray[indexPath.row][@"name"];
+        cell.bodyOfIssueLabel.text = issueArray[indexPath.row][@"created_at"];
+
+    }
+        // Configure the cell...
     
     return cell;
 }
@@ -97,6 +118,7 @@
         VotingPageViewController *votingpage = [segue destinationViewController];
         votingpage.issueTitle =  issueArray[indexPath.row][@"name"];
         votingpage.issueBody = issueArray[indexPath.row][@"name"];
+        votingpage.issueID = issueArray[indexPath.row][@"id"];
     }
 }
 
