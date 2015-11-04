@@ -21,7 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    voteArray = [@[] mutableCopy];
 //    voteArray = [@[] mutableCopy];
 //    NSUserDefaults *userDefault = [NSUserDefaults
 //                                   standardUserDefaults];
@@ -79,7 +78,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 -(void)viewWillAppear:(BOOL)animated{
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
+    voteArray = [@[] mutableCopy];
     NSUserDefaults *userDefault = [NSUserDefaults
                                    standardUserDefaults];
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];

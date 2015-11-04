@@ -79,6 +79,7 @@
                 legisData.identify = legistor;
                 legisData.scoreArray = scoreArray;
                 legisData.maxScore = maxScore;
+                legisData.partyUrl = appDic[@"party_url"];
                 //            NSDictionary *legistorMember = @{@"name":name,@"image":imageUrl,@"id":legistor,@"scoreTable":scoreArray,@"maxScore":maxScore,@"party":party};
                 [arrayAdd addObject:legisData];
                 
@@ -136,13 +137,21 @@
     if (legisArray != nil && legisArray.count != 0) {
         LegisData *legisData = legisArray[indexPath.row];
         //照片載入
-        NSURL *url = [NSURL URLWithString:legisData.imageUrl];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-        [cell.legisImage setImageWithURLRequest:request placeholderImage:nil
+        NSURL *imagUrl = [NSURL URLWithString:legisData.imageUrl];
+        NSURL *partyUrl = [NSURL URLWithString:legisData.partyUrl];
+        NSMutableURLRequest *imageRequest = [NSMutableURLRequest requestWithURL:imagUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+         NSMutableURLRequest *partyRequest = [NSMutableURLRequest requestWithURL:partyUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+        [cell.legisImage setImageWithURLRequest:imageRequest placeholderImage:nil
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                             cell.legisImage.layer.cornerRadius = cell.legisImage.bounds.size.width / 8.0;
                                             cell.legisImage.image = image;
-//                                            [self.tableView reloadData];
+                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                            NSLog(@"error:%@",error);
+                                        }];
+        [cell.partImage setImageWithURLRequest:partyRequest placeholderImage:nil
+                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                            cell.partImage.image = image;
+                                            //                                            [self.tableView reloadData];
                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                             NSLog(@"error:%@",error);
                                         }];

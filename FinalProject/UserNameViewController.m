@@ -11,9 +11,14 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface UserNameViewController ()<UITextFieldDelegate>
+{
+    NSArray *localArray;
+}
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UITextField *userEmailtext;
 @property (weak, nonatomic) IBOutlet UITextField *userLocation;
+@property (weak, nonatomic) IBOutlet UIPickerView *localPick;
 
 @property (weak, nonatomic) IBOutlet UITextField *userNametext;
 @end
@@ -22,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    localArray = @[@"",@"基隆市",@"臺北市",@"新北市",@"臺中市",@"高雄市"];
     LoginInfo *loginfo = [LoginInfo logstatus] ;
     //    [loginfo getLoginfo:self] ;
     NSString *email = loginfo.userEmail ;
@@ -29,7 +35,10 @@
     NSString *location = loginfo.county;
     self.userNametext.text = name;
     self.userEmailtext.text = email;
-    self.userLocation.text = location;
+    if (location != [NSNull alloc]) {
+        self.userLocation.text = location;
+    };
+    
     // Do any additional setup after loading the view.
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -69,6 +78,22 @@
     }
     return YES;
 }
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:
+(NSInteger)component {
+    long int returnValue;
+    returnValue = localArray.count;
+    return returnValue;
+}
+- (nullable NSString *)pickerView:(UIPickerView *)pickerView
+                      titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *returnValue ;
+   returnValue = localArray[row];
+//    [self.localPick selectRow:2 inComponent:1 animated:YES];
+        return returnValue;
+}
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1; }
+
 /*
 #pragma mark - Navigation
 

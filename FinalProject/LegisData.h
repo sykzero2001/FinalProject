@@ -11,10 +11,9 @@
 @interface LegisData : NSObject
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *imageUrl;
-@property (strong, nonatomic) NSString *party;
+@property (strong, nonatomic) NSString *partyUrl;
 @property (strong, nonatomic) NSString *identify;
 @property (strong, nonatomic) NSArray *scoreArray;
 @property (strong, nonatomic) NSString *maxScore;
-@property (strong, nonatomic) NSString *partyLogo;
 
 @end
