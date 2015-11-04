@@ -145,7 +145,7 @@ NSMutableArray *congressmanRankArray;
     
     //there is a color generator in the code, it will generate colors for you
     //so if you do not want to specify the colors yourself, just delete the line below
-    [cell.radarView setColors:@[[UIColor redColor],[UIColor yellowColor]]];
+    [cell.radarView setColors:@[[UIColor blueColor],[UIColor greenColor]]];
     
     cell.radarView.contentMode = UIViewContentModeScaleToFill;
     
