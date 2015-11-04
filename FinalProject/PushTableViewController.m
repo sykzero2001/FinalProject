@@ -7,6 +7,7 @@
 //
 
 #import "PushTableViewController.h"
+#import "LoginInfo.h"
 
 @interface PushTableViewController ()
 
@@ -23,6 +24,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 -(void)viewWillAppear:(BOOL)animated {
+    LoginInfo *loginfo = [LoginInfo logstatus] ;
+    _CellCheckmark = loginfo.mobilePush;
     if ([_CellCheckmark isEqualToString:@"是"]) {
         self.yesCell.accessoryType = UITableViewCellAccessoryCheckmark;
         self.noCell.accessoryType = UITableViewCellAccessoryNone;
@@ -113,6 +116,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
 (NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        self.yesCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.noCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    else{
+        self.yesCell.accessoryType = UITableViewCellAccessoryNone;
+        self.noCell.accessoryType = UITableViewCellAccessoryCheckmark;
+
+    };
+
 [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

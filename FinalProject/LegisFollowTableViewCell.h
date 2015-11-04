@@ -12,7 +12,7 @@
 @interface LegisFollowTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *legisName;
 @property (weak, nonatomic) IBOutlet UIImageView *partImage;
-@property (weak, nonatomic) IBOutlet UIImageView *LegisImage;
+@property (weak, nonatomic) IBOutlet UIImageView *legisImage;
 @property (weak, nonatomic) IBOutlet JYRadarChart *radarView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *radarHeight;
 @property (weak, nonatomic) IBOutlet UIImageView *orderImage;

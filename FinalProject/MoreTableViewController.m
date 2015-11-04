@@ -47,8 +47,14 @@
 
     NSDictionary *dic = name.userInfo;
     self.nameLabel.text = dic[@"name"];
+    self.pushLabel.text = dic[@"mobilePush"];
     [self.tableView reloadData];
 }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 #pragma mark - Table view data source
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -123,11 +129,11 @@
 //
 //        controller.userName = _nameLabel.text;
 //    }
-    if ([segue.identifier isEqualToString:@"push"])
-    {
-        PushTableViewController *controller = [segue destinationViewController];
-        controller.CellCheckmark = _pushLabel.text;
-    }
+//    if ([segue.identifier isEqualToString:@"push"])
+//    {
+//        PushTableViewController *controller = [segue destinationViewController];
+//        controller.CellCheckmark = _pushLabel.text;
+//    }
     
     
 }

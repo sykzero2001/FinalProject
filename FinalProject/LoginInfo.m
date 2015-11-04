@@ -30,67 +30,104 @@ NSUserDefaults *userDefault = [NSUserDefaults
                                    standardUserDefaults];
 NSString *loginToken = [userDefault objectForKey:@"loginToken"];
     UIViewController *control = controller;
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    delegate.window.userInteractionEnabled = NO;
+    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc]
+                                                      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [control.view addSubview:activityIndicatorView];
+    activityIndicatorView.center =  control.view.center;
+    [activityIndicatorView startAnimating];
     if (loginToken == nil) {
+        //若FB處於登入狀態,則直接跟SEVER要Token
+        if ([FBSDKAccessToken currentAccessToken]) {
+            [self getSeverToken];
+            delegate.window.userInteractionEnabled = YES;
+            [activityIndicatorView removeFromSuperview];
+        }
+        else
+        {
+       //若不在登入狀態則出示畫面要求登入
         LoginViewController *pushControl = [control.storyboard                                           instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        pushControl.presentType = @"person";
+//        pushControl.presentType = @"person";
+        delegate.window.userInteractionEnabled = YES;
+        [activityIndicatorView removeFromSuperview];
         [control presentViewController:pushControl animated:NO
                          completion:nil];
+        }
     }
     else
     {
+    //利用Token取得基本資料
+    
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://jksong.tw/api/v1/profiles/13/registed_data" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          NSLog(@"JSON: %@", responseObject);
+        [manager GET:@"http://jksong.tw/api/v1/profiles/13/registed_data" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
         NSDictionary *dic = responseObject[@"profile"];
-        NSLog(@"bio:%@",dic[@"bio"]);
         self.userIdentify = dic[@"id"];
-//        self.userEmail = result[@"email"];
+        self.userEmail = responseObject[@"user_email"];
         self.userName = dic[@"username"];
-        NSDictionary *dicPara = @{@"name":dic[@"username"]};
+        self.mobilePush = responseObject[@"mobile_push"];
+        self.county = responseObject[@"county"];
+        NSDictionary *dicPara = @{@"name":dic[@"username"],@"mobilePush":responseObject[@"mobile_push"],@"county":responseObject[@"county"],@"token":loginToken};
         [[NSNotificationCenter defaultCenter] postNotificationName:@"setuser" object:nil
                                                           userInfo:dicPara];
+            delegate.window.userInteractionEnabled = YES;
+            [activityIndicatorView removeFromSuperview];
 
         }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         //token過期則在要一次token
         NSLog(@"Error: %@", error);
+         [self getSeverToken];
+         delegate.window.userInteractionEnabled = YES;
+         [activityIndicatorView removeFromSuperview];
     }];
     }
 
-//    if([FBSDKAccessToken currentAccessToken])
-//        {
-//            UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc]
-//                                                              initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//            UITableViewController *loadController = controller;
-//            [loadController.view addSubview:activityIndicatorView];
-//            activityIndicatorView.center = loadController.view.center;
-//            [activityIndicatorView startAnimating];
-//            AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
-//            appdelegate.window.userInteractionEnabled = NO;
-//            [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
-//                                               parameters:@{@"fields": @"name,id,picture,gender,birthday,email"}]
-//             startWithCompletionHandler:^(FBSDKGraphRequestConnection
-//                                          *connection, id result, NSError *error) {
-//                 if (!error) {
-//                     self.userIdentify = result[@"id"];
-//                     self.userEmail = result[@"email"];
-//                     self.userName = result[@"name"];
-//                     
-//                 }
-//                 else
-//                 {
-//                     self.userIdentify = @"";
-//                     self.userEmail = @"";
-//                     self.userName = @"";
-//                 };
-//             [activityIndicatorView removeFromSuperview];
-//             appdelegate.window.userInteractionEnabled = YES;
-//             }];
-//        }
-//        else{
-//            self.userIdentify = @"";
-//            self.userEmail = @"";
-//            self.userName = @"";
-//        };
-    
+        
+    }
+
+
+-(void)getSeverToken{
+    //取得token
+    FBSDKAccessToken * fbAccessToken = [FBSDKAccessToken currentAccessToken];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *token = fbAccessToken.tokenString;
+    NSString *uid = fbAccessToken.userID;
+            [manager POST:@"http://jksong.tw/api/v1/login" parameters:@{@"access_token":token,@"uid":uid} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *message = responseObject[@"message"];
+        if ([message isEqualToString:@"Ok"]) {
+            NSString *loginToken = responseObject[@"auth_token"];
+            NSUserDefaults *userDefault = [NSUserDefaults
+                                           standardUserDefaults];
+            [userDefault setObject:loginToken forKey:@"loginToken"];
+            [userDefault synchronize];
+        //取得基本資料
+            
+            [manager GET:@"http://jksong.tw/api/v1/profiles/13/registed_data" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"JSON: %@", responseObject);
+                NSDictionary *dic = responseObject[@"profile"];
+                self.userIdentify = dic[@"id"];
+                self.userEmail = responseObject[@"user_email"];
+                self.userName = dic[@"username"];
+                self.mobilePush = responseObject[@"mobile_push"];
+                self.county = responseObject[@"county"];
+                
+                NSDictionary *dicPara = @{@"name":dic[@"username"],@"mobilePush":responseObject[@"mobile_push"]};
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"setuser" object:nil
+                                                                  userInfo:dicPara];
+                
+            }
+                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     NSLog(@"Error: %@", error);
+
+                 }];
+        };
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
+
 @end
+

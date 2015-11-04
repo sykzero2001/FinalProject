@@ -2,17 +2,23 @@
 //  LegisFllowTableViewController.m
 //  FinalProject
 //
-//  Created by 鄭涵嚴 on 2015/10/22.
+//  Created by 鄭涵嚴 on 2015/10/.
 //  Copyright © 2015年 鄭涵嚴. All rights reserved.
 //
 
 #import "LegisTableViewController.h"
 #import "LegisFollowTableViewCell.h"
 #import "JYRadarChart.h"
+#import <AFNetworking/AFNetworking.h>
+#import "UIImageView+AFNetworking.h"
+#import "LegisData.h"
+#import "LoginInfo.h"
 
 @interface LegisTableViewController ()
 {
-    NSMutableArray *LegisFllowArray;
+    NSMutableArray *legisArrayLocal;
+    NSMutableArray *legisArrayAll;
+    NSMutableDictionary *radarViewSet;
 }
 @end
 
@@ -20,20 +26,77 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UINib *nib = [UINib nibWithNibName:@"LegisFollowTableViewCell"
+        UINib *nib = [UINib nibWithNibName:@"LegisFollowTableViewCell"
                                 bundle:nil];
     [self.tableView registerNib:nib
          forCellReuseIdentifier:@"legisCellId"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
-    LegisFllowArray = [@[@{@"name":@"王金平",@"type":@1}, @{@"name":@"柯建民",@"type":@2},@{@"name":@"洪秀柱",@"type":@1}] mutableCopy];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setlegisLocation:) name:@"setuser" object:nil];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    legisArrayLocal = [@[] mutableCopy];
+    legisArrayAll = [@[] mutableCopy];
+    NSUserDefaults *userDefault = [NSUserDefaults
+                                   standardUserDefaults];
+    NSString *loginToken = [userDefault objectForKey:@"loginToken"];
+    LoginInfo *login = [LoginInfo logstatus];
+    [login getLoginfo:self] ;
+    if (loginToken!= nil) {
+        NSDictionary *paraAll = @{@"auth_token":loginToken,@"total_number":@"3"};
+        [self getLegisApi:paraAll token:loginToken array:legisArrayAll];    };
+    
+    
+    
+}
+-(void)setlegisLocation:(NSNotification*)info{
+   NSDictionary *dic = info.userInfo;
+    NSDictionary *paraLocal = @{@"auth_token":dic[@"token"],@"total_number":@"3",@"county":dic[@"county"]};
+    NSLog(@"測試用戶區域%@",dic[@"county"]);
+    [self getLegisApi:paraLocal token:dic[@"token"] array:legisArrayLocal];
+    
+}
+-(void)getLegisApi:(NSDictionary*)parameter token:(NSString*)loginToken array:(NSMutableArray*)arrayAdd{
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (loginToken != nil) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_legislators_ships" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            NSLog(@"JSON: %@", responseObject);
+            NSArray *array = responseObject[@"legislator"];
+            NSString *maxScore = responseObject[@"user_max_vote"];
+            for(NSDictionary *appDic in array ) {
+                
+                NSString *legistor = appDic[@"id"];
+                NSString *imageUrl = appDic[@"image_url"] ;
+                NSString *name = appDic[@"name"];
+                NSArray *scoreArray = appDic[@"score_table"];
+                //            NSString *party = appDic[@"party"];
+                LegisData *legisData = [[LegisData alloc] init];
+                legisData.name = name ;
+                legisData.imageUrl = imageUrl;
+                legisData.identify = legistor;
+                legisData.scoreArray = scoreArray;
+                legisData.maxScore = maxScore;
+                //            NSDictionary *legistorMember = @{@"name":name,@"image":imageUrl,@"id":legistor,@"scoreTable":scoreArray,@"maxScore":maxScore,@"party":party};
+                [arrayAdd addObject:legisData];
+                
+                //            for (NSDictionary *scoreDic in scoreArray) {
+                //                NSString *category = scoreDic[@"category"];
+                //                NSString *legistorScore = scoreDic[@"le_get_score"];
+                //                NSString *userScore = scoreDic[@"profile_score_max"];
+                //                NSLog(@"立委名稱：%@  議題類型：%@  立委分數：%@  用戶分數： %@",name,category,legistorScore,userScore);
+                //            };
+                
+            };
+            NSLog(@"Result:%@",responseObject);
+            [self.tableView reloadData];
+        }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"Error: %@", error);
+             }];
+    };
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,46 +111,67 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return LegisFllowArray.count;
+    if (section == 0) {
+    return legisArrayLocal.count;
+    }
+    else{
+    return legisArrayAll.count;
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LegisFollowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"legisCellId" forIndexPath:indexPath];
-        NSDictionary *dic = LegisFllowArray[indexPath.row];
-        UIImage *imageone = [UIImage imageNamed:@"國民黨徽"];
-        UIImage *imagetwo = [UIImage imageNamed:@"民進黨徽"];
+    NSArray *legisArray ;
+    if (indexPath.section == 0) {
+        legisArray = legisArrayLocal;
+        NSLog(@"Local: %@", legisArrayLocal);
+    }
+    else
+    {
+        legisArray = legisArrayAll;
+        NSLog(@"All: %@", legisArrayAll);
+    };
+    
+    if (legisArray != nil && legisArray.count != 0) {
+        LegisData *legisData = legisArray[indexPath.row];
+        //照片載入
+        NSURL *url = [NSURL URLWithString:legisData.imageUrl];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+        [cell.legisImage setImageWithURLRequest:request placeholderImage:nil
+                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                            cell.legisImage.layer.cornerRadius = cell.legisImage.bounds.size.width / 8.0;
+                                            cell.legisImage.image = image;
+//                                            [self.tableView reloadData];
+                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                            NSLog(@"error:%@",error);
+                                        }];
+        //        UIImage *imageone = [UIImage imageNamed:@"國民黨徽"];
+        //        UIImage *imagetwo = [UIImage imageNamed:@"民進黨徽"];
         UIImage *imageFirst = [UIImage imageNamed:@"第一名"];
         UIImage *imageSecond = [UIImage imageNamed:@"第二名"];
         UIImage *imageThird = [UIImage imageNamed:@"第三名"];
-        cell.legisName.text = dic[@"name"];
-        [self displayRadarChart:cell];
-//        cell.radarHeight.constant = 300;
-                NSNumber *type = dic[@"type"];
-        switch (type.intValue) {
+        cell.legisName.text = legisData.name;
+        [self displayRadarChart:cell legisData:legisData];
+
+        switch (indexPath.row) {
+            case 0:
+                cell.orderImage.image = imageFirst;
+                break;
             case 1:
-                cell.partImage.image = imageone;
+                cell.orderImage.image = imageSecond;
                 break;
             case 2:
-                cell.partImage.image = imagetwo;
+                cell.orderImage.image = imageThird;
                 break;
             default:
                 break;
-        };
-        switch (indexPath.row) {
-            case 0:
-            cell.orderImage.image = imageFirst;
-            break;
-        case 1:
-            cell.orderImage.image = imageSecond;
-            break;
-        case 2:
-                cell.orderImage.image = imageThird;
-                break;
-        default:
-            break;
         }
 
+    }
+
+
+  
     
     return cell;
 }
@@ -103,21 +187,30 @@
     };
     return title;
 }
--(void)displayRadarChart:(LegisFollowTableViewCell *)cell{
+-(void)displayRadarChart:(LegisFollowTableViewCell *)cell legisData:(LegisData *)legisdata{
     //    JYRadarChart *p = [[JYRadarChart alloc] initWithFrame:CGRectMake(0, 100, 340, 340)];
 //    cell.radarHeight.constant = 500;
     //        [UIView animateWithDuration:0.3f animations:^{
     //            [self.view layoutIfNeeded];
     //        }];
-
-    NSArray *a1 = @[@(81), @(97), @(87), @(87), @(57), @(87), @(87), @(57)];
-    NSArray *a2 = @[@(91), @(87), @(33), @(87), @(57), @(87), @(87), @(57)];
+    NSArray *array =  legisdata.scoreArray;
+    NSMutableArray *categoryArray = [@[] mutableCopy] ;
+    NSMutableArray *legisScoreArray = [@[] mutableCopy];
+    NSMutableArray *userScoreArray = [@[] mutableCopy];
+    for (NSDictionary *scoreDic in array) {
+        [categoryArray addObject:scoreDic[@"category"]];
+        [legisScoreArray addObject:scoreDic[@"le_get_score"]];
+        [userScoreArray addObject:scoreDic[@"profile_score_max"]];
+        
+    };
+    NSArray *a1 = userScoreArray;
+    NSArray *a2 = legisScoreArray;
     
     //set the data series
     cell.radarView.dataSeries = @[a1, a2];
     
     //how many "circles" in the chart
-    cell.radarView.steps = 4;
+    cell.radarView.steps = legisdata.maxScore.intValue;
     
     //for the the entire background
     cell.radarView.backgroundColor = [UIColor whiteColor];
@@ -130,15 +223,15 @@
     //leave r (will fill the rect), minValue (will be 0), maxValue (default is 100) alone,
     //that is okay. the points with too big value will be out of the chart and thus invisible
     cell.radarView.r = 100;
-    cell.radarView.minValue = 20;
-    cell.radarView.maxValue = 100;
+    cell.radarView.minValue = -1;
+    cell.radarView.maxValue = legisdata.maxScore.intValue;
     
     //you can choose whether fill area or not (just draw lines)
     cell.radarView.fillArea = YES;
     
     //you can specify the opacity, default is 1.0 (opaque)
     cell.radarView.colorOpacity = 0.7;
-    cell.radarView.attributes = @[@"司法/法制",@"內政", @"經濟", @"財政", @"外交/國防", @"交通", @"社福/衛環",@"教育/文化"];
+    cell.radarView.attributes = categoryArray;
     
     //if you do not need a legend, you can safely get rid of setTitles:
     cell.radarView.showLegend = YES;

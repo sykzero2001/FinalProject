@@ -14,5 +14,7 @@
 @property (strong, nonatomic) NSString *userIdentify;
 @property (strong, nonatomic) NSString *userEmail;
 @property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSString *mobilePush;
+@property (strong, nonatomic) NSString *county;
 -(void)getLoginfo:(id)controller;
 @end

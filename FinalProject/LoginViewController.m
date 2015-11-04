@@ -24,11 +24,9 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    self.blur.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.blur.alpha = 0.6;
-
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,7 +62,6 @@
 //    [self.view addConstraint:constraint];
 
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -80,9 +77,7 @@
 ////           }
 //}
 - (IBAction)back:(UIButton *)sender {
-    if ([_presentType isEqualToString:@"person" ]) {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangetabNoti" object:nil];
-    };
         [self dismissViewControllerAnimated:YES completion:nil];
     
     
@@ -106,10 +101,10 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
             [manager POST:@"http://jksong.tw/api/v1/login" parameters:@{@"access_token":token,@"uid":uid} success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSString *message = responseObject[@"message"];
                 if ([message isEqualToString:@"Ok"]) {
-                    NSString *loinToken = responseObject[@"auth_token"];
+                    NSString *loginToken = responseObject[@"auth_token"];
                     NSUserDefaults *userDefault = [NSUserDefaults
                                                    standardUserDefaults];
-                    [userDefault setObject:loinToken forKey:@"loginToken"];
+                    [userDefault setObject:loginToken forKey:@"loginToken"];
                     [userDefault synchronize];
                     [self dismissViewControllerAnimated:YES completion:nil];
                 };

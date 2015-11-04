@@ -21,14 +21,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    voteArray = [@[] mutableCopy];
+//    voteArray = [@[] mutableCopy];
+//    NSUserDefaults *userDefault = [NSUserDefaults
+//                                   standardUserDefaults];
+//    NSString *loginToken = [userDefault objectForKey:@"loginToken"];
+//
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_issues_result" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"JSON: %@", responseObject);
-//        NSDictionary *dic = responseObject[@"data"];;
-//            for(NSDictionary *appDic in dic) {
-//                NSLog(@"issueName %@", appDic[@"name"]);
-//                NSLog(@"issueId %@", appDic[@"id"]);
-//                    }
+//        NSArray *array = responseObject[@"data"];
+//       
+//           for(NSDictionary *appDic in array ) {
+//             NSNumber *issueDecision = appDic[@"issue_decision"];
+//               NSString *dicIssue ;
+//        switch (issueDecision.intValue) {
+//        case 1:
+//            dicIssue = @"Y";
+//            break;
+//        case -1:
+//                dicIssue = @"N";
+//                break;
+//        case 0:
+//                dicIssue = @"";
+//                break;
+//        default:
+//                dicIssue = @"";
+//                break;
+//        };
+//               
+//               NSDictionary *dic = @{@"name":appDic[@"issue_name"],@"issueType":appDic[@"issue_category"],@"vote":dicIssue};
+//               [voteArray addObject:dic];
+//                NSLog(@"issue_category %@", appDic[@"issue_category"]);
+//                NSLog(@"issue_content %@", appDic[@"issue_content"]);
+//               NSLog(@"issue_name %@", appDic[@"issue_name"]);
+//           };
+//        [self.tableView reloadData];
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        NSLog(@"Error: %@", error);
 //    }];
@@ -36,8 +64,8 @@
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
-    voteArray = [@[@{@"name":@"核四公投", @"detail":@"是否停建核四？",@"vote":@"Y"}, @{@"name":@"服貿協議", @"detail":@"是否開放服貿？",@"vote":@"Y"},
-                    @{@"name":@"貨貿協議", @"detail":@"貨貿協議是否給台灣帶來好處？",@"vote":@"N"}] mutableCopy];
+//    voteArray = [@[@{@"name":@"核四公投", @"detail":@"是否停建核四？",@"vote":@"Y"}, @{@"name":@"服貿協議", @"detail":@"是否開放服貿？",@"vote":@"Y"},
+//                    @{@"name":@"貨貿協議", @"detail":@"貨貿協議是否給台灣帶來好處？",@"vote":@"N"}] mutableCopy];
         UINib *nib = [UINib nibWithNibName:@"VoteTableViewCell"
                                     bundle:nil];
         [self.tableView registerNib:nib
@@ -52,7 +80,47 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
-}
+    NSUserDefaults *userDefault = [NSUserDefaults
+                                   standardUserDefaults];
+    NSString *loginToken = [userDefault objectForKey:@"loginToken"];
+    if (loginToken != nil) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_issues_result" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            NSLog(@"JSON: %@", responseObject);
+            NSArray *array = responseObject[@"data"];
+            
+            for(NSDictionary *appDic in array ) {
+                NSNumber *issueDecision = appDic[@"issue_decision"];
+                NSString *dicIssue ;
+                switch (issueDecision.intValue) {
+                    case 1:
+                        dicIssue = @"Y";
+                        break;
+                    case -1:
+                        dicIssue = @"N";
+                        break;
+                    case 0:
+                        dicIssue = @"";
+                        break;
+                    default:
+                        dicIssue = @"";
+                        break;
+                };
+                
+                NSDictionary *dic = @{@"name":appDic[@"issue_name"],@"issueType":appDic[@"issue_category"],@"vote":dicIssue};
+                [voteArray addObject:dic];
+//                NSLog(@"issue_category %@", appDic[@"issue_category"]);
+//                NSLog(@"issue_content %@", appDic[@"issue_content"]);
+//                NSLog(@"issue_name %@", appDic[@"issue_name"]);
+            };
+            [self.tableView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+
+    }
+    
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -72,18 +140,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voteCellId" forIndexPath:indexPath];
-    NSDictionary *dic = voteArray[indexPath.row];
-    UIImage *imageAgree = [UIImage imageNamed:@"agree"];
-    UIImage *imageDisagree = [UIImage imageNamed:@"disagree"];
-    cell.nameLabel.text = dic[@"name"];
-    cell.detailLabel.text = dic[@"detail"];
-    NSString *voteResult = dic[@"vote"];
-    if ([voteResult isEqualToString:@"Y"]) {
-        cell.cellImage.image = imageAgree;
+    if (voteArray != nil) {
+        NSDictionary *dic = voteArray[indexPath.row];
+        UIImage *imageAgree = [UIImage imageNamed:@"agree"];
+        UIImage *imageDisagree = [UIImage imageNamed:@"disagree"];
+        cell.nameLabel.text = dic[@"issueType"];
+        cell.detailLabel.text = dic[@"name"];
+        NSString *voteResult = dic[@"vote"];
+        if ([voteResult isEqualToString:@"Y"]) {
+            cell.cellImage.image = imageAgree;
+        }
+        else if([voteResult isEqualToString:@"N"])
+        {
+            cell.cellImage.image = imageDisagree;
+        }
+        else
+        {
+            cell.cellImage.image = nil;
+        };
     }
-    else{
-        cell.cellImage.image = imageDisagree;
-    };
     
     return cell;
 

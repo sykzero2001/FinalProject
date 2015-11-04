@@ -24,6 +24,8 @@
 		DE26BE921BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26BE901BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		DE3E13EA1BDF62B0007BEFD8 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E13E91BDF62B0007BEFD8 /* MoreTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DE3E13ED1BDFC831007BEFD8 /* UserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E13EC1BDFC831007BEFD8 /* UserNameViewController.m */; settings = {ASSET_TAGS = (); }; };
+		DE40F05F1BE885410009D773 /* LegisData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F05E1BE885410009D773 /* LegisData.m */; settings = {ASSET_TAGS = (); }; };
+		DE40F0621BE90C5D0009D773 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DE7D5D881BD617BA00D993F5 /* VoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		DE7D5D891BD617BA00D993F5 /* VoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7D5D871BD617BA00D993F5 /* VoteTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		DE98F4961BD0D4B400B4EC9E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F4951BD0D4B400B4EC9E /* LoginViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -81,6 +83,10 @@
 		DE3E13E91BDF62B0007BEFD8 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		DE3E13EB1BDFC831007BEFD8 /* UserNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNameViewController.h; sourceTree = "<group>"; };
 		DE3E13EC1BDFC831007BEFD8 /* UserNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNameViewController.m; sourceTree = "<group>"; };
+		DE40F05D1BE885410009D773 /* LegisData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegisData.h; sourceTree = "<group>"; };
+		DE40F05E1BE885410009D773 /* LegisData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegisData.m; sourceTree = "<group>"; };
+		DE40F0601BE90C5D0009D773 /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
+		DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
 		DE7D5D851BD617BA00D993F5 /* VoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VoteTableViewCell.h; path = FinalProject/VoteTableViewCell.h; sourceTree = "<group>"; };
 		DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VoteTableViewCell.m; path = FinalProject/VoteTableViewCell.m; sourceTree = "<group>"; };
 		DE7D5D871BD617BA00D993F5 /* VoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VoteTableViewCell.xib; path = FinalProject/VoteTableViewCell.xib; sourceTree = "<group>"; };
@@ -264,6 +270,10 @@
 				DE3E13EC1BDFC831007BEFD8 /* UserNameViewController.m */,
 				DEB61A621BE0C4A1001F1826 /* PushTableViewController.h */,
 				DEB61A631BE0C4A1001F1826 /* PushTableViewController.m */,
+				DE40F05D1BE885410009D773 /* LegisData.h */,
+				DE40F05E1BE885410009D773 /* LegisData.m */,
+				DE40F0601BE90C5D0009D773 /* ContactUsViewController.h */,
+				DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -310,7 +320,7 @@
 				TargetAttributes = {
 					DEEA477A1BCF78DC00B66015 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 663GF3YJMN;
+						DevelopmentTeam = 9U5JLSE84B;
 					};
 				};
 			};
@@ -404,6 +414,7 @@
 				DEEA479A1BCFA4AD00B66015 /* PersonViewController.m in Sources */,
 				35BC54C91BCFC69D00632657 /* LegisCategoryTableViewController.m in Sources */,
 				DE3E13ED1BDFC831007BEFD8 /* UserNameViewController.m in Sources */,
+				DE40F0621BE90C5D0009D773 /* ContactUsViewController.m in Sources */,
 				DEB61A641BE0C4A2001F1826 /* PushTableViewController.m in Sources */,
 				352219891BD63B0100DF0FFF /* IssueViewController.m in Sources */,
 				35E07A171BE239F7001880FC /* IssueTableViewCell.m in Sources */,
@@ -425,6 +436,7 @@
 				DEEA478C1BCF78DC00B66015 /* FinalProject.xcdatamodeld in Sources */,
 				DEEA47801BCF78DC00B66015 /* main.m in Sources */,
 				DEEA479D1BCFD8A100B66015 /* VoteTableViewController.m in Sources */,
+				DE40F05F1BE885410009D773 /* LegisData.m in Sources */,
 				DE3E13EA1BDF62B0007BEFD8 /* MoreTableViewController.m in Sources */,
 				35FFD6461BDF6A01006B56CA /* PartyTableViewController.m in Sources */,
 				DE26BE911BD8BC9A0088BE5F /* LegisFollowTableViewCell.m in Sources */,

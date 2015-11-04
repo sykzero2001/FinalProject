@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="368"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54C-Fv-EJ3" id="7Qo-dB-Epl">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="367.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWr-X1-2fo">
@@ -23,7 +23,7 @@
                             <constraint firstAttribute="width" secondItem="fWr-X1-2fo" secondAttribute="height" multiplier="1:1" id="x9U-6l-V81"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mhT-IJ-p7L">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mhT-IJ-p7L">
                         <rect key="frame" x="42" y="0.0" width="56" height="56"/>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,7 +42,7 @@
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-Qh-zeE">
-                        <rect key="frame" x="0.0" y="10" width="40" height="43"/>
+                        <rect key="frame" x="0.0" y="15" width="40" height="43"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="43" id="M1M-oX-54S"/>
@@ -78,7 +78,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="ftb-iW-CVc" secondAttribute="bottom" id="dra-Mb-F0W"/>
                     <constraint firstItem="ftb-iW-CVc" firstAttribute="top" secondItem="Nlj-1G-taG" secondAttribute="bottom" constant="20" id="fLs-Mb-jNp"/>
                     <constraint firstItem="ftb-iW-CVc" firstAttribute="top" secondItem="mhT-IJ-p7L" secondAttribute="bottom" constant="5" id="kzg-Vm-VMw"/>
-                    <constraint firstItem="Dem-Qh-zeE" firstAttribute="top" secondItem="7Qo-dB-Epl" secondAttribute="top" constant="10" id="lip-64-QWf"/>
+                    <constraint firstItem="Dem-Qh-zeE" firstAttribute="top" secondItem="7Qo-dB-Epl" secondAttribute="top" constant="15" id="lip-64-QWf"/>
                     <constraint firstItem="mhT-IJ-p7L" firstAttribute="top" secondItem="7Qo-dB-Epl" secondAttribute="top" id="oDs-hW-GCN"/>
                     <constraint firstItem="ftb-iW-CVc" firstAttribute="top" secondItem="Nlj-1G-taG" secondAttribute="bottom" constant="10" id="rOB-9J-PrQ"/>
                     <constraint firstItem="ftb-iW-CVc" firstAttribute="top" secondItem="mhT-IJ-p7L" secondAttribute="bottom" constant="5" id="wyM-Qe-90J"/>
@@ -91,7 +91,7 @@
             </tableViewCellContentView>
             <animations/>
             <connections>
-                <outlet property="LegisImage" destination="mhT-IJ-p7L" id="SbP-9U-3Pr"/>
+                <outlet property="legisImage" destination="mhT-IJ-p7L" id="5te-gR-Dsd"/>
                 <outlet property="legisName" destination="Nlj-1G-taG" id="RDM-Kp-ztK"/>
                 <outlet property="orderImage" destination="Dem-Qh-zeE" id="wmo-iM-AK6"/>
                 <outlet property="partImage" destination="fWr-X1-2fo" id="h3x-n8-Ggr"/>

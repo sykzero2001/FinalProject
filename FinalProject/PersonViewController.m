@@ -33,6 +33,8 @@
     _voteResultView.hidden = YES;
 //    _similarImage.layer.masksToBounds = YES;
     _similarImage.layer.cornerRadius = _similarImage.bounds.size.width / 2.0;
+//    LoginInfo *loginfo = [LoginInfo logstatus] ;
+//    [loginfo getLoginfo:self] ;
         // Do any additional setup after loading the view.
     
 }
@@ -40,17 +42,18 @@
 //    if (logstatus  == nil) {
 ////        logstatus =  [LoginInfo logstatus];
 //        logstatus =  @"1";
-    if([FBSDKAccessToken currentAccessToken])
-    {
-        
-        NSString *urlStr = @"http://www.ly.gov.tw/upload/01_introduce/0102_chief/president/image/ly2000_8_00002f.jpg";
-        NSURL *url = [NSURL URLWithString:urlStr];
-        [_similarImage sd_setImageWithURL:url placeholderImage:nil];
-    }
-    else{
-        LoginInfo *loginfo = [LoginInfo logstatus] ;
-        [loginfo getLoginfo:self] ;
-    }
+//    LoginInfo *loginfo = [LoginInfo logstatus] ;
+//    [loginfo getLoginfo:self] ;
+//    if([FBSDKAccessToken currentAccessToken])
+//    {
+//        
+//        NSString *urlStr = @"http://www.ly.gov.tw/upload/01_introduce/0102_chief/president/image/ly2000_8_00002f.jpg";
+//        NSURL *url = [NSURL URLWithString:urlStr];
+//        [_similarImage sd_setImageWithURL:url placeholderImage:nil];
+//    }
+//    else{
+//        
+//    }
    
 
 }
