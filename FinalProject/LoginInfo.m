@@ -68,8 +68,16 @@ NSString *loginToken = [userDefault objectForKey:@"loginToken"];
         self.userEmail = responseObject[@"user_email"];
         self.userName = dic[@"username"];
         self.mobilePush = responseObject[@"mobile_push"];
-        self.county = responseObject[@"county"];
-        NSDictionary *dicPara = @{@"name":dic[@"username"],@"mobilePush":responseObject[@"mobile_push"],@"county":responseObject[@"county"],@"token":loginToken};
+        NSString *county ;
+        if (responseObject[@"county"] == [NSNull alloc]) {
+            county = @"";
+        }
+        else
+        {
+             county= responseObject[@"county"];
+        };
+        self.county = county;
+        NSDictionary *dicPara = @{@"name":dic[@"username"],@"mobilePush":responseObject[@"mobile_push"],@"county":county,@"token":loginToken};
         [[NSNotificationCenter defaultCenter] postNotificationName:@"setuser" object:nil
                                                           userInfo:dicPara];
             delegate.window.userInteractionEnabled = YES;

@@ -35,7 +35,7 @@
 - (IBAction)contactEmail:(UITapGestureRecognizer *)sender {
     NSString *emailTitle = @"我有話說";
     // Email Content
-    NSString *messageBody = @"iOS programming is so fun!";
+    NSString *messageBody = @"";
     // To address
     NSArray *toRecipents = [NSArray arrayWithObject:@"purpleice9765@msn.com"];
     

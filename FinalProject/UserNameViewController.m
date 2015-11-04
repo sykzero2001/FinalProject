@@ -38,6 +38,8 @@
     if (location != [NSNull alloc]) {
         self.userLocation.text = location;
     };
+    [self.localPick selectRow:2 inComponent:0 animated:YES];
+
     
     // Do any additional setup after loading the view.
 }
@@ -88,8 +90,7 @@
                       titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     NSString *returnValue ;
    returnValue = localArray[row];
-//    [self.localPick selectRow:2 inComponent:1 animated:YES];
-        return returnValue;
+            return returnValue;
 }
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1; }
