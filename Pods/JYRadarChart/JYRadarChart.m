@@ -86,8 +86,14 @@
 
 - (void)setColors:(NSArray *)colors {
     [self.legendView.colors removeAllObjects];
-    for (UIColor *color in colors) {
-        [self.legendView.colors addObject:[color colorWithAlphaComponent:self.colorOpacity]];
+    for (int i = 0;i < colors.count;i++) {
+        if (i==1) {
+            [self.legendView.colors addObject:[colors[i] colorWithAlphaComponent:1.0]];
+        }
+        else
+        {
+        [self.legendView.colors addObject:[colors[i] colorWithAlphaComponent:0.8]];
+        }
     }
 }
 

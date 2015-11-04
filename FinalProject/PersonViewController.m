@@ -19,20 +19,15 @@
 
 @property (weak, nonatomic) IBOutlet UIView *similarView;
 @property (weak, nonatomic) IBOutlet UIView *voteResultView;
-@property (weak, nonatomic) IBOutlet UIView *legislativeLike;
-@property (weak, nonatomic) IBOutlet UIImageView *similarImage;
-@property (weak, nonatomic) IBOutlet JYRadarChart *p;
 @end
 
 @implementation PersonViewController
-@synthesize p ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _similarView.hidden = NO;
     _voteResultView.hidden = YES;
 //    _similarImage.layer.masksToBounds = YES;
-    _similarImage.layer.cornerRadius = _similarImage.bounds.size.width / 2.0;
 //    LoginInfo *loginfo = [LoginInfo logstatus] ;
 //    [loginfo getLoginfo:self] ;
         // Do any additional setup after loading the view.
@@ -61,6 +56,8 @@
     switch (sender.selectedSegmentIndex) {
         case 0:
             _similarView.hidden = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reload" object:nil
+                                                              userInfo:nil];
             _voteResultView.hidden = YES;
         break;
         case 1:

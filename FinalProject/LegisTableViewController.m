@@ -30,10 +30,11 @@
                                 bundle:nil];
     [self.tableView registerNib:nib
          forCellReuseIdentifier:@"legisCellId"];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 500;
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.RowHeight = 360;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setlegisLocation:) name:@"setuser" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name:@"reload" object:nil];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -197,11 +198,14 @@
     return title;
 }
 -(void)displayRadarChart:(LegisFollowTableViewCell *)cell legisData:(LegisData *)legisdata{
-    //    JYRadarChart *p = [[JYRadarChart alloc] initWithFrame:CGRectMake(0, 100, 340, 340)];
+        JYRadarChart *radarView = [[JYRadarChart alloc] initWithFrame:CGRectMake(0,63, 300, 300)];
 //    cell.radarHeight.constant = 500;
     //        [UIView animateWithDuration:0.3f animations:^{
     //            [self.view layoutIfNeeded];
     //        }];
+    
+//    [cell.radarView removeFromSuperview];
+   
     NSArray *array =  legisdata.scoreArray;
     NSMutableArray *categoryArray = [@[] mutableCopy] ;
     NSMutableArray *legisScoreArray = [@[] mutableCopy];
@@ -216,65 +220,71 @@
     NSArray *a2 = legisScoreArray;
     
     //set the data series
-    cell.radarView.dataSeries = @[a1, a2];
+    radarView.dataSeries = @[a1, a2];
     
     //how many "circles" in the chart
-    cell.radarView.steps = legisdata.maxScore.intValue;
+    radarView.steps = legisdata.maxScore.intValue;
     
     //for the the entire background
-    cell.radarView.backgroundColor = [UIColor whiteColor];
+    radarView.backgroundColor = [UIColor whiteColor];
     
     //you can specify the background fill color
     //(just for the chart, not the entire background of the view)
-    cell.radarView.backgroundFillColor = [UIColor whiteColor];
-    
+    radarView.backgroundFillColor = [UIColor whiteColor];
+
     //you can set radius, min and max value by yourself, but if you
     //leave r (will fill the rect), minValue (will be 0), maxValue (default is 100) alone,
     //that is okay. the points with too big value will be out of the chart and thus invisible
-    cell.radarView.r = 100;
-    cell.radarView.minValue = -1;
-    cell.radarView.maxValue = legisdata.maxScore.intValue;
+    radarView.r = 100;
+    radarView.minValue = -1;
+    radarView.maxValue = legisdata.maxScore.intValue;
     
     //you can choose whether fill area or not (just draw lines)
-    cell.radarView.fillArea = YES;
+    radarView.fillArea = YES;
     
     //you can specify the opacity, default is 1.0 (opaque)
-    cell.radarView.colorOpacity = 0.7;
-    cell.radarView.attributes = categoryArray;
+    radarView.colorOpacity = 0.7;
+    radarView.attributes = categoryArray;
     
     //if you do not need a legend, you can safely get rid of setTitles:
-    cell.radarView.showLegend = YES;
-    [cell.radarView setTitles:@[@"自身意見取向", @"立委意見取向"]];
+    radarView.showLegend = YES;
+    [radarView setTitles:@[@"自身意見取向", @"立委意見取向"]];
     
     //there is a color generator in the code, it will generate colors for you
     //so if you do not want to specify the colors yourself, just delete the line below
-    [cell.radarView setColors:@[[UIColor redColor],[UIColor yellowColor]]];
+    [radarView setColors:@[[UIColor redColor],[UIColor colorWithRed:0.83 green:0.99 blue:0.47 alpha:1]]];
     
-    cell.radarView.contentMode = UIViewContentModeScaleToFill;
+    radarView.contentMode = UIViewContentModeScaleToFill;
     
-    
+    [cell.contentView addSubview:radarView];
     //設定auto Layout
     
-    //    p.translatesAutoresizingMaskIntoConstraints = NO;
-    //    NSLayoutConstraint *constraint = [NSLayoutConstraint
-    //                                            constraintWithItem:p attribute:NSLayoutAttributeCenterX
-    //                                            relatedBy:NSLayoutRelationEqual toItem:self.similarView                                            attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];;
-    //
-    //    [self.view addConstraint:constraint];
-    //
-    //     constraint = [NSLayoutConstraint
-    //                                            constraintWithItem:p attribute:NSLayoutAttributeTop
-    //                                            relatedBy:NSLayoutRelationEqual toItem:self.similarView                                            attribute:NSLayoutAttributeTop multiplier:1 constant:110];
-    //    [self.view addConstraint:constraint];
-    //    constraint = [NSLayoutConstraint
-    //                        constraintWithItem:p attribute:NSLayoutAttributeWidth
-    //                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeWidth multiplier:1 constant:360];
-    //    [self.view addConstraint:constraint];
-    //    constraint = [NSLayoutConstraint
-    //                        constraintWithItem:p attribute:NSLayoutAttributeHeight
-    //                        relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeHeight multiplier:1 constant:360];
-    //    [self.view addConstraint:constraint];
-    
+//        radarView.translatesAutoresizingMaskIntoConstraints = NO;
+//        NSLayoutConstraint *constraint = [NSLayoutConstraint
+//                                                constraintWithItem:radarView attribute:NSLayoutAttributeCenterX
+//                                                relatedBy:NSLayoutRelationEqual
+//                                          toItem:cell.contentView                                             attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];;
+//    
+//        [cell.contentView addConstraint:constraint];
+//    
+//         constraint = [NSLayoutConstraint
+//                                                constraintWithItem:radarView attribute:NSLayoutAttributeTop
+//                                                relatedBy:NSLayoutRelationEqual toItem:cell.legisName                                           attribute:NSLayoutAttributeTop multiplier:1 constant:20];
+//        [cell.contentView addConstraint:constraint];
+//    
+//    constraint = [NSLayoutConstraint
+//                  constraintWithItem:radarView attribute:NSLayoutAttributeBottom
+//                  relatedBy:NSLayoutRelationEqual toItem:cell.contentView                                           attribute:NSLayoutAttributeTop multiplier:1 constant:20];
+//    [cell.contentView addConstraint:constraint];
+//        constraint = [NSLayoutConstraint
+//                            constraintWithItem:radarView attribute:NSLayoutAttributeWidth
+//                            relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeWidth multiplier:1 constant:300];
+//        [radarView addConstraint:constraint];
+//        constraint = [NSLayoutConstraint
+//                            constraintWithItem:radarView attribute:NSLayoutAttributeHeight
+//                            relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeHeight multiplier:1 constant:300];
+//        [radarView addConstraint:constraint];
+//    
 }
 
 
@@ -321,11 +331,11 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return UITableViewAutomaticDimension;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return UITableViewAutomaticDimension;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return UITableViewAutomaticDimension;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return UITableViewAutomaticDimension;
+//}
 @end
