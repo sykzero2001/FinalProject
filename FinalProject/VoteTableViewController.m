@@ -172,7 +172,7 @@
     controller.issueID = dic[@"issueId"];
     controller.issueTitle = dic[@"name"];
     controller.issueBody = dic[@"issueContent"];
-    controller.showTheResultOfVote = YES;
+    controller.showTheResultOfVoteFromRight = YES;
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
