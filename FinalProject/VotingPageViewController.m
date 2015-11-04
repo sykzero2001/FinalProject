@@ -13,7 +13,7 @@
 #import <AFNetworking/AFNetworking.h>
 @interface VotingPageViewController () <XYPieChartDataSource, XYPieChartDelegate>
 {
-    bool showTheResultOfVote;
+//    bool showTheResultOfVote;
 }
 @property (weak, nonatomic) IBOutlet UIButton *yesBut;
 @property (weak, nonatomic) IBOutlet UIButton *passBut;
@@ -25,7 +25,6 @@
 @property(nonatomic, strong) NSArray *sliceColors;
 @property (weak, nonatomic) IBOutlet XYPieChart *pieChart;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *resultLabelHeight;
-
 @end
 
 @implementation VotingPageViewController
@@ -35,47 +34,52 @@
 }
 
 - (IBAction)yesSelected:(id)sender {
-    [self showResultOfVote];
     LoginInfo *loginfo = [LoginInfo logstatus] ;
     [loginfo getLoginfo:self] ;
     NSUserDefaults *userDefault = [NSUserDefaults
                                    standardUserDefaults];
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];
-    if(loginToken != nil){
+    if(loginToken == nil){
+    }else{
          NSDictionary *responseObject =  [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"yes"}];
         NSLog(@"%@",responseObject);
+        [self showResultOfVote];
+        [self pieChartPerform];
     }
-    [self pieChartPerform];
 }
 - (IBAction)noSelected:(id)sender {
-    [self showResultOfVote];
     LoginInfo *loginfo = [LoginInfo logstatus] ;
     [loginfo getLoginfo:self] ;
     NSUserDefaults *userDefault = [NSUserDefaults
                                    standardUserDefaults];
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];
-    if(loginToken != nil){
+    if(loginToken == nil){
+    }else{
+        [self showResultOfVote];
         NSDictionary *responseObject =  [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"no"}];
         NSLog(@"%@",responseObject);
+        [self pieChartPerform];
 
     }
-    [self pieChartPerform];
 
 }
 
 - (IBAction)passSelected:(id)sender {
-    [self showResultOfVote];
     LoginInfo *loginfo = [LoginInfo logstatus] ;
     [loginfo getLoginfo:self] ;
     NSUserDefaults *userDefault = [NSUserDefaults
                                    standardUserDefaults];
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];
-    if(loginToken != nil){
+    if(loginToken == nil){
         
-    NSDictionary *responseObject =  [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"pass"}];
+
+    }else{
+        [self showResultOfVote];
+        NSDictionary *responseObject =  [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"pass"}];
         NSLog(@"%@",responseObject);
+        [self pieChartPerform];
+
     }
-    [self pieChartPerform];
 
 }
 - (IBAction)editSelected:(id)sender {
@@ -114,8 +118,7 @@ return result;
     
     self.issueTitleLabel.text = self.issueTitle;
     self.issueBodyLabel.text = self.issueBody;
-   
-    showTheResultOfVote = NO;
+    [self showResultOfVote];
     // Do any additional setup after loading the view.
 }
 
@@ -161,9 +164,9 @@ return result;
 //生成相似的立委
 //- (IBAction)voteWithAgreeOrDisagree:(UIButton*)sender {
 -(void)showResultOfVote{
-    if (showTheResultOfVote == NO) {
+    if (_showTheResultOfVote == NO) {
         self.votingButHeight.constant = 0;
-        showTheResultOfVote = YES;
+        _showTheResultOfVote = YES;
         self.resultEditButHeight.constant = 30;
         [self.yesBut setTitleColor:[UIColor clearColor] forState:normal];
         [self.noBut setTitleColor:[UIColor clearColor] forState:normal];
@@ -185,7 +188,7 @@ return result;
             [self.passBut setTitleColor:[UIColor blackColor] forState:normal];
             [self.editBut setTitleColor:[UIColor clearColor] forState:normal];
             self.votingButHeight.constant = 30;
-            showTheResultOfVote = NO;
+            _showTheResultOfVote = NO;
             self.resultEditButHeight.constant = 0;
 //            [UIView animateWithDuration:0.01f animations:^{
 //                [self.view layoutIfNeeded]; }];

@@ -15,5 +15,5 @@
 @property (strong, nonatomic) NSString *issueTitle;
 @property (strong, nonatomic) NSString *issueBody;
 @property (weak, nonatomic) NSNumber *issueID;
-
+@property  BOOL showTheResultOfVote;
 @end

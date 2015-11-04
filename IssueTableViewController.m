@@ -39,8 +39,8 @@
 
 - (void)downloadIssue {
     
-    LoginInfo *loginfo = [LoginInfo logstatus] ;
-    [loginfo getLoginfo:self] ;
+//    LoginInfo *loginfo = [LoginInfo logstatus] ;
+//    [loginfo getLoginfo:self] ;
     NSUserDefaults *userDefault = [NSUserDefaults
                                    standardUserDefaults];
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];

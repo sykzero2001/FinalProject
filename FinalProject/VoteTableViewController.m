@@ -107,7 +107,7 @@
                         break;
                 };
                 
-                NSDictionary *dic = @{@"name":appDic[@"issue_name"],@"issueType":appDic[@"issue_category"],@"vote":dicIssue};
+                NSDictionary *dic = @{@"name":appDic[@"issue_name"],@"issueType":appDic[@"issue_category"],@"vote":dicIssue,@"issueId":appDic[@"issue_id"]};
                 [voteArray addObject:dic];
 //                NSLog(@"issue_category %@", appDic[@"issue_category"]);
 //                NSLog(@"issue_content %@", appDic[@"issue_content"]);
@@ -166,10 +166,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
 (NSIndexPath *)indexPath
 {
-
+    NSDictionary *dic = voteArray[indexPath.row];
     VotingPageViewController *controller = [self.storyboard
                                             instantiateViewControllerWithIdentifier:@"VotingPageViewController"];
-    
+    controller.issueID = dic[@"issueId"];
+    controller.showTheResultOfVote = YES;
     [self.navigationController pushViewController:controller animated:YES];
     
 }
