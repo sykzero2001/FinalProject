@@ -144,6 +144,11 @@ return result;
    // NSLog(@"===========%@=============viewdidload",resultOfVoteDic);
     // Do any additional setup after loading the view.
 }
+-(void)viewWillDisappear:(BOOL)animated{
+//    [self viewWillDisappear:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"openConst" object:nil
+                                                      userInfo:nil];
+}
 
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index{
     UIColor *color;

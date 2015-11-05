@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 
 @property (weak, nonatomic) IBOutlet UIView *similarView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topconst;
 @property (weak, nonatomic) IBOutlet UIView *voteResultView;
 @end
 
@@ -83,12 +84,12 @@
 -(void)openConst{
     [self.segment setTintColor:[UIColor colorWithRed:0.15 green:0.84 blue:0.8 alpha:1]];
     self.segmentConstraint.constant = 28;
-    self.topConstraint.constant = 30;
+    self.topconst.constant = 5;
 }
 -(void)closeConst{
     [self.segment setTintColor:[UIColor clearColor]];
     self.segmentConstraint.constant = 0;
-    self.topConstraint.constant = 0;
+    self.topconst.constant = 0;
 }
 /*
 #pragma mark - Navigation

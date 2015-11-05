@@ -441,7 +441,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALS-Cw-zPy">
-                                <rect key="frame" x="10" y="49" width="300" height="440"/>
+                                <rect key="frame" x="10" y="53" width="300" height="436"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="JyC-6N-sxp"/>
@@ -464,7 +464,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ALS-Cw-zPy" firstAttribute="top" secondItem="erl-Yf-asD" secondAttribute="bottom" constant="1" id="HIk-h7-p9k"/>
+                            <constraint firstItem="ALS-Cw-zPy" firstAttribute="top" secondItem="erl-Yf-asD" secondAttribute="bottom" constant="5" id="HIk-h7-p9k"/>
                             <constraint firstItem="Unn-fS-2Oi" firstAttribute="top" secondItem="ALS-Cw-zPy" secondAttribute="bottom" constant="30" id="R3o-Oe-GPK"/>
                             <constraint firstItem="erl-Yf-asD" firstAttribute="centerX" secondItem="6rM-1u-qlV" secondAttribute="centerX" id="TyQ-aR-XAs"/>
                             <constraint firstItem="erl-Yf-asD" firstAttribute="top" secondItem="5Pg-yY-L0V" secondAttribute="bottom" id="U8O-yM-y7y"/>
@@ -479,7 +479,7 @@
                         <outlet property="segment" destination="erl-Yf-asD" id="spZ-BJ-cfj"/>
                         <outlet property="segmentConstraint" destination="DIY-60-D6K" id="dp5-N7-0uc"/>
                         <outlet property="similarView" destination="EnN-Po-ZUd" id="viL-gP-tgh"/>
-                        <outlet property="topConstraint" destination="UkP-EB-APn" id="AKl-9z-5AH"/>
+                        <outlet property="topconst" destination="HIk-h7-p9k" id="55Q-66-Xk8"/>
                         <outlet property="voteResultView" destination="ALS-Cw-zPy" id="Cj0-5t-Jnt"/>
                     </connections>
                 </viewController>
@@ -573,7 +573,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="myVote" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dcA-md-Lhw" customClass="VoteTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qdM-PS-9Ys">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="440"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1340,11 +1340,11 @@
             </objects>
             <point key="canvasLocation" x="-202" y="1004"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--設定-->
         <scene sceneID="x87-KK-8Ef">
             <objects>
                 <navigationController id="5Hp-F3-qoq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="A2K-hz-L9E"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="prototype_filled-25" id="A2K-hz-L9E"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ase-E5-F1L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1381,6 +1381,7 @@
     <resources>
         <image name="action_filled-32" width="16" height="16"/>
         <image name="administrator-32" width="16" height="16"/>
+        <image name="prototype_filled-25" width="25" height="25"/>
         <image name="swearing_filled-32" width="16" height="16"/>
     </resources>
 </document>
