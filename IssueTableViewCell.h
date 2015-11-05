@@ -11,7 +11,8 @@
 @interface IssueTableViewCell : UITableViewCell
 
 @property (nonatomic) NSString *category;
+@property (weak, nonatomic) IBOutlet UIImageView *categoriesImageView;
 @property (weak, nonatomic) IBOutlet UILabel *typeOfLawLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameOfIssueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bodyOfIssueLabel;
+
 @end

@@ -97,8 +97,35 @@
         cell.category = issueArray[indexPath.row][@"category"];
         cell.typeOfLawLabel.text = issueArray[indexPath.row][@"category"];
         cell.nameOfIssueLabel.text = issueArray[indexPath.row][@"name"];
-        cell.bodyOfIssueLabel.text = issueArray[indexPath.row][@"created_at"];
-
+        if ([cell.category isEqualToString:@"外交/國防" ])
+        {
+            cell.categoriesImageView.image = [UIImage imageNamed:@"外交"];
+        }
+        else if ([cell.category isEqualToString:@"經濟" ])
+        {
+            cell.categoriesImageView.image = [UIImage imageNamed:@"經濟"];
+        }
+        else if ([cell.category isEqualToString:@"財政" ])
+        {
+            cell.categoriesImageView.image = [UIImage imageNamed:@"財政"];
+        }
+        else if ([cell.category isEqualToString:@"內政" ] )
+        {
+            cell.categoriesImageView.image = [UIImage imageNamed:@"內政"];
+        }
+        else if ([cell.category isEqualToString:@"司法/法制" ])
+        {
+            cell.categoriesImageView.image = [UIImage imageNamed:@"司法"];
+        }
+        else if ([cell.category isEqualToString:@"社福/衛環" ] )
+        {
+            cell.categoriesImageView.image = [UIImage imageNamed:@"社福"];
+        }
+        else if ([cell.category isEqualToString:@"交通" ] )
+        {
+            cell.categoriesImageView.image = [UIImage imageNamed:@"交通"];
+        }
+// cell.categoriesImageView.image = issueArray[indexPath.row][];
     }
         // Configure the cell...
     
@@ -117,7 +144,7 @@
     if ([segue.identifier isEqualToString:@"toVotingPage"]) {
         VotingPageViewController *votingpage = [segue destinationViewController];
         votingpage.issueTitle =  issueArray[indexPath.row][@"name"];
-        votingpage.issueBody = issueArray[indexPath.row][@"name"];
+        votingpage.issueBody = issueArray[indexPath.row][@"content"];
         votingpage.issueID = issueArray[indexPath.row][@"id"];
     }
 }

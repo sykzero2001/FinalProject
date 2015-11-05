@@ -26,6 +26,8 @@
 		DE3E13ED1BDFC831007BEFD8 /* UserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E13EC1BDFC831007BEFD8 /* UserNameViewController.m */; };
 		DE40F05F1BE885410009D773 /* LegisData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F05E1BE885410009D773 /* LegisData.m */; settings = {ASSET_TAGS = (); }; };
 		DE40F0621BE90C5D0009D773 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		DE40F05F1BE885410009D773 /* LegisData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F05E1BE885410009D773 /* LegisData.m */; };
+		DE40F0621BE90C5D0009D773 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */; };
 		DE7D5D881BD617BA00D993F5 /* VoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */; };
 		DE7D5D891BD617BA00D993F5 /* VoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE7D5D871BD617BA00D993F5 /* VoteTableViewCell.xib */; };
 		DE98F4961BD0D4B400B4EC9E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE98F4951BD0D4B400B4EC9E /* LoginViewController.m */; };
@@ -320,7 +322,7 @@
 				TargetAttributes = {
 					DEEA477A1BCF78DC00B66015 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 9U5JLSE84B;
+						DevelopmentTeam = 663GF3YJMN;
 					};
 				};
 			};

@@ -62,7 +62,7 @@ NSString *loginToken = [userDefault objectForKey:@"loginToken"];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:@"http://jksong.tw/api/v1/profiles/13/registed_data" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+     //   NSLog(@"JSON: %@", responseObject);
         NSDictionary *dic = responseObject[@"profile"];
         self.userIdentify = dic[@"id"];
         self.userEmail = responseObject[@"user_email"];
