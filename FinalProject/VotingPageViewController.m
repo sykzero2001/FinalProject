@@ -119,9 +119,7 @@
     [manager POST:@"http://jksong.tw/api/v1/issue_vote" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"===========%@=============",responseObject);
         self.resultOfVoteDic = responseObject;
-        votePercentage = @[[self.resultOfVoteDic objectForKey:@"total_no"],
-        [self.resultOfVoteDic objectForKey:@"total_pass"],
-        [self.resultOfVoteDic objectForKey:@"total_yes"]];
+       
         // NSLog(@"===========%@=============",resultOfVoteDic);
          [self pieChartPerform];
     }
@@ -184,6 +182,9 @@ return result;
     [self.pieChart setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];	//optional
     [self.pieChart setLabelShadowColor:[UIColor blackColor]];
     [self.pieChart setLabelColor:[UIColor blackColor]];
+    votePercentage = @[[self.resultOfVoteDic objectForKey:@"total_no"],
+                       [self.resultOfVoteDic objectForKey:@"total_pass"],
+                       [self.resultOfVoteDic objectForKey:@"total_yes"]];
      [self.pieChart reloadData];
 }
 
