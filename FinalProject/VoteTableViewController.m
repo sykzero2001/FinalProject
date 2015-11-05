@@ -107,7 +107,7 @@
                         break;
                 };
                 
-                NSDictionary *dic = @{@"name":appDic[@"issue_name"],@"issueType":appDic[@"issue_category"],@"vote":dicIssue,@"issueId":appDic[@"issue_id"],@"issueContent":appDic[@"issue_content"]};
+                NSDictionary *dic = @{@"name":appDic[@"issue_name"],@"issueType":appDic[@"issue_category"],@"vote":dicIssue,@"issueId":appDic[@"issue_id"],@"issueContent":appDic[@"issue_content"],@"issueTotalYes":appDic[@"issue_total_yes"]};
                 [voteArray addObject:dic];
 //                NSLog(@"issue_category %@", appDic[@"issue_category"]);
 //                NSLog(@"issue_content %@", appDic[@"issue_content"]);
@@ -166,15 +166,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:
 (NSIndexPath *)indexPath
 {
-    NSDictionary *dic = voteArray[indexPath.row];
-    VotingPageViewController *controller = [self.storyboard
-                                            instantiateViewControllerWithIdentifier:@"VotingPageViewController"];
-    controller.issueID = dic[@"issueId"];
-    controller.issueTitle = dic[@"name"];
-    controller.issueBody = dic[@"issueContent"];
-    controller.showTheResultOfVoteFromRight = YES;
-    [self.navigationController pushViewController:controller animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (voteArray.count > 0) {
+        NSDictionary *dic = voteArray[indexPath.row];
+        VotingPageViewController *controller = [self.storyboard
+                                                instantiateViewControllerWithIdentifier:@"VotingPageViewController"];
+        controller.issueID = dic[@"issueId"];
+        controller.issueTitle = dic[@"name"];
+        controller.issueBody = dic[@"issueContent"];
+        controller.showTheResultOfVoteFromRight = YES;
+        [self.navigationController pushViewController:controller animated:YES];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+   
     
 }
 /*
