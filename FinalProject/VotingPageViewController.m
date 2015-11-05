@@ -148,11 +148,11 @@ return result;
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index{
     UIColor *color;
     if(index%3 == 0){
-        color = [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1];
+        color = [UIColor colorWithRed:84/255.0 green:229/255.0 blue:209/255.0 alpha:1];
     }else if(index%2 == 0){
-        color = [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1];
+        color = [UIColor colorWithRed:255/255.0 green:239/255.0 blue:139/255.0 alpha:1];
     }else{
-        color = [UIColor colorWithRed:148/255.0 green:141/255.0 blue:139/255.0 alpha:1];;
+        color = [UIColor colorWithRed:237/255.0 green:81/255.0 blue:104/255.0 alpha:1];;
     }
     return color;
 }
@@ -177,7 +177,7 @@ return result;
     [self.pieChart setDataSource:self];
     [self.pieChart setStartPieAngle:M_PI_2];	//optional
     [self.pieChart setAnimationSpeed:1.0];	//optional
-    //   [self.pieChart setLabelRadius:160];
+    [self.pieChart setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];
     [self.pieChart setShowPercentage:YES];	//optional
     [self.pieChart setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];	//optional
     [self.pieChart setLabelShadowColor:[UIColor blackColor]];

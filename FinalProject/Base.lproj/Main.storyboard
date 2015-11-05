@@ -679,7 +679,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-S6-iSE">
-                                <rect key="frame" x="112" y="280.5" width="96" height="30"/>
+                                <rect key="frame" x="112" y="280" width="96" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.95544252592868795" green="0.7231350660106628" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="不表態">
@@ -690,16 +690,16 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHd-1d-DW5" customClass="XYPieChart">
-                                <rect key="frame" x="40" y="343" width="240" height="151"/>
+                                <rect key="frame" x="60" y="343" width="200" height="151"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="cYu-7P-yMC"/>
+                                    <constraint firstAttribute="width" constant="200" id="cYu-7P-yMC"/>
                                     <constraint firstAttribute="height" constant="151" id="prZ-rb-yKE"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEg-Gr-sqO">
-                                <rect key="frame" x="208" y="289.5" width="96" height="30"/>
+                                <rect key="frame" x="208" y="280" width="96" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.12777686744055672" green="0.89312958717346191" blue="0.59625557886657499" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="不贊成">
@@ -709,7 +709,7 @@
                                     <action selector="noSelected:" destination="Ohf-ez-Yq1" eventType="touchUpInside" id="NLz-sV-gZs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgu-sw-8hA">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgu-sw-8hA">
                                 <rect key="frame" x="16" y="289.5" width="288" height="0.0"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.24229392026597107" green="1" blue="0.63629755464734594" alpha="1" colorSpace="calibratedRGB"/>
@@ -833,7 +833,7 @@
                                 <rect key="frame" x="0.0" y="136" width="320" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BkD-0T-VJb" id="HYW-Tk-LTx">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdK-hV-7U2">
