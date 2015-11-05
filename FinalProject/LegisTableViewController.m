@@ -31,7 +31,7 @@
     [self.tableView registerNib:nib
          forCellReuseIdentifier:@"legisCellId"];
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.RowHeight = 360;
+    self.tableView.rowHeight = 360;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setlegisLocation:) name:@"setuser" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name:@"reload" object:nil];

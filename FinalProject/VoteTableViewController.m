@@ -176,6 +176,9 @@
         controller.issueBody = dic[@"issueContent"];
         controller.showTheResultOfVoteFromRight = YES;
         controller.resultOfVoteDic = issueResult;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"closeConst" object:nil
+                                                          userInfo:nil];
+
         [self.navigationController pushViewController:controller animated:YES];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }

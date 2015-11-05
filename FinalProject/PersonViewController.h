@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PersonViewController : UIViewController
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *segmentConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
 @end
