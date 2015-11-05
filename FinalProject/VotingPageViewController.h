@@ -11,11 +11,11 @@
 
 @interface VotingPageViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *issueTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *issueBodyLabel;
+@property (weak, nonatomic) IBOutlet UITextView *issueBodyTextView;
 @property (strong, nonatomic) NSString *issueTitle;
 @property (strong, nonatomic) NSString *issueBody;
 @property (weak, nonatomic) NSNumber *issueID;
 @property  BOOL showTheResultOfVote;
 @property  BOOL showTheResultOfVoteFromRight;
-
+@property(nonatomic, strong)  NSDictionary *resultOfVoteDic;
 @end

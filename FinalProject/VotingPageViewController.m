@@ -13,7 +13,8 @@
 #import <AFNetworking/AFNetworking.h>
 @interface VotingPageViewController () <XYPieChartDataSource, XYPieChartDelegate>
 {
-//    bool showTheResultOfVote;
+   // __block NSDictionary *resultOfVoteDic;
+    __block NSArray *votePercentage;
 }
 @property (weak, nonatomic) IBOutlet UIButton *yesBut;
 @property (weak, nonatomic) IBOutlet UIButton *passBut;
@@ -25,11 +26,35 @@
 @property(nonatomic, strong) NSArray *sliceColors;
 @property (weak, nonatomic) IBOutlet XYPieChart *pieChart;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *resultLabelHeight;
+
+
 @end
 
 @implementation VotingPageViewController
-- (IBAction)nextQuestion:(id)sender {
-    
+
+- (IBAction)clean:(id)sender {
+    LoginInfo *loginfo = [LoginInfo logstatus] ;
+    [loginfo getLoginfo:self] ;
+    NSUserDefaults *userDefault = [NSUserDefaults
+                                   standardUserDefaults];
+    NSString *loginToken = [userDefault objectForKey:@"loginToken"];
+    if(loginToken == nil){
+    }else{
+        __block NSDictionary *result = [[NSDictionary alloc] init];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager POST:@"http://jksong.tw/api/v1/clear_all" parameters:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"yes"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //    NSLog(@"===========%@=============",responseObject);
+            result = responseObject;
+        }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"Error: %@", error);
+                  result = @{};
+              }];
+
+        [self showResultOfVote];
+        [self pieChartPerform];
+    }
+
     
 }
 
@@ -41,10 +66,11 @@
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];
     if(loginToken == nil){
     }else{
-         NSDictionary *responseObject =  [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"yes"}];
-        NSLog(@"%@",responseObject);
         [self showResultOfVote];
-        [self pieChartPerform];
+        [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"yes"}];
+//        NSLog(@"%@",responseObject);
+        
+       
     }
 }
 - (IBAction)noSelected:(id)sender {
@@ -56,9 +82,9 @@
     if(loginToken == nil){
     }else{
         [self showResultOfVote];
-        NSDictionary *responseObject =  [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"no"}];
-        NSLog(@"%@",responseObject);
-        [self pieChartPerform];
+        [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"no"}];
+//        NSLog(@"%@",responseObject);
+//        [self pieChartPerform];
 
     }
 
@@ -75,9 +101,9 @@
 
     }else{
         [self showResultOfVote];
-        NSDictionary *responseObject =  [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"pass"}];
-        NSLog(@"%@",responseObject);
-        [self pieChartPerform];
+        [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"pass"}];
+//        NSLog(@"%@",responseObject);
+//        [self pieChartPerform];
 
     }
 
@@ -91,8 +117,13 @@
     __block NSDictionary *result = [[NSDictionary alloc] init];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:@"http://jksong.tw/api/v1/issue_vote" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"===========%@=============",responseObject);
-        result = responseObject;
+//        NSLog(@"===========%@=============",responseObject);
+        self.resultOfVoteDic = responseObject;
+        votePercentage = @[[self.resultOfVoteDic objectForKey:@"total_no"],
+        [self.resultOfVoteDic objectForKey:@"total_pass"],
+        [self.resultOfVoteDic objectForKey:@"total_yes"]];
+        // NSLog(@"===========%@=============",resultOfVoteDic);
+         [self pieChartPerform];
     }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               NSLog(@"Error: %@", error);
@@ -103,22 +134,16 @@ return result;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     NSLog(@"issueID %@",self.issueID);
-//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-//    [self.pieChart setDelegate:self];
-  
-    
- //    [self.percentageLabel.layer setCornerRadius:90];
-//
-    
-//                       //
-//    //rotate up arrow
-//    self.downArrow.transform = CGAffineTransformMakeRotation(M_PI);
-    
     self.issueTitleLabel.text = self.issueTitle;
-    self.issueBodyLabel.text = self.issueBody;
-    [self showResultOfVote];
+    self.issueBodyTextView.text = self.issueBody;
+    _showTheResultOfVote = NO;
+    if(_showTheResultOfVoteFromRight == YES){
+        [self showResultOfVote];
+        [self pieChartPerform];
+    };
+    
+   // NSLog(@"===========%@=============viewdidload",resultOfVoteDic);
     // Do any additional setup after loading the view.
 }
 
@@ -144,7 +169,9 @@ return result;
 }
 - (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
 {
-    return 100/3;
+    NSLog(@"=========piechartarray==%@=============",votePercentage);
+    return [[votePercentage objectAtIndex:index] intValue];
+
 }
 
 -(void)pieChartPerform{
@@ -159,29 +186,17 @@ return result;
     [self.pieChart setLabelColor:[UIColor blackColor]];
      [self.pieChart reloadData];
 }
-//- (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index;	//optional
-//- (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index;	//optional
-//生成相似的立委
-//- (IBAction)voteWithAgreeOrDisagree:(UIButton*)sender {
+
 -(void)showResultOfVote{
     if (_showTheResultOfVote == NO) {
-        self.votingButHeight.constant = 0;
-        _showTheResultOfVote = YES;
-        self.resultEditButHeight.constant = 30;
-        [self.yesBut setTitleColor:[UIColor clearColor] forState:normal];
-        [self.noBut setTitleColor:[UIColor clearColor] forState:normal];
-        [self.passBut setTitleColor:[UIColor clearColor] forState:normal];
-        [self.editBut setTitleColor:[UIColor blackColor] forState:normal];
-        self.resultLabelHeight.constant = 20;
-     
-//        self.sliceColors = [NSArray arrayWithObjects:
-//                            [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
-//                            [UIColor colorWithRed:229/255.0 green:66/255.0 blue:115/255.0 alpha:1],
-//                            [UIColor colorWithRed:148/255.0 green:141/255.0 blue:139/255.0 alpha:1],nil];
-       
-
-//            [UIView animateWithDuration:0.01f animations:^{
-//            [self.view layoutIfNeeded]; }];
+            self.votingButHeight.constant = 0;
+            _showTheResultOfVote = YES;
+            self.resultEditButHeight.constant = 30;
+            [self.yesBut setTitleColor:[UIColor clearColor] forState:normal];
+            [self.noBut setTitleColor:[UIColor clearColor] forState:normal];
+            [self.passBut setTitleColor:[UIColor clearColor] forState:normal];
+            [self.editBut setTitleColor:[UIColor blackColor] forState:normal];
+            self.resultLabelHeight.constant = 20;
         }else{
             [self.yesBut setTitleColor:[UIColor blackColor] forState:normal];
             [self.noBut setTitleColor:[UIColor blackColor] forState:normal];
@@ -190,21 +205,9 @@ return result;
             self.votingButHeight.constant = 30;
             _showTheResultOfVote = NO;
             self.resultEditButHeight.constant = 0;
-//            [UIView animateWithDuration:0.01f animations:^{
-//                [self.view layoutIfNeeded]; }];
         }
 }
-//    if (showTheResultOfVote == NO) {
-//        self.resultLabelHeight.constant = 20.5;
-//        self.nameOfResultHeight.constant = 20.5;
-//        self.pictureOfResultHeight.constant = 190;
-//        showTheResultOfVote = YES;
-//    }
-//    [UIView animateWithDuration:0.2f animations:^{
-//        [self.view layoutIfNeeded];
-//    }];
-//    
-//}
+
 /*
 #pragma mark - Navigation
 
