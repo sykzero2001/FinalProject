@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -15,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boa-sH-RKz">
-                        <rect key="frame" x="0.0" y="22" width="295" height="30"/>
+                        <rect key="frame" x="0.0" y="22" width="61.5" height="30"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="9oD-Wn-iDN"/>
@@ -23,9 +24,14 @@
                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="24"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9oD-Wn-iDN"/>
+                            </mask>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEO-YZ-SH6">
-                        <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                        <rect key="frame" x="26" y="0.0" width="42" height="21"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="IWo-Cm-exp"/>
@@ -40,7 +46,25 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="63f-hM-npe"/>
                             <constraint firstAttribute="width" constant="40" id="R8H-aq-xD4"/>
+                            <constraint firstAttribute="width" secondItem="pHe-GV-Hp2" secondAttribute="height" multiplier="1:1" id="qqc-W5-Zit"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="63f-hM-npe"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3qP-nV-h1J">
+                        <rect key="frame" x="0.0" y="1" width="21" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="RWR-34-tTP"/>
+                            <constraint firstAttribute="width" constant="21" id="hat-dc-T6g"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RWR-34-tTP"/>
+                            </mask>
+                        </variation>
                     </imageView>
                 </subviews>
                 <animations/>
@@ -50,17 +74,24 @@
                     <constraint firstAttribute="trailingMargin" secondItem="pHe-GV-Hp2" secondAttribute="trailing" id="7Me-UC-qTI"/>
                     <constraint firstItem="dEO-YZ-SH6" firstAttribute="top" secondItem="pHe-GV-Hp2" secondAttribute="top" id="BpP-Jn-bMg"/>
                     <constraint firstItem="dEO-YZ-SH6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Lhe-UV-Fen"/>
+                    <constraint firstItem="boa-sH-RKz" firstAttribute="leading" secondItem="3qP-nV-h1J" secondAttribute="leading" id="Mnt-vu-0fZ"/>
                     <constraint firstItem="dEO-YZ-SH6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="WOC-6U-Ly2"/>
+                    <constraint firstItem="dEO-YZ-SH6" firstAttribute="leading" secondItem="3qP-nV-h1J" secondAttribute="trailing" constant="5" id="YJD-Md-gos"/>
                     <constraint firstAttribute="bottomMargin" secondItem="boa-sH-RKz" secondAttribute="bottom" id="Yai-dl-l7G"/>
                     <constraint firstItem="boa-sH-RKz" firstAttribute="leading" secondItem="dEO-YZ-SH6" secondAttribute="leading" id="aTe-zT-ObB"/>
                     <constraint firstItem="boa-sH-RKz" firstAttribute="top" secondItem="dEO-YZ-SH6" secondAttribute="bottom" constant="1" id="i6g-9p-1wg"/>
+                    <constraint firstItem="boa-sH-RKz" firstAttribute="top" secondItem="3qP-nV-h1J" secondAttribute="bottom" constant="1" id="lK0-HU-GO3"/>
                     <constraint firstItem="dEO-YZ-SH6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="nHp-tG-YTh"/>
+                    <constraint firstItem="3qP-nV-h1J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="o6Z-J8-IAq"/>
                     <constraint firstItem="pHe-GV-Hp2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dEO-YZ-SH6" secondAttribute="trailing" constant="1" id="sfj-8q-XkV"/>
+                    <constraint firstItem="3qP-nV-h1J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="stl-ge-Pr5"/>
                     <constraint firstItem="pHe-GV-Hp2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="vFl-9Z-tly"/>
-                    <constraint firstItem="pHe-GV-Hp2" firstAttribute="leading" relation="lessThanOrEqual" secondItem="boa-sH-RKz" secondAttribute="trailing" constant="1" id="xWp-ww-zbj"/>
+                    <constraint firstItem="pHe-GV-Hp2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="boa-sH-RKz" secondAttribute="trailing" constant="1" id="xWp-ww-zbj"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="aTe-zT-ObB"/>
+                        <exclude reference="1cD-P5-FuB"/>
                         <exclude reference="BpP-Jn-bMg"/>
                         <exclude reference="WOC-6U-Ly2"/>
                         <exclude reference="nHp-tG-YTh"/>
@@ -69,6 +100,7 @@
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="categoryImage" destination="3qP-nV-h1J" id="AAZ-CI-UJ5"/>
                 <outlet property="cellImage" destination="pHe-GV-Hp2" id="fTZ-5m-ldS"/>
                 <outlet property="detailLabel" destination="boa-sH-RKz" id="xTs-fG-wiP"/>
                 <outlet property="nameLabel" destination="dEO-YZ-SH6" id="AOU-1e-YLB"/>

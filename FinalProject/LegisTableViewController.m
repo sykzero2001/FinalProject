@@ -35,6 +35,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setlegisLocation:) name:@"setuser" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewWillAppear:) name:@"reload" object:nil];
+    NSLog(@"legisViewDid");
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -48,8 +49,7 @@
     if (loginToken!= nil) {
         NSDictionary *paraAll = @{@"auth_token":loginToken,@"total_number":@"3"};
         [self getLegisApi:paraAll token:loginToken array:legisArrayAll];    };
-    
-    
+   NSLog(@"legisViewWill");
     
 }
 -(void)setlegisLocation:(NSNotification*)info{
@@ -92,7 +92,7 @@
                 //            };
                 
             };
-            NSLog(@"Result:%@",responseObject);
+//            NSLog(@"Result:%@",responseObject);
             [self.tableView reloadData];
         }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -127,12 +127,12 @@
     NSArray *legisArray ;
     if (indexPath.section == 0) {
         legisArray = legisArrayLocal;
-        NSLog(@"Local: %@", legisArrayLocal);
+//        NSLog(@"Local: %@", legisArrayLocal);
     }
     else
     {
         legisArray = legisArrayAll;
-        NSLog(@"All: %@", legisArrayAll);
+//        NSLog(@"All: %@", legisArrayAll);
     };
     
     if (legisArray != nil && legisArray.count != 0) {

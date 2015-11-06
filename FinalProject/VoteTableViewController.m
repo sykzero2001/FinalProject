@@ -158,6 +158,37 @@
         {
             cell.cellImage.image = nil;
         };
+        if ([cell.nameLabel.text isEqualToString:@"外交/國防" ])
+        {
+            cell.categoryImage.image = [UIImage imageNamed:@"國防"];
+        }
+        else if ([cell.nameLabel.text isEqualToString:@"經濟" ])
+        {
+            cell.categoryImage.image = [UIImage imageNamed:@"經濟"];
+        }
+        else if ([cell.nameLabel.text isEqualToString:@"財政" ])
+        {
+            cell.categoryImage.image = [UIImage imageNamed:@"財政"];
+        }
+        else if ([cell.nameLabel.text isEqualToString:@"內政" ] )
+        {
+            cell.categoryImage.image = [UIImage imageNamed:@"內政"];
+        }
+        else if ([cell.nameLabel.text isEqualToString:@"司法/法制" ])
+        {
+            cell.categoryImage.image = [UIImage imageNamed:@"司法"];
+        }
+        else if ([cell.nameLabel.text isEqualToString:@"社福/衛環" ] )
+        {
+            cell.categoryImage.image = [UIImage imageNamed:@"社福"];
+        }
+        else if ([cell.nameLabel.text isEqualToString:@"交通" ] )
+        {
+            cell.categoryImage.image = [UIImage imageNamed:@"交通"];
+        }else {
+            cell.categoryImage.image = [UIImage imageNamed:@"教育"];
+            
+        }
     }
     
     return cell;

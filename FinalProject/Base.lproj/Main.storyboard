@@ -441,10 +441,10 @@
                                 </connections>
                             </segmentedControl>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALS-Cw-zPy">
-                                <rect key="frame" x="37" y="53" width="300" height="535"/>
+                                <rect key="frame" x="27" y="53" width="320" height="535"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="JyC-6N-sxp"/>
+                                    <constraint firstAttribute="width" constant="320" id="JyC-6N-sxp"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="dU1-TS-73V" kind="embed" id="oEy-lB-N2I"/>
@@ -573,22 +573,22 @@
             <objects>
                 <tableViewController storyboardIdentifier="myVote" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dcA-md-Lhw" customClass="VoteTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qdM-PS-9Ys">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="535"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="535"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="9gC-h5-1PZ">
-                            <rect key="frame" x="0.0" y="116" width="300" height="0.0"/>
+                            <rect key="frame" x="0.0" y="116" width="320" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellId" id="H0H-XI-JIw">
-                                <rect key="frame" x="0.0" y="72" width="300" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H0H-XI-JIw" id="tl4-oh-gAk">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>

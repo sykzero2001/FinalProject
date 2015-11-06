@@ -31,6 +31,7 @@
     _voteResultView.hidden = YES;
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openConst) name:@"openConst" object:nil];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeConst) name:@"closeConst" object:nil];
+    NSLog(@"PersonViewDid");
 //    _similarImage.layer.masksToBounds = YES;
 //    LoginInfo *loginfo = [LoginInfo logstatus] ;
 //    [loginfo getLoginfo:self] ;
@@ -53,6 +54,7 @@
 //    else{
 //        
 //    }
+    NSLog(@"PersonViewWill");
    
 
 }
