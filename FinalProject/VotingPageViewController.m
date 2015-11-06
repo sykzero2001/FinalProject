@@ -16,6 +16,10 @@
    // __block NSDictionary *resultOfVoteDic;
     __block NSArray *votePercentage;
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *yeImageHeight;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *noImageHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *passImageHeight;
 @property (weak, nonatomic) IBOutlet UIButton *yesBut;
 @property (weak, nonatomic) IBOutlet UIButton *passBut;
 @property (weak, nonatomic) IBOutlet UIButton *noBut;
@@ -98,13 +102,9 @@
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];
     if(loginToken == nil){
         
-
     }else{
         [self showResultOfVote];
         [self catchApi:@{@"auth_token":loginToken,@"id":self.issueID,@"votting":@"pass"}];
-//        NSLog(@"%@",responseObject);
-//        [self pieChartPerform];
-
     }
 
 }
@@ -136,11 +136,11 @@ return result;
     self.issueTitleLabel.text = self.issueTitle;
     self.issueBodyTextView.text = self.issueBody;
     _showTheResultOfVote = NO;
+    
     if(_showTheResultOfVoteFromRight == YES){
         [self showResultOfVote];
         [self pieChartPerform];
     };
-    
    // NSLog(@"===========%@=============viewdidload",resultOfVoteDic);
     // Do any additional setup after loading the view.
 }
@@ -195,23 +195,26 @@ return result;
 
 -(void)showResultOfVote{
     if (_showTheResultOfVote == NO) {
-            self.votingButHeight.constant = 0;
-            _showTheResultOfVote = YES;
-            self.resultEditButHeight.constant = 30;
-            [self.yesBut setTitleColor:[UIColor clearColor] forState:normal];
-            [self.noBut setTitleColor:[UIColor clearColor] forState:normal];
-            [self.passBut setTitleColor:[UIColor clearColor] forState:normal];
-            [self.editBut setTitleColor:[UIColor blackColor] forState:normal];
-            self.resultLabelHeight.constant = 20;
-        }else{
-            [self.yesBut setTitleColor:[UIColor blackColor] forState:normal];
-            [self.noBut setTitleColor:[UIColor blackColor] forState:normal];
-            [self.passBut setTitleColor:[UIColor blackColor] forState:normal];
-            [self.editBut setTitleColor:[UIColor clearColor] forState:normal];
-            self.votingButHeight.constant = 30;
-            _showTheResultOfVote = NO;
-            self.resultEditButHeight.constant = 0;
-        }
+        self.votingButHeight.constant = 0;
+        _showTheResultOfVote = YES;
+        self.resultEditButHeight.constant = 30;
+        self.yeImageHeight.constant = 40;
+        self.noImageHeight.constant = 40;
+        self.passImageHeight.constant = 40;
+        [self.yesBut setTitleColor:[UIColor clearColor] forState:normal];
+        [self.noBut setTitleColor:[UIColor clearColor] forState:normal];
+        [self.passBut setTitleColor:[UIColor clearColor] forState:normal];
+        [self.editBut setTitleColor:[UIColor blackColor] forState:normal];
+        self.resultLabelHeight.constant = 20;
+    }else{
+        [self.yesBut setTitleColor:[UIColor blackColor] forState:normal];
+        [self.noBut setTitleColor:[UIColor blackColor] forState:normal];
+        [self.passBut setTitleColor:[UIColor blackColor] forState:normal];
+        [self.editBut setTitleColor:[UIColor clearColor] forState:normal];
+        self.votingButHeight.constant = 30;
+        _showTheResultOfVote = NO;
+        self.resultEditButHeight.constant = 0;
+    }
 }
 
 /*

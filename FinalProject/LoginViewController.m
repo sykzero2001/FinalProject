@@ -79,8 +79,6 @@
 - (IBAction)back:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangetabNoti" object:nil];
         [self dismissViewControllerAnimated:YES completion:nil];
-    
-    
 }
 - (void)  loginButton:(FBSDKLoginButton *)loginButton
 didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
