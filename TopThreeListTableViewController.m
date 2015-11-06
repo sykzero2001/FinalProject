@@ -9,6 +9,9 @@
 #import "TopThreeListTableViewController.h"
 #import "JYRadarChart.h"
 #import "LegisFollowTableViewCell.h"
+#import <AFNetworking/AFNetworking.h>
+#import "LegisData.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TopThreeListTableViewController (){
 NSMutableArray *congressmanRankArray;
@@ -32,17 +35,17 @@ NSMutableArray *congressmanRankArray;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    legisArrayLocal = [@[] mutableCopy];
-        NSDictionary *paraAll = @{@"auth_token":loginToken,@"total_number":@"3"};
-        [self getLegisApi:paraAll token:loginToken array:legisArrayAll];
+    congressmanRankArray = [@[] mutableCopy];
+        NSDictionary *paraAll = @{@"total_number":@"3"};
+        [self getLegisApi:paraAll  array:congressmanRankArray];
     
     
     
 }
 
--(void)getLegisApi:(NSDictionary*)parameter token:(NSString*)loginToken array:(NSMutableArray*)arrayAdd{
+-(void)getLegisApi:(NSDictionary*)parameter array:(NSMutableArray*)arrayAdd{
     
-    if (loginToken != nil) {
+   
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_legislators_ships" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
             //            NSLog(@"JSON: %@", responseObject);
@@ -73,7 +76,7 @@ NSMutableArray *congressmanRankArray;
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"Error: %@", error);
              }];
-    };
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,7 +92,7 @@ NSMutableArray *congressmanRankArray;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-        return legisArrayLocal.count;
+        return congressmanRankArray.count;
    
 }
 
@@ -97,7 +100,7 @@ NSMutableArray *congressmanRankArray;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LegisFollowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"legisCellId" forIndexPath:indexPath];
     NSArray *legisArray ;
-        legisArray = legisArrayLocal;
+        legisArray = congressmanRankArray;
    
     
     if (legisArray != nil && legisArray.count != 0) {
@@ -105,16 +108,18 @@ NSMutableArray *congressmanRankArray;
         //照片載入
         NSURL *imagUrl = [NSURL URLWithString:legisData.imageUrl];
         NSURL *partyUrl = [NSURL URLWithString:legisData.partyUrl];
+        UIImage *loadLegis = [UIImage imageNamed:@"下載中"];
+        UIImage *loadParty = [UIImage imageNamed:@"黨徽下載中"];
         NSMutableURLRequest *imageRequest = [NSMutableURLRequest requestWithURL:imagUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
         NSMutableURLRequest *partyRequest = [NSMutableURLRequest requestWithURL:partyUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-        [cell.legisImage setImageWithURLRequest:imageRequest placeholderImage:nil
+        [cell.legisImage setImageWithURLRequest:imageRequest placeholderImage:loadLegis
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                             cell.legisImage.layer.cornerRadius = cell.legisImage.bounds.size.width / 8.0;
                                             cell.legisImage.image = image;
                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                             NSLog(@"error:%@",error);
                                         }];
-        [cell.partImage setImageWithURLRequest:partyRequest placeholderImage:nil
+        [cell.partImage setImageWithURLRequest:partyRequest placeholderImage:loadParty
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                            cell.partImage.image = image;
                                            //                                            [self.tableView reloadData];
@@ -152,14 +157,7 @@ NSMutableArray *congressmanRankArray;
 }
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     NSString  *title ;
-    if (section == 0) {
-        title = @"選區意向相近立委前三名";
-    }
-    else
-    {
-        title = @"全國意向相近立委前三名";
-        
-    };
+    
     return title;
 }
 -(void)displayRadarChart:(LegisFollowTableViewCell *)cell legisData:(LegisData *)legisdata{
@@ -174,18 +172,15 @@ NSMutableArray *congressmanRankArray;
     NSArray *array =  legisdata.scoreArray;
     NSMutableArray *categoryArray = [@[] mutableCopy] ;
     NSMutableArray *legisScoreArray = [@[] mutableCopy];
-    NSMutableArray *userScoreArray = [@[] mutableCopy];
     for (NSDictionary *scoreDic in array) {
         [categoryArray addObject:scoreDic[@"category"]];
         [legisScoreArray addObject:scoreDic[@"le_get_score"]];
-        [userScoreArray addObject:scoreDic[@"profile_score_max"]];
         
     };
-    NSArray *a1 = userScoreArray;
     NSArray *a2 = legisScoreArray;
     
     //set the data series
-    radarView.dataSeries = @[a1, a2];
+    radarView.dataSeries = @[a2];
     
     //how many "circles" in the chart
     radarView.steps = legisdata.maxScore.intValue;
@@ -213,11 +208,11 @@ NSMutableArray *congressmanRankArray;
     
     //if you do not need a legend, you can safely get rid of setTitles:
     radarView.showLegend = YES;
-    [radarView setTitles:@[@"自身意見取向", @"立委意見取向"]];
+    [radarView setTitles:@[@"立委排名"]];
     
     //there is a color generator in the code, it will generate colors for you
     //so if you do not want to specify the colors yourself, just delete the line below
-    [radarView setColors:@[[UIColor redColor],[UIColor colorWithRed:0.83 green:0.99 blue:0.47 alpha:1]]];
+    [radarView setColors:@[[UIColor redColor]]];
     
     radarView.contentMode = UIViewContentModeScaleToFill;
     
