@@ -1381,7 +1381,7 @@
     <resources>
         <image name="action_filled-32" width="16" height="16"/>
         <image name="administrator-32" width="16" height="16"/>
-        <image name="prototype_filled-25" width="12" height="12"/>
+        <image name="prototype_filled-25" width="25" height="25"/>
         <image name="swearing_filled-32" width="16" height="16"/>
     </resources>
 </document>

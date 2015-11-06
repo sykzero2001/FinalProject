@@ -85,7 +85,7 @@
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];
     if (loginToken != nil) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:@"http://www.jksong.tw/api/v1/profiles/13/profile_issues_result" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_issues_result" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //            NSLog(@"JSON: %@", responseObject);
             NSArray *array = responseObject[@"data"];
             

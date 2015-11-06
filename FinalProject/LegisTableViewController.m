@@ -63,7 +63,7 @@
 
     if (loginToken != nil) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:@"http://www.jksong.tw/api/v1/profiles/13/profile_legislators_ships" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_legislators_ships" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //            NSLog(@"JSON: %@", responseObject);
             NSArray *array = responseObject[@"legislator"];
             NSString *maxScore = responseObject[@"user_max_vote"];
@@ -140,18 +140,16 @@
         //照片載入
         NSURL *imagUrl = [NSURL URLWithString:legisData.imageUrl];
         NSURL *partyUrl = [NSURL URLWithString:legisData.partyUrl];
-        UIImage *imageloading = [UIImage imageNamed:@"下載中"];
-        UIImage *imagePartyloading = [UIImage imageNamed:@"黨徽下載中"];
         NSMutableURLRequest *imageRequest = [NSMutableURLRequest requestWithURL:imagUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
          NSMutableURLRequest *partyRequest = [NSMutableURLRequest requestWithURL:partyUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-        [cell.legisImage setImageWithURLRequest:imageRequest placeholderImage:imageloading
+        [cell.legisImage setImageWithURLRequest:imageRequest placeholderImage:nil
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                             cell.legisImage.layer.cornerRadius = cell.legisImage.bounds.size.width / 8.0;
                                             cell.legisImage.image = image;
                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                             NSLog(@"error:%@",error);
                                         }];
-        [cell.partImage setImageWithURLRequest:partyRequest placeholderImage:imagePartyloading
+        [cell.partImage setImageWithURLRequest:partyRequest placeholderImage:nil
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                             cell.partImage.image = image;
                                             //                                            [self.tableView reloadData];

@@ -24,6 +24,8 @@
 		DE26BE921BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26BE901BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib */; };
 		DE3E13EA1BDF62B0007BEFD8 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E13E91BDF62B0007BEFD8 /* MoreTableViewController.m */; };
 		DE3E13ED1BDFC831007BEFD8 /* UserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E13EC1BDFC831007BEFD8 /* UserNameViewController.m */; };
+		DE40F05F1BE885410009D773 /* LegisData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F05E1BE885410009D773 /* LegisData.m */; settings = {ASSET_TAGS = (); }; };
+		DE40F0621BE90C5D0009D773 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DE40F05F1BE885410009D773 /* LegisData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F05E1BE885410009D773 /* LegisData.m */; };
 		DE40F0621BE90C5D0009D773 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */; };
 		DE7D5D881BD617BA00D993F5 /* VoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */; };
@@ -101,7 +103,7 @@
 		DED7858C1BE25D0F00875C99 /* SimilarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimilarTableViewCell.h; sourceTree = "<group>"; };
 		DED7858D1BE25D0F00875C99 /* SimilarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimilarTableViewCell.m; sourceTree = "<group>"; };
 		DED7858E1BE25D0F00875C99 /* SimilarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimilarTableViewCell.xib; sourceTree = "<group>"; };
-		DEEA477B1BCF78DC00B66015 /* 政客爽.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "政客爽.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEEA477B1BCF78DC00B66015 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEA477F1BCF78DC00B66015 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEEA47811BCF78DC00B66015 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FinalProject/AppDelegate.h; sourceTree = "<group>"; };
 		DEEA47821BCF78DC00B66015 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FinalProject/AppDelegate.m; sourceTree = "<group>"; };
@@ -238,7 +240,7 @@
 		DEEA477C1BCF78DC00B66015 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DEEA477B1BCF78DC00B66015 /* 政客爽.app */,
+				DEEA477B1BCF78DC00B66015 /* FinalProject.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -306,7 +308,7 @@
 			);
 			name = FinalProject;
 			productName = FinalProject;
-			productReference = DEEA477B1BCF78DC00B66015 /* 政客爽.app */;
+			productReference = DEEA477B1BCF78DC00B66015 /* FinalProject.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -320,7 +322,7 @@
 				TargetAttributes = {
 					DEEA477A1BCF78DC00B66015 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 9U5JLSE84B;
+						DevelopmentTeam = 663GF3YJMN;
 					};
 				};
 			};
@@ -559,7 +561,7 @@
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject;
-				PRODUCT_NAME = "政客爽";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -577,7 +579,7 @@
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject;
-				PRODUCT_NAME = "政客爽";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
