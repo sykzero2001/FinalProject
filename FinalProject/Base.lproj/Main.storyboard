@@ -1113,18 +1113,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIf-E9-OpB">
-                                <rect key="frame" x="60" y="357" width="200" height="90"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="86o-0f-ZZN"/>
-                                    <constraint firstAttribute="height" constant="90" id="dcf-1J-Tko"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="UOI-n4-Sk4" id="w8G-z1-k8G"/>
-                                    <outlet property="delegate" destination="UOI-n4-Sk4" id="mtp-Se-Kx7"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1134,12 +1122,10 @@
                             <constraint firstItem="qNu-oo-JJB" firstAttribute="top" secondItem="dsd-v7-TJG" secondAttribute="bottom" constant="20" id="4Si-h7-Y0u"/>
                             <constraint firstItem="qNu-oo-JJB" firstAttribute="centerX" secondItem="jWG-Fb-jQf" secondAttribute="centerX" id="6MQ-kE-PsI"/>
                             <constraint firstItem="HKM-GC-Wl3" firstAttribute="centerX" secondItem="jWG-Fb-jQf" secondAttribute="centerX" id="9gu-zE-ooi"/>
-                            <constraint firstItem="LIf-E9-OpB" firstAttribute="top" secondItem="qNu-oo-JJB" secondAttribute="bottom" constant="20" id="Fk7-Ld-AhO"/>
                             <constraint firstItem="9Jg-JL-y68" firstAttribute="top" secondItem="GeN-2u-6IP" secondAttribute="bottom" constant="20" id="S0L-zo-84d"/>
                             <constraint firstItem="2pD-U8-Qq2" firstAttribute="top" secondItem="9Jg-JL-y68" secondAttribute="bottom" constant="20" id="SuI-hU-pTD"/>
                             <constraint firstItem="2pD-U8-Qq2" firstAttribute="centerX" secondItem="jWG-Fb-jQf" secondAttribute="centerX" id="ULj-Fk-eg2"/>
                             <constraint firstItem="HKM-GC-Wl3" firstAttribute="top" secondItem="2pD-U8-Qq2" secondAttribute="bottom" constant="20" id="YjD-x2-AD9"/>
-                            <constraint firstItem="LIf-E9-OpB" firstAttribute="centerX" secondItem="jWG-Fb-jQf" secondAttribute="centerX" id="eDj-wI-ohZ"/>
                             <constraint firstItem="dsd-v7-TJG" firstAttribute="top" secondItem="tqV-JV-Ldc" secondAttribute="bottom" constant="20" id="kBj-XL-48T"/>
                             <constraint firstItem="dsd-v7-TJG" firstAttribute="centerX" secondItem="jWG-Fb-jQf" secondAttribute="centerX" id="pnX-hQ-OFM"/>
                             <constraint firstItem="tqV-JV-Ldc" firstAttribute="top" secondItem="HKM-GC-Wl3" secondAttribute="bottom" constant="20" id="t0X-RC-q93"/>
@@ -1151,7 +1137,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="個人資料設定" id="L2I-bf-Duf"/>
                     <connections>
-                        <outlet property="localPick" destination="LIf-E9-OpB" id="uMY-i4-NyJ"/>
                         <outlet property="topConstraint" destination="S0L-zo-84d" id="x6E-Hs-sX7"/>
                         <outlet property="userEmailtext" destination="tqV-JV-Ldc" id="iGU-XP-gHu"/>
                         <outlet property="userLocation" destination="qNu-oo-JJB" id="G3a-1H-T3Y"/>
@@ -1381,7 +1366,7 @@
     <resources>
         <image name="action_filled-32" width="16" height="16"/>
         <image name="administrator-32" width="16" height="16"/>
-        <image name="prototype_filled-25" width="25" height="25"/>
+        <image name="prototype_filled-25" width="12" height="12"/>
         <image name="swearing_filled-32" width="16" height="16"/>
     </resources>
 </document>

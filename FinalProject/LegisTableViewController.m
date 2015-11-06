@@ -140,16 +140,18 @@
         //照片載入
         NSURL *imagUrl = [NSURL URLWithString:legisData.imageUrl];
         NSURL *partyUrl = [NSURL URLWithString:legisData.partyUrl];
+        UIImage *loadLegis = [UIImage imageNamed:@"下載中"];
+        UIImage *loadParty = [UIImage imageNamed:@"黨徽下載中"];
         NSMutableURLRequest *imageRequest = [NSMutableURLRequest requestWithURL:imagUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
          NSMutableURLRequest *partyRequest = [NSMutableURLRequest requestWithURL:partyUrl cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-        [cell.legisImage setImageWithURLRequest:imageRequest placeholderImage:nil
+        [cell.legisImage setImageWithURLRequest:imageRequest placeholderImage:loadLegis
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                             cell.legisImage.layer.cornerRadius = cell.legisImage.bounds.size.width / 8.0;
                                             cell.legisImage.image = image;
                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                             NSLog(@"error:%@",error);
                                         }];
-        [cell.partImage setImageWithURLRequest:partyRequest placeholderImage:nil
+        [cell.partImage setImageWithURLRequest:partyRequest placeholderImage:loadParty
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                             cell.partImage.image = image;
                                             //                                            [self.tableView reloadData];
