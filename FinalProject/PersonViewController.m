@@ -69,11 +69,8 @@
         case 1:
             _similarView.hidden = YES;
             _voteResultView.hidden = NO;
+           self.tabBarController.hidesBottomBarWhenPushed = NO;
         break;
-        case 2:
-            _similarView.hidden = YES;
-            _voteResultView.hidden = YES;
-            break;
         default:
             break;
     }

@@ -79,6 +79,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
 //    [self.tableView reloadData];
+    [self.tabBarController.tabBar setHidden:NO];
     voteArray = [@[] mutableCopy];
     NSUserDefaults *userDefault = [NSUserDefaults
                                    standardUserDefaults];
@@ -209,7 +210,7 @@
         controller.resultOfVoteDic = issueResult;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"closeConst" object:nil
                                                           userInfo:nil];
-
+        [self.tabBarController.tabBar setHidden:YES];
         [self.navigationController pushViewController:controller animated:YES];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }

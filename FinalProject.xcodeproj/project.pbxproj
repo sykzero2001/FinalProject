@@ -104,7 +104,7 @@
 		DED7858C1BE25D0F00875C99 /* SimilarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimilarTableViewCell.h; sourceTree = "<group>"; };
 		DED7858D1BE25D0F00875C99 /* SimilarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimilarTableViewCell.m; sourceTree = "<group>"; };
 		DED7858E1BE25D0F00875C99 /* SimilarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimilarTableViewCell.xib; sourceTree = "<group>"; };
-		DEEA477B1BCF78DC00B66015 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEEA477B1BCF78DC00B66015 /* 政客爽.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "政客爽.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEA477F1BCF78DC00B66015 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEEA47811BCF78DC00B66015 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FinalProject/AppDelegate.h; sourceTree = "<group>"; };
 		DEEA47821BCF78DC00B66015 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FinalProject/AppDelegate.m; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 		DEEA477C1BCF78DC00B66015 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DEEA477B1BCF78DC00B66015 /* FinalProject.app */,
+				DEEA477B1BCF78DC00B66015 /* 政客爽.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 			);
 			name = FinalProject;
 			productName = FinalProject;
-			productReference = DEEA477B1BCF78DC00B66015 /* FinalProject.app */;
+			productReference = DEEA477B1BCF78DC00B66015 /* 政客爽.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -565,7 +565,7 @@
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "政客爽";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -583,7 +583,7 @@
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "政客爽";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

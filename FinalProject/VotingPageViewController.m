@@ -140,7 +140,6 @@ return result;
     if(_showTheResultOfVoteFromRight == YES){
         [self showResultOfVote];
         [self pieChartPerform];
-        [self hidesBottomBarWhenPushed];
     };
    // NSLog(@"===========%@=============viewdidload",resultOfVoteDic);
     // Do any additional setup after loading the view.
