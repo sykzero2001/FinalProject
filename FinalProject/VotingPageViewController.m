@@ -140,6 +140,7 @@ return result;
     if(_showTheResultOfVoteFromRight == YES){
         [self showResultOfVote];
         [self pieChartPerform];
+        [self hidesBottomBarWhenPushed];
     };
    // NSLog(@"===========%@=============viewdidload",resultOfVoteDic);
     // Do any additional setup after loading the view.
@@ -153,11 +154,13 @@ return result;
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index{
     UIColor *color;
     if(index%3 == 0){
-        color = [UIColor colorWithRed:84/255.0 green:229/255.0 blue:209/255.0 alpha:1];
+        color = [UIColor colorWithRed:207/255.0 green:37/255.0 blue:53/255.0 alpha:1];
     }else if(index%2 == 0){
-        color = [UIColor colorWithRed:255/255.0 green:239/255.0 blue:139/255.0 alpha:1];
+        //贊成
+        color = [UIColor colorWithRed:103/255.0 green:191/255.0 blue:133/255.0 alpha:1];
     }else{
-        color = [UIColor colorWithRed:237/255.0 green:81/255.0 blue:104/255.0 alpha:1];;
+        //不表態
+        color = [UIColor colorWithRed:250/255.0 green:215/255.0 blue:104/255.0 alpha:1];;
     }
     return color;
 }
@@ -187,6 +190,8 @@ return result;
     [self.pieChart setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];	//optional
     [self.pieChart setLabelShadowColor:[UIColor blackColor]];
     [self.pieChart setLabelColor:[UIColor blackColor]];
+ 
+    
     votePercentage = @[[self.resultOfVoteDic objectForKey:@"total_no"],
                        [self.resultOfVoteDic objectForKey:@"total_pass"],
                        [self.resultOfVoteDic objectForKey:@"total_yes"]];

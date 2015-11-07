@@ -16,6 +16,7 @@
 		35CB75BC1BE4CC7100AA29A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35CB75BB1BE4CC7100AA29A0 /* QuartzCore.framework */; };
 		35E07A141BE218D1001880FC /* IssueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E07A131BE218D1001880FC /* IssueTableViewController.m */; };
 		35E07A171BE239F7001880FC /* IssueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E07A161BE239F7001880FC /* IssueTableViewCell.m */; };
+		35EFB0561BECC28A006BA35E /* CatchTopthreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EFB0551BECC28A006BA35E /* CatchTopthreeViewController.m */; };
 		35FFD6431BDF5CA6006B56CA /* FirstQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD6421BDF5CA6006B56CA /* FirstQuestionViewController.m */; };
 		35FFD6461BDF6A01006B56CA /* PartyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD6451BDF6A01006B56CA /* PartyTableViewController.m */; };
 		35FFD6491BDF6A1E006B56CA /* CongressmanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD6481BDF6A1E006B56CA /* CongressmanTableViewController.m */; };
@@ -24,8 +25,6 @@
 		DE26BE921BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26BE901BD8BC9A0088BE5F /* LegisFollowTableViewCell.xib */; };
 		DE3E13EA1BDF62B0007BEFD8 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E13E91BDF62B0007BEFD8 /* MoreTableViewController.m */; };
 		DE3E13ED1BDFC831007BEFD8 /* UserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3E13EC1BDFC831007BEFD8 /* UserNameViewController.m */; };
-		DE40F05F1BE885410009D773 /* LegisData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F05E1BE885410009D773 /* LegisData.m */; settings = {ASSET_TAGS = (); }; };
-		DE40F0621BE90C5D0009D773 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		DE40F05F1BE885410009D773 /* LegisData.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F05E1BE885410009D773 /* LegisData.m */; };
 		DE40F0621BE90C5D0009D773 /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE40F0611BE90C5D0009D773 /* ContactUsViewController.m */; };
 		DE7D5D881BD617BA00D993F5 /* VoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7D5D861BD617BA00D993F5 /* VoteTableViewCell.m */; };
@@ -67,6 +66,8 @@
 		35E07A151BE239F7001880FC /* IssueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueTableViewCell.h; sourceTree = "<group>"; };
 		35E07A161BE239F7001880FC /* IssueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueTableViewCell.m; sourceTree = "<group>"; };
 		35E07A1E1BE2648F001880FC /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		35EFB0541BECC28A006BA35E /* CatchTopthreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchTopthreeViewController.h; sourceTree = "<group>"; };
+		35EFB0551BECC28A006BA35E /* CatchTopthreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchTopthreeViewController.m; sourceTree = "<group>"; };
 		35FFD6411BDF5CA6006B56CA /* FirstQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstQuestionViewController.h; path = FinalProject/FirstQuestionViewController.h; sourceTree = "<group>"; };
 		35FFD6421BDF5CA6006B56CA /* FirstQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstQuestionViewController.m; path = FinalProject/FirstQuestionViewController.m; sourceTree = "<group>"; };
 		35FFD6441BDF6A01006B56CA /* PartyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PartyTableViewController.h; path = FinalProject/PartyTableViewController.h; sourceTree = "<group>"; };
@@ -138,6 +139,8 @@
 			children = (
 				3536585E1BE37FA40027CCFB /* CongressTopThreeViewController.h */,
 				3536585F1BE37FA40027CCFB /* CongressTopThreeViewController.m */,
+				35EFB0541BECC28A006BA35E /* CatchTopthreeViewController.h */,
+				35EFB0551BECC28A006BA35E /* CatchTopthreeViewController.m */,
 				353658611BE37FF90027CCFB /* TopThreeListTableViewController.h */,
 				353658621BE37FF90027CCFB /* TopThreeListTableViewController.m */,
 			);
@@ -442,6 +445,7 @@
 				DE3E13EA1BDF62B0007BEFD8 /* MoreTableViewController.m in Sources */,
 				35FFD6461BDF6A01006B56CA /* PartyTableViewController.m in Sources */,
 				DE26BE911BD8BC9A0088BE5F /* LegisFollowTableViewCell.m in Sources */,
+				35EFB0561BECC28A006BA35E /* CatchTopthreeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,7 +564,7 @@
 				GCC_PREFIX_HEADER = config.h;
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject;
+				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -578,7 +582,7 @@
 				GCC_PREFIX_HEADER = config.h;
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject;
+				PRODUCT_BUNDLE_IDENTIFIER = AC.FinalProject1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

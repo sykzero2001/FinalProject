@@ -8,8 +8,11 @@
 
 #import "CongressTopThreeViewController.h"
 #import "TopThreeListTableViewController.h"
-@interface CongressTopThreeViewController ()
-
+#import "CatchTopthreeViewController.h"
+@interface CongressTopThreeViewController (){
+    NSDictionary *dic;
+}
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *issueCollectionBut;
 @end
 
 @implementation CongressTopThreeViewController
@@ -17,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+        for (NSUInteger i = 0; i < 10; i++){
+            UIButton *issues = self.issueCollectionBut[i];
+            issues.layer.cornerRadius = 10;
+        }
+//    self.random.layer.cornerRadius = 10;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,8 +43,41 @@
 }
 
 - (IBAction)buttonsClicked:(UIButton *)sender {
+    UIButton *btn = sender;
+     CatchTopthreeViewController *controller =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"TopThreeViewController"];
     
-    [self performSegueWithIdentifier:@"toTopThreeList" sender:sender];
+    NSLog(@"按鈕名稱%@",btn.currentTitle);
+    if ([btn.currentTitle isEqualToString:@"教育/文化"]){
+        dic = @{@"category":@"education"};
+    }else if([btn.currentTitle isEqualToString:@"社福/衛環"]){
+        dic = @{@"category":@"social"};
+    }else if([btn.currentTitle isEqualToString:@"交通"]){
+        dic = @{@"category":@"traffic"};
+    }else if([btn.currentTitle isEqualToString:@"內政"]){
+        dic = @{@"category":@"interior"};
+    }else if([btn.currentTitle isEqualToString:@"外交/國防"]){
+        dic = @{@"category":@"diplomacy"};
+    }else if([btn.currentTitle isEqualToString:@"司法/法制"]){
+        dic = @{@"category":@"law"};
+    }else if([btn.currentTitle isEqualToString:@"經濟"]){
+        dic = @{@"category":@"economy"};
+    }else if([btn.currentTitle isEqualToString:@"財政"]){
+        dic = @{@"category":@"finance"};
+    }else if([btn.currentTitle isEqualToString:@"民心所向"]){
+        dic = @{@"category":@"law"};
+    }else if([btn.currentTitle isEqualToString:@"民心盡失"]){
+        dic = @{@"category":@"law"};
+    }
+    
+    controller.catchDic = dic;
+    [self.navigationController pushViewController:controller
+                                         animated:YES];
+    
+    
+
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self performSegueWithIdentifier:@"toTopThreeList" sender:sender];
     
 }
 /*
