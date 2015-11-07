@@ -14,7 +14,8 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface TopThreeListTableViewController (){
-NSMutableArray *congressmanRankArray;
+    NSMutableArray *congressmanRankArray;
+    NSDictionary *paraAll;
 }
 
 @end
@@ -30,31 +31,35 @@ NSMutableArray *congressmanRankArray;
          forCellReuseIdentifier:@"legisCellId"];
     //    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.rowHeight = 360;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUi:) name:@"UpdateUiNoti" object:nil];
     
    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    
+    
+}
+
+-(void)updateUi:(NSNotification*)noti {
+    NSDictionary *dic = noti.userInfo;
+//    NSString *paraAll = dic[@"category"];
     congressmanRankArray = [@[] mutableCopy];
-        NSDictionary *paraAll = @{@"total_number":@"3"};
-        [self getLegisApi:paraAll  array:congressmanRankArray];
-    
-    
-    
+    [self getLegisApi:dic  array:congressmanRankArray];
 }
 
 -(void)getLegisApi:(NSDictionary*)parameter array:(NSMutableArray*)arrayAdd{
     
    
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_legislators_ships" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [manager GET:@"http://www.jksong.tw/api/v1/legislators" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
             //            NSLog(@"JSON: %@", responseObject);
             NSArray *array = responseObject[@"legislator"];
-            NSString *maxScore = responseObject[@"user_max_vote"];
+            
             for(NSDictionary *appDic in array ) {
-                
+                NSString *maxScore = appDic[@"score_max"];
                 NSString *legistor = appDic[@"id"];
-                NSString *imageUrl = appDic[@"image_url"] ;
+                NSString *imageUrl = appDic[@"image"] ;
                 NSString *name = appDic[@"name"];
                 NSArray *scoreArray = appDic[@"score_table"];
                 //            NSString *party = appDic[@"party"];
@@ -64,7 +69,7 @@ NSMutableArray *congressmanRankArray;
                 legisData.identify = legistor;
                 legisData.scoreArray = scoreArray;
                 legisData.maxScore = maxScore;
-                legisData.partyUrl = appDic[@"party_url"];
+                legisData.partyUrl = appDic[@"party_logo"];
                 //            NSDictionary *legistorMember = @{@"name":name,@"image":imageUrl,@"id":legistor,@"scoreTable":scoreArray,@"maxScore":maxScore,@"party":party};
                 [arrayAdd addObject:legisData];
         
@@ -161,7 +166,7 @@ NSMutableArray *congressmanRankArray;
     return title;
 }
 -(void)displayRadarChart:(LegisFollowTableViewCell *)cell legisData:(LegisData *)legisdata{
-    JYRadarChart *radarView = [[JYRadarChart alloc] initWithFrame:CGRectMake(0,63, 300, 300)];
+    JYRadarChart *radarView = [[JYRadarChart alloc] initWithFrame:CGRectMake(10,80, 250, 250)];
     //    cell.radarHeight.constant = 500;
     //        [UIView animateWithDuration:0.3f animations:^{
     //            [self.view layoutIfNeeded];
@@ -173,9 +178,11 @@ NSMutableArray *congressmanRankArray;
     NSMutableArray *categoryArray = [@[] mutableCopy] ;
     NSMutableArray *legisScoreArray = [@[] mutableCopy];
     for (NSDictionary *scoreDic in array) {
-        [categoryArray addObject:scoreDic[@"category"]];
+        if ([scoreDic[@"category"] isEqualToString:@"total"]) {
+            
+        }else{[categoryArray addObject:scoreDic[@"category"]];
         [legisScoreArray addObject:scoreDic[@"le_get_score"]];
-        
+        }
     };
     NSArray *a2 = legisScoreArray;
     
@@ -198,7 +205,7 @@ NSMutableArray *congressmanRankArray;
     radarView.r = 100;
     radarView.minValue = -1;
     radarView.maxValue = legisdata.maxScore.intValue;
-    
+
     //you can choose whether fill area or not (just draw lines)
     radarView.fillArea = YES;
     
@@ -212,7 +219,7 @@ NSMutableArray *congressmanRankArray;
     
     //there is a color generator in the code, it will generate colors for you
     //so if you do not want to specify the colors yourself, just delete the line below
-    [radarView setColors:@[[UIColor redColor]]];
+    [radarView setColors:@[[UIColor blueColor]]];
     
     radarView.contentMode = UIViewContentModeScaleToFill;
     

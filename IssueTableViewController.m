@@ -22,7 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.estimatedRowHeight = 100;
     [self downloadIssue];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -99,7 +100,7 @@
         cell.nameOfIssueLabel.text = issueArray[indexPath.row][@"name"];
         if ([cell.category isEqualToString:@"外交/國防" ])
         {
-            cell.categoriesImageView.image = [UIImage imageNamed:@"外交"];
+            cell.categoriesImageView.image = [UIImage imageNamed:@"國防"];
         }
         else if ([cell.category isEqualToString:@"經濟" ])
         {
@@ -124,6 +125,9 @@
         else if ([cell.category isEqualToString:@"交通" ] )
         {
             cell.categoriesImageView.image = [UIImage imageNamed:@"交通"];
+        }else {
+            cell.categoriesImageView.image = [UIImage imageNamed:@"教育"];
+
         }
 // cell.categoriesImageView.image = issueArray[indexPath.row][];
     }
