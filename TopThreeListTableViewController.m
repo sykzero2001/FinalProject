@@ -16,6 +16,7 @@
 @interface TopThreeListTableViewController (){
     NSMutableArray *congressmanRankArray;
     NSDictionary *paraAll;
+    NSString *categoryType;
 }
 
 @end
@@ -55,7 +56,7 @@
         [manager GET:@"http://www.jksong.tw/api/v1/legislators" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
             //            NSLog(@"JSON: %@", responseObject);
             NSArray *array = responseObject[@"legislator"];
-            
+            categoryType = parameter[@"category"];
             for(NSDictionary *appDic in array ) {
                 NSString *maxScore = appDic[@"score_max"];
                 NSString *legistor = appDic[@"id"];
@@ -68,9 +69,9 @@
                 legisData.imageUrl = imageUrl;
                 legisData.identify = legistor;
                 legisData.scoreArray = scoreArray;
-                legisData.maxScore = maxScore;
+                 legisData.maxScore = maxScore;
+
                 legisData.partyUrl = appDic[@"party_logo"];
-                //            NSDictionary *legistorMember = @{@"name":name,@"image":imageUrl,@"id":legistor,@"scoreTable":scoreArray,@"maxScore":maxScore,@"party":party};
                 [arrayAdd addObject:legisData];
         
                 
@@ -154,10 +155,6 @@
         }
         
     }
-    
-    
-    
-    
     return cell;
 }
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -166,7 +163,7 @@
     return title;
 }
 -(void)displayRadarChart:(LegisFollowTableViewCell *)cell legisData:(LegisData *)legisdata{
-    JYRadarChart *radarView = [[JYRadarChart alloc] initWithFrame:CGRectMake(10,80, 250, 250)];
+    JYRadarChart *radarView = [[JYRadarChart alloc] initWithFrame:CGRectMake(10,80, 295, 250)];
     //    cell.radarHeight.constant = 500;
     //        [UIView animateWithDuration:0.3f animations:^{
     //            [self.view layoutIfNeeded];
@@ -190,7 +187,7 @@
     radarView.dataSeries = @[a2];
     
     //how many "circles" in the chart
-    radarView.steps = legisdata.maxScore.intValue;
+  
     
     //for the the entire background
     radarView.backgroundColor = [UIColor whiteColor];
@@ -204,8 +201,21 @@
     //that is okay. the points with too big value will be out of the chart and thus invisible
     radarView.r = 100;
     radarView.minValue = -1;
+    
+    if ([categoryType isEqualToString:@"total"]) {
+        NSString *maxScore ;
+        NSSortDescriptor *sortCondition = [[NSSortDescriptor alloc] initWithKey:nil ascending:NO];
+        NSArray *sortArray = [legisScoreArray sortedArrayUsingDescriptors:@[sortCondition]];
+        maxScore = sortArray[0];
+        radarView.maxValue = maxScore.intValue;
+        radarView.steps = maxScore.intValue;
+    }
+    else
+    {
     radarView.maxValue = legisdata.maxScore.intValue;
-
+    radarView.steps = legisdata.maxScore.intValue;
+    };
+    
     //you can choose whether fill area or not (just draw lines)
     radarView.fillArea = YES;
     

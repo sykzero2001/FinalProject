@@ -18,7 +18,7 @@
     }
     else if ([self.category isEqualToString:@"經濟" ])
     {
-        _typeOfLawLabel.textColor = [UIColor yellowColor];
+        _typeOfLawLabel.textColor = [UIColor grayColor];
     }
     else if ([self.category isEqualToString:@"財政" ])
     {
@@ -26,15 +26,15 @@
     }
     else if ([self.category isEqualToString:@"內政" ] )
     {
-        _typeOfLawLabel.textColor = [UIColor whiteColor];
+        _typeOfLawLabel.textColor = [UIColor blackColor];
     }
     else if ([self.category isEqualToString:@"司法/法制" ])
     {
-        _typeOfLawLabel.textColor = [UIColor blackColor];
+        _typeOfLawLabel.textColor = [UIColor brownColor];
     }
     else if ([self.category isEqualToString:@"社福/衛環" ] )
     {
-        _typeOfLawLabel.textColor = [UIColor greenColor];
+        _typeOfLawLabel.textColor = [UIColor purpleColor];
     }
    
     

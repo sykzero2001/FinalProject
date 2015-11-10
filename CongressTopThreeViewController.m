@@ -65,7 +65,7 @@
     }else if([btn.currentTitle isEqualToString:@"財政"]){
         dic = @{@"category":@"finance"};
     }else if([btn.currentTitle isEqualToString:@"民心所向"]){
-        dic = @{@"category":@"law"};
+        dic = @{@"category":@"total"};
     }else if([btn.currentTitle isEqualToString:@"民心盡失"]){
         dic = @{@"category":@"law"};
     }
