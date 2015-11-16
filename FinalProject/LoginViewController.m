@@ -40,42 +40,18 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:newImage];
     self.view.alpha = 0.8;
     
-//    self.loginButton.alpha = 1;
-//    self.cancelButton.alpha = 1;
     _loginButton.readPermissions =
     @[@"public_profile", @"email", @"user_friends"];
-//    _loginButton.center = self.view.center;
     _loginButton.delegate = self;
     [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [_cancelButton setTitleColor:nil forState:UIControlStateNormal];
     _cancelButton.backgroundColor = [UIColor whiteColor] ;
     _cancelButton.layer.cornerRadius = 5;
     
-//    _cancelButton.layer.borderColor = [UIColor whiteColor].CGColor;
-//    _cancelButton.layer.borderWidth = 2 ;
-//    [self.view addSubview:_loginButton];
-
-    
-    // Do any additional setup after loading the view.
-}
--(void)viewWillAppear:(BOOL)animated   {
-//    [self.view addConstraint:constraint];
-
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-//-(void)viewDidAppear:(BOOL)animated{
-//    
-//    if ([FBSDKAccessToken currentAccessToken]) {
-//        
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//
-//    }
-////    else{
-////           }
-//}
 - (IBAction)back:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangetabNoti" object:nil];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -106,38 +82,18 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                     [userDefault synchronize];
                     [self dismissViewControllerAnimated:YES completion:nil];
                 };
-                //            NSLog(@"JSON: %@", responseObject);
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
             }];
-            //        LoginInfo *loginfo = [LoginInfo logstatus] ;
-            //        [loginfo getLoginfo:self] ;
-            //       NSString *identi = loginfo.userIdentify  ;
-            //        if (identi  != nil ) {
-            //            [self dismissViewControllerAnimated:YES completion:nil];
-            //        }
             
         }];
 
     }
     }
 
-/*!
- @abstract Sent to the delegate when the button was used to logout.
- @param loginButton The button that was clicked.
- */
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
     
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

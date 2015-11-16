@@ -117,10 +117,8 @@
     __block NSDictionary *result = [[NSDictionary alloc] init];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:@"http://jksong.tw/api/v1/issue_vote" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"===========%@=============",responseObject);
         self.resultOfVoteDic = responseObject;
        
-        // NSLog(@"===========%@=============",resultOfVoteDic);
          [self pieChartPerform];
     }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -141,11 +139,9 @@ return result;
         [self showResultOfVote];
         [self pieChartPerform];
     };
-   // NSLog(@"===========%@=============viewdidload",resultOfVoteDic);
-    // Do any additional setup after loading the view.
+
 }
 -(void)viewWillDisappear:(BOOL)animated{
-//    [self viewWillDisappear:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"openConst" object:nil
                                                       userInfo:nil];
 }
@@ -221,14 +217,5 @@ return result;
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

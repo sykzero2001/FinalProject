@@ -22,7 +22,6 @@
     dispatch_once(&onceToken, ^{
         myInstance = [[LoginInfo alloc] init];
     });
-    // return the instance of this class
     return myInstance;
 }
 -(void)getLoginfo:(id)controller{
@@ -48,7 +47,6 @@ NSString *loginToken = [userDefault objectForKey:@"loginToken"];
         {
        //若不在登入狀態則出示畫面要求登入
         LoginViewController *pushControl = [control.storyboard                                           instantiateViewControllerWithIdentifier:@"LoginViewController"];
-//        pushControl.presentType = @"person";
         delegate.window.userInteractionEnabled = YES;
         [activityIndicatorView removeFromSuperview];
         [control presentViewController:pushControl animated:NO
@@ -62,7 +60,6 @@ NSString *loginToken = [userDefault objectForKey:@"loginToken"];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:@"http://jksong.tw/api/v1/profiles/13/registed_data" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-     //   NSLog(@"JSON: %@", responseObject);
         NSDictionary *dic = responseObject[@"profile"];
         self.userIdentify = dic[@"id"];
         self.userEmail = responseObject[@"user_email"];
@@ -114,7 +111,6 @@ NSString *loginToken = [userDefault objectForKey:@"loginToken"];
         //取得基本資料
             
             [manager GET:@"http://jksong.tw/api/v1/profiles/13/registed_data" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"JSON: %@", responseObject);
                 NSDictionary *dic = responseObject[@"profile"];
                 self.userIdentify = dic[@"id"];
                 self.userEmail = responseObject[@"user_email"];

@@ -21,64 +21,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    voteArray = [@[] mutableCopy];
-//    NSUserDefaults *userDefault = [NSUserDefaults
-//                                   standardUserDefaults];
-//    NSString *loginToken = [userDefault objectForKey:@"loginToken"];
-//
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_issues_result" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"JSON: %@", responseObject);
-//        NSArray *array = responseObject[@"data"];
-//       
-//           for(NSDictionary *appDic in array ) {
-//             NSNumber *issueDecision = appDic[@"issue_decision"];
-//               NSString *dicIssue ;
-//        switch (issueDecision.intValue) {
-//        case 1:
-//            dicIssue = @"Y";
-//            break;
-//        case -1:
-//                dicIssue = @"N";
-//                break;
-//        case 0:
-//                dicIssue = @"";
-//                break;
-//        default:
-//                dicIssue = @"";
-//                break;
-//        };
-//               
-//               NSDictionary *dic = @{@"name":appDic[@"issue_name"],@"issueType":appDic[@"issue_category"],@"vote":dicIssue};
-//               [voteArray addObject:dic];
-//                NSLog(@"issue_category %@", appDic[@"issue_category"]);
-//                NSLog(@"issue_content %@", appDic[@"issue_content"]);
-//               NSLog(@"issue_name %@", appDic[@"issue_name"]);
-//           };
-//        [self.tableView reloadData];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
-    
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
-//    voteArray = [@[@{@"name":@"核四公投", @"detail":@"是否停建核四？",@"vote":@"Y"}, @{@"name":@"服貿協議", @"detail":@"是否開放服貿？",@"vote":@"Y"},
-//                    @{@"name":@"貨貿協議", @"detail":@"貨貿協議是否給台灣帶來好處？",@"vote":@"N"}] mutableCopy];
+
         UINib *nib = [UINib nibWithNibName:@"VoteTableViewCell"
                                     bundle:nil];
         [self.tableView registerNib:nib
                     forCellReuseIdentifier:@"voteCellId"];
 
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 -(void)viewWillAppear:(BOOL)animated{
-//    [self.tableView reloadData];
     [self.tabBarController.tabBar setHidden:NO];
     voteArray = [@[] mutableCopy];
     NSUserDefaults *userDefault = [NSUserDefaults
@@ -87,7 +41,6 @@
     if (loginToken != nil) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_issues_result" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSLog(@"JSON: %@", responseObject);
             NSArray *array = responseObject[@"data"];
             
             for(NSDictionary *appDic in array ) {
@@ -110,9 +63,6 @@
                 
                 NSDictionary *dic = @{@"name":appDic[@"issue_name"],@"issueType":appDic[@"issue_category"],@"vote":dicIssue,@"issueId":appDic[@"issue_id"],@"issueContent":appDic[@"issue_content"],@"issueTotalYes":appDic[@"issue_total_yes"],@"issueTotalNo":appDic[@"issue_total_no"],@"issueTotalPass":appDic[@"issue_total_pass"]};
                 [voteArray addObject:dic];
-//                NSLog(@"issue_category %@", appDic[@"issue_category"]);
-//                NSLog(@"issue_content %@", appDic[@"issue_content"]);
-//                NSLog(@"issue_name %@", appDic[@"issue_name"]);
             };
             [self.tableView reloadData];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -217,48 +167,5 @@
    
     
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

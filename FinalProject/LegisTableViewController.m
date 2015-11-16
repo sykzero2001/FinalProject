@@ -30,7 +30,6 @@
                                 bundle:nil];
     [self.tableView registerNib:nib
          forCellReuseIdentifier:@"legisCellId"];
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.rowHeight = 360;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setlegisLocation:) name:@"setuser" object:nil];
@@ -64,7 +63,6 @@
     if (loginToken != nil) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:@"http://jksong.tw/api/v1/profiles/13/profile_legislators_ships" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSLog(@"JSON: %@", responseObject);
             NSArray *array = responseObject[@"legislator"];
             NSString *maxScore = responseObject[@"user_max_vote"];
             for(NSDictionary *appDic in array ) {
@@ -81,18 +79,9 @@
                 legisData.scoreArray = scoreArray;
                 legisData.maxScore = maxScore;
                 legisData.partyUrl = appDic[@"party_url"];
-                //            NSDictionary *legistorMember = @{@"name":name,@"image":imageUrl,@"id":legistor,@"scoreTable":scoreArray,@"maxScore":maxScore,@"party":party};
                 [arrayAdd addObject:legisData];
                 
-                //            for (NSDictionary *scoreDic in scoreArray) {
-                //                NSString *category = scoreDic[@"category"];
-                //                NSString *legistorScore = scoreDic[@"le_get_score"];
-                //                NSString *userScore = scoreDic[@"profile_score_max"];
-                //                NSLog(@"立委名稱：%@  議題類型：%@  立委分數：%@  用戶分數： %@",name,category,legistorScore,userScore);
-                //            };
-                
             };
-//            NSLog(@"Result:%@",responseObject);
             [self.tableView reloadData];
         }
              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -127,12 +116,10 @@
     NSArray *legisArray ;
     if (indexPath.section == 0) {
         legisArray = legisArrayLocal;
-//        NSLog(@"Local: %@", legisArrayLocal);
     }
     else
     {
         legisArray = legisArrayAll;
-//        NSLog(@"All: %@", legisArrayAll);
     };
     
     if (legisArray != nil && legisArray.count != 0) {
@@ -158,8 +145,6 @@
                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                             NSLog(@"error:%@",error);
                                         }];
-        //        UIImage *imageone = [UIImage imageNamed:@"國民黨徽"];
-        //        UIImage *imagetwo = [UIImage imageNamed:@"民進黨徽"];
         UIImage *imageFirst = [UIImage imageNamed:@"第一名"];
         UIImage *imageSecond = [UIImage imageNamed:@"第二名"];
         UIImage *imageThird = [UIImage imageNamed:@"第三名"];
@@ -201,13 +186,6 @@
 }
 -(void)displayRadarChart:(LegisFollowTableViewCell *)cell legisData:(LegisData *)legisdata{
         JYRadarChart *radarView = [[JYRadarChart alloc] initWithFrame:CGRectMake(0,63, 300, 300)];
-//    cell.radarHeight.constant = 500;
-    //        [UIView animateWithDuration:0.3f animations:^{
-    //            [self.view layoutIfNeeded];
-    //        }];
-    
-//    [cell.radarView removeFromSuperview];
-   
     NSArray *array =  legisdata.scoreArray;
     NSMutableArray *categoryArray = [@[] mutableCopy] ;
     NSMutableArray *legisScoreArray = [@[] mutableCopy];
@@ -259,85 +237,7 @@
     radarView.contentMode = UIViewContentModeScaleToFill;
     
     [cell.contentView addSubview:radarView];
-    //設定auto Layout
     
-//        radarView.translatesAutoresizingMaskIntoConstraints = NO;
-//        NSLayoutConstraint *constraint = [NSLayoutConstraint
-//                                                constraintWithItem:radarView attribute:NSLayoutAttributeCenterX
-//                                                relatedBy:NSLayoutRelationEqual
-//                                          toItem:cell.contentView                                             attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];;
-//    
-//        [cell.contentView addConstraint:constraint];
-//    
-//         constraint = [NSLayoutConstraint
-//                                                constraintWithItem:radarView attribute:NSLayoutAttributeTop
-//                                                relatedBy:NSLayoutRelationEqual toItem:cell.legisName                                           attribute:NSLayoutAttributeTop multiplier:1 constant:20];
-//        [cell.contentView addConstraint:constraint];
-//    
-//    constraint = [NSLayoutConstraint
-//                  constraintWithItem:radarView attribute:NSLayoutAttributeBottom
-//                  relatedBy:NSLayoutRelationEqual toItem:cell.contentView                                           attribute:NSLayoutAttributeTop multiplier:1 constant:20];
-//    [cell.contentView addConstraint:constraint];
-//        constraint = [NSLayoutConstraint
-//                            constraintWithItem:radarView attribute:NSLayoutAttributeWidth
-//                            relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeWidth multiplier:1 constant:300];
-//        [radarView addConstraint:constraint];
-//        constraint = [NSLayoutConstraint
-//                            constraintWithItem:radarView attribute:NSLayoutAttributeHeight
-//                            relatedBy:NSLayoutRelationEqual toItem:nil                                            attribute:NSLayoutAttributeHeight multiplier:1 constant:300];
-//        [radarView addConstraint:constraint];
-//    
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return UITableViewAutomaticDimension;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return UITableViewAutomaticDimension;
-//}
 @end

@@ -32,28 +32,9 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openConst) name:@"openConst" object:nil];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeConst) name:@"closeConst" object:nil];
     NSLog(@"PersonViewDid");
-//    _similarImage.layer.masksToBounds = YES;
-//    LoginInfo *loginfo = [LoginInfo logstatus] ;
-//    [loginfo getLoginfo:self] ;
-        // Do any additional setup after loading the view.
     
 }
 -(void)viewWillAppear:(BOOL)animated{
-//    if (logstatus  == nil) {
-////        logstatus =  [LoginInfo logstatus];
-//        logstatus =  @"1";
-//    LoginInfo *loginfo = [LoginInfo logstatus] ;
-//    [loginfo getLoginfo:self] ;
-//    if([FBSDKAccessToken currentAccessToken])
-//    {
-//        
-//        NSString *urlStr = @"http://www.ly.gov.tw/upload/01_introduce/0102_chief/president/image/ly2000_8_00002f.jpg";
-//        NSURL *url = [NSURL URLWithString:urlStr];
-//        [_similarImage sd_setImageWithURL:url placeholderImage:nil];
-//    }
-//    else{
-//        
-//    }
     NSLog(@"PersonViewWill");
    
 
@@ -78,7 +59,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 -(void)openConst{
     [self.segment setTintColor:[UIColor colorWithRed:0.15 green:0.84 blue:0.8 alpha:1]];
@@ -90,14 +70,5 @@
     self.segmentConstraint.constant = 0;
     self.topconst.constant = 0;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
