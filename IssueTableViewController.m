@@ -39,7 +39,7 @@
     NSString *loginToken = [userDefault objectForKey:@"loginToken"];
     if (loginToken == nil){
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [manager GET:@"http://jksong.tw/api/v1/issues" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             issueArray = responseObject[@"data"];
             [self.tableView reloadData];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -47,7 +47,7 @@
         }];
     }else{
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:@"http://139.162.1.35/api/v1/issues" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [manager GET:@"http://jksong.tw/api/v1/issues" parameters:@{@"auth_token":loginToken} success:^(AFHTTPRequestOperation *operation, id responseObject) {
             issueArray = responseObject[@"data"];
             [self.tableView reloadData];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
