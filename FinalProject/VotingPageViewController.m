@@ -116,7 +116,7 @@
 {
     __block NSDictionary *result = [[NSDictionary alloc] init];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:@"http://jksong.tw/api/v1/issue_vote" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:@"http://www.jksong.tw/api/v1/issue_vote" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.resultOfVoteDic = responseObject;
        
          [self pieChartPerform];
