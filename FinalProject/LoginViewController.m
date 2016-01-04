@@ -72,7 +72,7 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             NSString *token = fbAccessToken.tokenString;
             NSString *uid = fbAccessToken.userID;
-            [manager POST:@"http://jksong.tw/api/v1/login" parameters:@{@"access_token":token,@"uid":uid} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [manager POST:@"http://www.jksong.tw/api/v1/login" parameters:@{@"access_token":token,@"uid":uid} success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSString *message = responseObject[@"message"];
                 if ([message isEqualToString:@"Ok"]) {
                     NSString *loginToken = responseObject[@"auth_token"];
